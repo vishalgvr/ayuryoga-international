@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurveda & Wellness in Mauritius | Ayuryoga International</title>
+    <meta name="description" content="Discover authentic Ayurveda, wellness, and beauty care in Mauritius at Ayuryoga International. Visit our Moka, Grand Baie or Curepipe center.">
+    <meta name="keywords" content="Ayurveda in Mauritius, Ayurvedic treatment Mauritius, Ayurveda center Mauritius, Ayurvedic massage Mauritius, Wellness center Mauritius, Ayurvedic massage Moka, Ayurveda Grand Baie, Wellness Grand Baie, Ayurveda Curepipe">
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Home Specific Styles */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/hero_bg.png') center bottom/cover no-repeat;
+            padding: 10rem 0;
+            text-align: center;
+            color: var(--color-white);
+        }
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: var(--color-white);
+        }
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .hero-ctas {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        
+        .trust-strip {
+            background-color: var(--color-primary);
+            color: var(--color-bg);
+            padding: 3rem 0;
+        }
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        .trust-item h3 {
+            color: var(--color-accent);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .trust-item p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .service-card {
+            background: var(--color-white);
+            padding: 2.5rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            transition: var(--transition);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .service-card p {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            color: var(--color-accent);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .treatment-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+            text-align: left;
+        }
+        .treatment-list li::before {
+            content: "•";
+            color: var(--color-accent);
+            font-weight: bold;
+            display: inline-block; 
+            width: 1em;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .section-header h2 { font-size: 2.5rem; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero-ctas { flex-direction: column; }
+            .stats-grid { grid-template-columns: 1fr 1fr; }
+            .treatment-list { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+        <header>
+        <div class="header-container">
+            <a href="index.html" class="logo"><img src="images/logo_light_2.png" alt="Ayuryoga" style="height: 50px; width: auto;"></a>
+            
+            <ul class="nav-menu">
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="#">Therapies <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px;"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="ayurveda.html">Ayurveda</a></li>
+                        <li><a href="wellness.html">Wellness</a></li>
+                        <li><a href="beauty-care.html">Beauty Care</a></li>
+                    </ul>
+                </li>
+                <li><a href="consultation.html">Consultation</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+            
+            <div class="header-ctas">
+                <a href="book.html" class="btn btn-primary" style="display: flex; align-items: center; gap: 8px;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Book Appointment
+                </a>
+                <a href="https://wa.me/23058074009" class="btn btn-outline whatsapp-btn" style="display: flex; align-items: center; gap: 8px; border-color: #25D366; color: #25D366;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    WhatsApp Us
+                </a>
+            </div>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Rediscover the Art of Wellness</h1>
+            <p>Authentic Ayurveda, restorative wellness and natural beauty care in Mauritius. Experience traditional therapies designed to support your journey towards greater balance and relaxation.</p>
+            <div class="hero-ctas">
+                <a href="book.html" class="btn btn-slider">Book an Appointment</a>
+                <a href="#services" class="btn btn-outline-light">Explore Our Treatments</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Strip -->
+    <section class="trust-strip" style="background-color: #F5F5F5;">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem;">
+                      <path d="M12 22c-4-4-8-8-8-12a8 8 0 1 1 16 0c0 4-4 8-8 12z"></path>
+                      <path d="M12 22V10"></path>
+                      <path d="M12 14c2-2 4-2 6-2"></path>
+                      <path d="M12 18c2-2 4-2 6-2"></path>
+                    </svg>
+                    <h3 style="font-size: 1.5rem; color: var(--color-primary); margin-bottom: 0.5rem;">Authentic Ayurveda</h3>
+                    <p style="color: var(--color-text);">Traditional Ayurvedic therapies inspired by centuries-old wellness practices.</p>
+                </div>
+                <div class="trust-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem;">
+                      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                    </svg>
+                    <h3 style="font-size: 1.5rem; color: var(--color-primary); margin-bottom: 0.5rem;">Personalized Care</h3>
+                    <p style="color: var(--color-text);">Treatments selected according to your individual wellness requirements.</p>
+                </div>
+                <div class="trust-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem;">
+                      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                      <circle cx="9" cy="7" r="4"></circle>
+                      <polyline points="16 11 18 13 22 9"></polyline>
+                    </svg>
+                    <h3 style="font-size: 1.5rem; color: var(--color-primary); margin-bottom: 0.5rem;">Experienced Practitioners</h3>
+                    <p style="color: var(--color-text);">Professional Ayurvedic and wellness therapists.</p>
+                </div>
+                <div class="trust-item">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem;">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <h3 style="font-size: 1.5rem; color: var(--color-primary); margin-bottom: 0.5rem;">Two Convenient Locations</h3>
+                    <p style="color: var(--color-text);">Visit us in a peaceful environment in Moka or Grand Baie.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="section-light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Welcome to Ayuryoga International</h2>
+                <p>Ayurveda is one of the world's traditional systems of holistic health and wellness, with roots in ancient India. At Ayuryoga International, we create a space where traditional Ayurvedic therapies and wellness practices come together to support your overall well-being.</p>
+            </div>
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <p style="margin-bottom: 2rem;">From relaxing Ayurvedic massages and rejuvenation therapies to natural beauty treatments, our services are designed around your individual needs. Whether you are looking to relax, rejuvenate, or simply take time for yourself, our team is here to help you discover a more balanced approach to wellness.</p>
+                <a href="about.html" class="btn btn-outline">Discover Ayuryoga</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="section-sand">
+        <div class="container">
+            <div class="section-header">
+                <h2>Explore Our Wellness Services</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="images/card_ayurveda.png" alt="Ayurveda" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 4px; margin-bottom: 1.5rem;">
+                    <h3>Ayurveda</h3>
+                    <p>Discover traditional Ayurvedic therapies including Abhyangam, Sirodhara, Kizhi therapies, Vasthi, and specialized treatments.</p>
+                    <a href="ayurveda.html" class="btn btn-outline">Explore Ayurveda</a>
+                </div>
+                <div class="service-card">
+                    <img src="images/card_wellness.png" alt="Wellness" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 4px; margin-bottom: 1.5rem;">
+                    <h3>Wellness</h3>
+                    <p>Relax, rejuvenate and recharge with Ayurvedic massages, therapeutic massages, steam therapies and wellness experiences.</p>
+                    <a href="wellness.html" class="btn btn-outline">Explore Wellness</a>
+                </div>
+                <div class="service-card">
+                    <img src="images/card_beauty.png" alt="Beauty Care" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 4px; margin-bottom: 1.5rem;">
+                    <h3>Beauty Care</h3>
+                    <p>Complement your wellness experience with Ayurvedic facial, body and hair treatments using traditional-inspired care.</p>
+                    <a href="beauty-care.html" class="btn btn-outline">Explore Beauty Care</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="section-dark">
+        <div class="container">
+            <div class="section-header" style="color: var(--color-bg);">
+                <h2>A Wellness Community That Keeps Coming Back</h2>
+                <p style="opacity: 0.9; margin-top: 1rem;">Our growing community of clients reflects the importance we place on personalized care, welcoming service and meaningful wellness experiences.</p>
+            </div>
+            <div class="stats-grid">
+                <div>
+                    <div class="stat-number">300+</div>
+                    <div>Google Reviews</div>
+                </div>
+                <div>
+                    <div class="stat-number">8K+</div>
+                    <div>Instagram Followers</div>
+                </div>
+                <div>
+                    <div class="stat-number">30K+</div>
+                    <div>Facebook Followers</div>
+                </div>
+                <div>
+                    <div class="stat-number">99%</div>
+                    <div>Repeat Customers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ayurveda Highlight -->
+    <section class="section-light">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
+                <div>
+                    <img src="images/ayurveda_hero.png" alt="Ayurveda" style="border-radius: 8px; margin-bottom: 2rem; width: 100%;">
+                    <h2>Classical Ayurveda Treatments</h2>
+                    <p style="margin-bottom: 1.5rem;">Reconnect with traditional Ayurvedic wellness through therapies designed to nurture the body and mind. Our Ayurvedic treatment menu includes full-body massages, oil therapies, herbal poultice treatments, therapeutic applications, and steam therapies.</p>
+                    <p>Each treatment is provided in a peaceful environment with attention to individual requirements.</p>
+                    <a href="ayurveda.html" class="btn btn-primary" style="margin-top: 2rem;">View All Treatments</a>
+                </div>
+                <div>
+                    <div style="background-color: var(--color-secondary-light); padding: 3rem; border-radius: 8px; margin-bottom: 2rem;">
+                        <h3 style="margin-bottom: 1.5rem; border-bottom: 1px solid var(--color-primary); padding-bottom: 1rem;">Featured Treatments</h3>
+                        <ul class="treatment-list">
+                            <li>Abhyangam</li>
+                            <li>Sirodhara</li>
+                            <li>Padabhyangam</li>
+                            <li>Podikizhi</li>
+                            <li>Naranga Kizhi</li>
+                            <li>Ksheera Dhara</li>
+                            <li>Navara Kizhi</li>
+                            <li>Nasyam</li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter Form -->
+                    <div style="background-color: var(--color-white); padding: 2.5rem 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center;">
+                        <h3 style="color: var(--color-primary); font-size: 1.5rem; margin-bottom: 0.5rem;">Join Our Newsletter</h3>
+                        <p style="opacity: 0.9; margin-bottom: 1.5rem; font-size: 0.95rem; color: var(--color-text);">Subscribe to receive wellness tips and exclusive offers.</p>
+                        <form action="#" style="display: block;">
+                            <input type="email" placeholder="Your email address" required style="width: 100%; box-sizing: border-box; padding: 0.8rem 1rem; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 1rem; font-family: var(--font-body);">
+                            <button type="submit" class="btn btn-primary" style="width: 100%; box-sizing: border-box; padding: 1rem;">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Booking Section -->
+    <section style="background-color: #E6D5B8; padding: 6rem 0;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <h2 style="font-size: 3rem; margin-bottom: 1rem; color: var(--color-primary);">Find Us in Mauritius</h2>
+                <p style="color: var(--color-text);">Visit our clinics across the island for authentic Ayurvedic and wellness treatments.</p>
+            </div>
+            
+            <div class="map-container" style="background: var(--color-white); border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); overflow: hidden; display: flex; flex-wrap: wrap;">
+                <!-- Map Graphic -->
+                <div style="flex: 1 1 400px; background: #F9F8F6; padding: 3rem; display: flex; justify-content: center; align-items: center; position: relative;">
+                    <svg viewBox="0 0 400 500" style="width: 100%; max-width: 350px; height: auto; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));">
+                        <!-- Detailed Mauritius Shape -->
+                        <path d="M 240,30 C 260,35 270,50 280,60 C 285,75 280,85 295,95 C 310,105 320,120 315,130 C 330,135 340,150 345,170 C 350,180 340,195 345,210 C 355,220 365,240 355,260 C 360,270 350,290 355,305 C 360,320 350,345 355,355 C 340,380 340,400 320,410 C 305,430 280,440 250,445 C 220,445 190,430 160,420 C 130,420 110,400 100,380 C 95,350 110,335 115,310 C 100,285 105,255 115,240 C 120,215 130,205 130,185 C 135,165 155,160 170,145 C 180,120 190,95 200,80 C 215,60 220,40 240,30 Z" fill="#a2d5f2" stroke="#ffffff" stroke-width="3"/>
+                        
+                        <!-- Grand Baie -->
+                        <g transform="translate(245, 60)" style="cursor: pointer;" onmouseenter="document.getElementById('preview-grandbaie').style.opacity='1'; document.getElementById('preview-grandbaie').style.visibility='visible';" onmouseleave="document.getElementById('preview-grandbaie').style.opacity='0'; document.getElementById('preview-grandbaie').style.visibility='hidden';">
+                            <circle cx="0" cy="0" r="6" fill="#5fa344"/>
+                            <circle cx="0" cy="0" r="14" fill="#5fa344" opacity="0.4"/>
+                            <text x="15" y="5" font-family="var(--font-body)" font-weight="700" font-size="16" fill="#1E392A">Grand Baie</text>
+                        </g>
+
+                        <!-- Moka -->
+                        <g transform="translate(200, 200)" style="cursor: pointer;" onmouseenter="document.getElementById('preview-moka').style.opacity='1'; document.getElementById('preview-moka').style.visibility='visible';" onmouseleave="document.getElementById('preview-moka').style.opacity='0'; document.getElementById('preview-moka').style.visibility='hidden';">
+                            <circle cx="0" cy="0" r="6" fill="#5fa344"/>
+                            <circle cx="0" cy="0" r="14" fill="#5fa344" opacity="0.4"/>
+                            <text x="-15" y="5" font-family="var(--font-body)" font-weight="700" font-size="16" fill="#1E392A" text-anchor="end">Moka</text>
+                        </g>
+
+                        <!-- Curepipe -->
+                        <g transform="translate(210, 260)" style="cursor: pointer;" onmouseenter="document.getElementById('preview-curepipe').style.opacity='1'; document.getElementById('preview-curepipe').style.visibility='visible';" onmouseleave="document.getElementById('preview-curepipe').style.opacity='0'; document.getElementById('preview-curepipe').style.visibility='hidden';">
+                            <circle cx="0" cy="0" r="6" fill="#5fa344"/>
+                            <circle cx="0" cy="0" r="14" fill="#5fa344" opacity="0.4"/>
+                            <text x="-15" y="5" font-family="var(--font-body)" font-weight="700" font-size="16" fill="#1E392A" text-anchor="end">Curepipe</text>
+                        </g>
+                    </svg>
+
+                    <!-- Map Previews (Hidden by default, shown on hover) -->
+                    <div id="preview-grandbaie" style="position: absolute; top: 5%; left: 50%; transform: translateX(-50%); background: white; padding: 6px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 10; pointer-events: none;">
+                        <iframe src="https://maps.google.com/maps?q=Grand+Baie,Mauritius&output=embed" width="220" height="150" style="border:0; border-radius: 4px;" loading="lazy"></iframe>
+                    </div>
+                    
+                    <div id="preview-moka" style="position: absolute; top: 30%; left: 50%; transform: translateX(-50%); background: white; padding: 6px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 10; pointer-events: none;">
+                        <iframe src="https://maps.google.com/maps?q=Moka,Mauritius&output=embed" width="220" height="150" style="border:0; border-radius: 4px;" loading="lazy"></iframe>
+                    </div>
+                    
+                    <div id="preview-curepipe" style="position: absolute; top: 40%; left: 50%; transform: translateX(-50%); background: white; padding: 6px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 10; pointer-events: none;">
+                        <iframe src="https://maps.google.com/maps?q=Curepipe,Mauritius&output=embed" width="220" height="150" style="border:0; border-radius: 4px;" loading="lazy"></iframe>
+                    </div>
+                </div>
+                
+                <!-- Locations List -->
+                <div style="flex: 1 1 400px; padding: 4rem 3rem; display: flex; flex-direction: column; justify-content: center;">
+                    <h3 style="font-size: 2rem; color: var(--color-primary); margin-bottom: 2.5rem;">Our Clinics</h3>
+                    
+                    <div style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid #eee;">
+                        <h4 style="color: var(--color-accent); font-size: 1.3rem; margin-bottom: 0.5rem;">Grand Baie Clinic</h4>
+                        <p style="opacity: 0.8; margin-bottom: 0.5rem; font-size: 1.05rem;">Lorient Lane, Chemin Vingt Pieds, Near The Park</p>
+                        <a href="tel:23059429564" style="color: var(--color-text); font-weight: 500; font-size: 1.1rem; text-decoration: none;">📞 59429564</a>
+                    </div>
+                    
+                    <div style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid #eee;">
+                        <h4 style="color: var(--color-accent); font-size: 1.3rem; margin-bottom: 0.5rem;">Moka Clinic</h4>
+                        <p style="opacity: 0.8; margin-bottom: 0.5rem; font-size: 1.05rem;">Leclezio Avenue, Beside Moka Business Centre</p>
+                        <a href="tel:23058074009" style="color: var(--color-text); font-weight: 500; font-size: 1.1rem; text-decoration: none;">📞 58074009</a>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: var(--color-accent); font-size: 1.3rem; margin-bottom: 0.5rem;">Curepipe Clinic</h4>
+                        <p style="opacity: 0.8; margin-bottom: 0.5rem; font-size: 1.05rem;">Central Curepipe</p>
+                        <a href="tel:23058074009" style="color: var(--color-text); font-weight: 500; font-size: 1.1rem; text-decoration: none;">📞 58074009</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Strip -->
+    <section style="background-color: var(--color-primary); padding: 4rem 0; border-bottom: 1px solid rgba(255,255,255,0.1);">
+        <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2rem;">
+            <div style="flex: 1 1 300px; color: var(--color-bg);">
+                <h2 style="color: var(--color-accent); font-size: 2rem; margin-bottom: 0.5rem;">Stay Connected</h2>
+                <p style="opacity: 0.9;">Subscribe to our newsletter for wellness tips and exclusive offers.</p>
+            </div>
+            <div style="flex: 1 1 400px;">
+                <form action="#" style="display: flex; gap: 0.5rem; width: 100%;">
+                    <input type="email" placeholder="Enter your email address" required style="flex-grow: 1; padding: 1rem; border: none; border-radius: 4px; font-family: var(--font-body); font-size: 1rem; min-width: 200px;">
+                    <button type="submit" class="btn btn-accent" style="padding: 1rem 2rem; white-space: nowrap; border: none; cursor: pointer;">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+                        <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="display: block; margin-bottom: 1rem;"><img src="images/logo_dark.png" alt="Ayuryoga" style="height: 60px; width: auto;"></a>
+                    <p><strong>Traditional Wisdom. Personalized Wellness.</strong><br>Ayurveda | Wellness | Beauty Care</p>
+                    <a href="book.html" class="btn btn-accent">Book an Appointment</a>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="#">Therapies</a></li>
+                        <li><a href="consultation.html">Consultation</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="book.html">Book Appointment</a></li>
+</ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Locations</h4>
+                    <div class="footer-location">
+                        <strong>Moka</strong>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Leclezio Avenue, Moka</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Grand Baie</strong>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Leclezio Avenue, Moka</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Curepipe</strong>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Leclezio Avenue, Curepipe</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Contact</h4>
+                    <div class="footer-location">
+                        <strong>Moka</strong>
+                        <p style="opacity: 0.8;">+230 58074009</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Grand Baie</strong>
+                        <p style="opacity: 0.8;">+230 59429564</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Curepipe</strong>
+                        <p style="opacity: 0.8;">+230 58857888</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>&copy; 2026 Ayuryoga International Mauritius. All Rights Reserved.</div>
+                <div class="legal-links">
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+
+
+
+

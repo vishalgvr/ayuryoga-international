@@ -146,7 +146,7 @@
             <ul class="nav-menu">
                 <li><a href="about.html">About</a></li>
                 <li class="dropdown">
-                    <a href="#">Therapies <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px;"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <a href="therapies.html">Therapies <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px;"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <ul class="dropdown-menu">
                         <li><a href="ayurveda.html">Ayurveda</a></li>
                         <li><a href="wellness.html">Wellness</a></li>
@@ -224,8 +224,8 @@
                       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                       <circle cx="12" cy="10" r="3"></circle>
                     </svg>
-                    <h3 style="font-size: 1.5rem; color: var(--color-primary); margin-bottom: 0.5rem;">Two Convenient Locations</h3>
-                    <p style="color: var(--color-text);">Visit us in a peaceful environment in Moka or Grand Baie.</p>
+                    <h3 style="font-size: 1.5rem; color: var(--color-primary); margin-bottom: 0.5rem;">Three Convenient Locations</h3>
+                    <p style="color: var(--color-text);">Visit us in a peaceful environment in Moka, Grand Baie, or Curepipe.</p>
                 </div>
             </div>
         </div>
@@ -283,15 +283,15 @@
             </div>
             <div class="stats-grid">
                 <div>
-                    <div class="stat-number">300+</div>
+                    <div class="stat-number">500+</div>
                     <div>Google Reviews</div>
                 </div>
                 <div>
-                    <div class="stat-number">8K+</div>
+                    <div class="stat-number">7K+</div>
                     <div>Instagram Followers</div>
                 </div>
                 <div>
-                    <div class="stat-number">30K+</div>
+                    <div class="stat-number">34K+</div>
                     <div>Facebook Followers</div>
                 </div>
                 <div>
@@ -325,6 +325,10 @@
                             <li>Ksheera Dhara</li>
                             <li>Navara Kizhi</li>
                             <li>Nasyam</li>
+                            <li>Udwarthanam</li>
+                            <li>Kati Vasthi</li>
+                            <li>Bhashpa Sweda</li>
+                            <li>Elakizhi</li>
                         </ul>
                     </div>
 
@@ -357,18 +361,18 @@
                         <!-- Detailed Mauritius Shape -->
                         <path d="M 240,30 C 260,35 270,50 280,60 C 285,75 280,85 295,95 C 310,105 320,120 315,130 C 330,135 340,150 345,170 C 350,180 340,195 345,210 C 355,220 365,240 355,260 C 360,270 350,290 355,305 C 360,320 350,345 355,355 C 340,380 340,400 320,410 C 305,430 280,440 250,445 C 220,445 190,430 160,420 C 130,420 110,400 100,380 C 95,350 110,335 115,310 C 100,285 105,255 115,240 C 120,215 130,205 130,185 C 135,165 155,160 170,145 C 180,120 190,95 200,80 C 215,60 220,40 240,30 Z" fill="#a2d5f2" stroke="#ffffff" stroke-width="3"/>
                         
-                        <!-- Grand Baie -->
-                        <g transform="translate(245, 60)" style="cursor: pointer;" onmouseenter="document.getElementById('preview-grandbaie').style.opacity='1'; document.getElementById('preview-grandbaie').style.visibility='visible';" onmouseleave="document.getElementById('preview-grandbaie').style.opacity='0'; document.getElementById('preview-grandbaie').style.visibility='hidden';">
-                            <circle cx="0" cy="0" r="6" fill="#5fa344"/>
-                            <circle cx="0" cy="0" r="14" fill="#5fa344" opacity="0.4"/>
-                            <text x="15" y="5" font-family="var(--font-body)" font-weight="700" font-size="16" fill="#1E392A">Grand Baie</text>
-                        </g>
-
                         <!-- Moka -->
                         <g transform="translate(200, 200)" style="cursor: pointer;" onmouseenter="document.getElementById('preview-moka').style.opacity='1'; document.getElementById('preview-moka').style.visibility='visible';" onmouseleave="document.getElementById('preview-moka').style.opacity='0'; document.getElementById('preview-moka').style.visibility='hidden';">
                             <circle cx="0" cy="0" r="6" fill="#5fa344"/>
                             <circle cx="0" cy="0" r="14" fill="#5fa344" opacity="0.4"/>
                             <text x="-15" y="5" font-family="var(--font-body)" font-weight="700" font-size="16" fill="#1E392A" text-anchor="end">Moka</text>
+                        </g>
+
+                        <!-- Grand Baie -->
+                        <g transform="translate(245, 60)" style="cursor: pointer;" onmouseenter="document.getElementById('preview-grandbaie').style.opacity='1'; document.getElementById('preview-grandbaie').style.visibility='visible';" onmouseleave="document.getElementById('preview-grandbaie').style.opacity='0'; document.getElementById('preview-grandbaie').style.visibility='hidden';">
+                            <circle cx="0" cy="0" r="6" fill="#5fa344"/>
+                            <circle cx="0" cy="0" r="14" fill="#5fa344" opacity="0.4"/>
+                            <text x="15" y="5" font-family="var(--font-body)" font-weight="700" font-size="16" fill="#1E392A">Grand Baie</text>
                         </g>
 
                         <!-- Curepipe -->
@@ -380,12 +384,12 @@
                     </svg>
 
                     <!-- Map Previews (Hidden by default, shown on hover) -->
-                    <div id="preview-grandbaie" style="position: absolute; top: 5%; left: 50%; transform: translateX(-50%); background: white; padding: 6px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 10; pointer-events: none;">
-                        <iframe src="https://maps.google.com/maps?q=Grand+Baie,Mauritius&output=embed" width="220" height="150" style="border:0; border-radius: 4px;" loading="lazy"></iframe>
-                    </div>
-                    
                     <div id="preview-moka" style="position: absolute; top: 30%; left: 50%; transform: translateX(-50%); background: white; padding: 6px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 10; pointer-events: none;">
                         <iframe src="https://maps.google.com/maps?q=Moka,Mauritius&output=embed" width="220" height="150" style="border:0; border-radius: 4px;" loading="lazy"></iframe>
+                    </div>
+                    
+                    <div id="preview-grandbaie" style="position: absolute; top: 5%; left: 50%; transform: translateX(-50%); background: white; padding: 6px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 10; pointer-events: none;">
+                        <iframe src="https://maps.google.com/maps?q=Grand+Baie,Mauritius&output=embed" width="220" height="150" style="border:0; border-radius: 4px;" loading="lazy"></iframe>
                     </div>
                     
                     <div id="preview-curepipe" style="position: absolute; top: 40%; left: 50%; transform: translateX(-50%); background: white; padding: 6px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 10; pointer-events: none;">
@@ -398,21 +402,21 @@
                     <h3 style="font-size: 2rem; color: var(--color-primary); margin-bottom: 2.5rem;">Our Clinics</h3>
                     
                     <div style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid #eee;">
-                        <h4 style="color: var(--color-accent); font-size: 1.3rem; margin-bottom: 0.5rem;">Grand Baie Clinic</h4>
-                        <p style="opacity: 0.8; margin-bottom: 0.5rem; font-size: 1.05rem;">Lorient Lane, Chemin Vingt Pieds, Near The Park</p>
-                        <a href="tel:23059429564" style="color: var(--color-text); font-weight: 500; font-size: 1.1rem; text-decoration: none;">📞 59429564</a>
-                    </div>
-                    
-                    <div style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid #eee;">
                         <h4 style="color: var(--color-accent); font-size: 1.3rem; margin-bottom: 0.5rem;">Moka Clinic</h4>
                         <p style="opacity: 0.8; margin-bottom: 0.5rem; font-size: 1.05rem;">Leclezio Avenue, Beside Moka Business Centre</p>
                         <a href="tel:23058074009" style="color: var(--color-text); font-weight: 500; font-size: 1.1rem; text-decoration: none;">📞 58074009</a>
                     </div>
                     
+                    <div style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid #eee;">
+                        <h4 style="color: var(--color-accent); font-size: 1.3rem; margin-bottom: 0.5rem;">Grand Baie Clinic</h4>
+                        <p style="opacity: 0.8; margin-bottom: 0.5rem; font-size: 1.05rem;">Lorient Lane, Chemin Vingt Pieds, Near The Park</p>
+                        <a href="tel:23059429564" style="color: var(--color-text); font-weight: 500; font-size: 1.1rem; text-decoration: none;">📞 59429564</a>
+                    </div>
+                    
                     <div>
                         <h4 style="color: var(--color-accent); font-size: 1.3rem; margin-bottom: 0.5rem;">Curepipe Clinic</h4>
                         <p style="opacity: 0.8; margin-bottom: 0.5rem; font-size: 1.05rem;">Central Curepipe</p>
-                        <a href="tel:23058074009" style="color: var(--color-text); font-weight: 500; font-size: 1.1rem; text-decoration: none;">📞 58074009</a>
+                        <a href="tel:23058857888" style="color: var(--color-text); font-weight: 500; font-size: 1.1rem; text-decoration: none;">📞 58857888</a>
                     </div>
                 </div>
             </div>
@@ -449,7 +453,7 @@
                     <h4 class="footer-heading">Quick Links</h4>
                     <ul class="footer-links">
                         <li><a href="about.html">About</a></li>
-                        <li><a href="#">Therapies</a></li>
+                        <li><a href="therapies.html">Therapies</a></li>
                         <li><a href="consultation.html">Consultation</a></li>
                 <li><a href="packages.html">Packages</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
@@ -465,11 +469,11 @@
                     </div>
                     <div class="footer-location">
                         <strong>Grand Baie</strong>
-                        <p style="opacity: 0.8; font-size: 0.9rem;">Leclezio Avenue, Moka</p>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Lorient Lane, Grand Baie</p>
                     </div>
                     <div class="footer-location">
                         <strong>Curepipe</strong>
-                        <p style="opacity: 0.8; font-size: 0.9rem;">Leclezio Avenue, Curepipe</p>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Central Curepipe</p>
                     </div>
                 </div>
                 

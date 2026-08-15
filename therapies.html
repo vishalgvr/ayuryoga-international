@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holistic Therapies & Treatments | Ayuryoga International Mauritius</title>
+    <meta name="description" content="Explore our holistic therapies in Mauritius. Authentic Classical Ayurveda, restorative wellness bodywork, and natural Ayurvedic beauty care at Ayuryoga International.">
+    <meta name="keywords" content="Ayurveda therapies Mauritius, wellness massage Mauritius, beauty care treatments Mauritius, Abhyangam, Sirodhara, Kizhi, Deep Tissue Massage, Navara Facial">
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        .therapies-hero {
+            background-image: linear-gradient(rgba(17, 34, 28, 0.82), rgba(17, 34, 28, 0.78)), url('images/hero_bg.png');
+            background-size: cover;
+            background-position: center;
+            padding: 7rem 0 5rem;
+            text-align: center;
+            color: var(--color-white);
+        }
+        
+        .therapies-hero h1 {
+            font-size: 3.5rem;
+            color: var(--color-white);
+            margin-bottom: 1.2rem;
+        }
+        
+        .therapies-hero p {
+            font-size: 1.2rem;
+            max-width: 750px;
+            margin: 0 auto 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        
+        .category-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--color-white);
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 500;
+            text-decoration: none;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: var(--transition);
+        }
+        
+        .category-pill:hover {
+            background: var(--color-accent);
+            color: var(--color-white);
+            transform: translateY(-2px);
+        }
+        
+        .therapy-section {
+            padding: 6rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+        
+        .therapy-intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+        
+        .therapy-intro-grid.reverse {
+            direction: rtl;
+        }
+        
+        .therapy-intro-grid.reverse > * {
+            direction: ltr;
+        }
+        
+        .therapy-img-frame {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+        }
+        
+        .therapy-img-frame img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .therapy-img-frame:hover img {
+            transform: scale(1.03);
+        }
+        
+        .section-badge {
+            display: inline-block;
+            background-color: var(--color-secondary);
+            color: var(--color-primary);
+            padding: 0.35rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+        
+        .therapy-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+        
+        .therapy-feature-card {
+            background: var(--color-white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            border-left: 4px solid var(--color-accent);
+            transition: var(--transition);
+        }
+        
+        .therapy-feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+        
+        .therapy-feature-card h4 {
+            font-size: 1.3rem;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .therapy-feature-card .duration-tag {
+            font-size: 0.8rem;
+            background: var(--color-secondary-light);
+            color: var(--color-text);
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-family: var(--font-body);
+            font-weight: 600;
+        }
+        
+        .therapy-feature-card p {
+            font-size: 0.95rem;
+            opacity: 0.85;
+            line-height: 1.6;
+        }
+        
+        .cta-banner {
+            background: linear-gradient(135deg, var(--color-primary) 0%, #15291e 100%);
+            color: var(--color-white);
+            padding: 4.5rem 0;
+            text-align: center;
+        }
+        
+        .cta-banner h2 {
+            color: var(--color-white);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-banner p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.15rem;
+            max-width: 650px;
+            margin: 0 auto 2rem;
+        }
+        
+        @media (max-width: 900px) {
+            .therapies-hero h1 { font-size: 2.5rem; }
+            .therapy-intro-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .therapy-intro-grid.reverse { direction: ltr; }
+            .therapy-img-frame img { height: 300px; }
+            .therapy-features-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo"><img src="images/logo_light_2.png" alt="Ayuryoga" style="height: 50px; width: auto;"></a>
+            
+            <ul class="nav-menu">
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="therapies.html" style="color: var(--color-accent);">Therapies <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px;"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="ayurveda.html">Ayurveda</a></li>
+                        <li><a href="wellness.html">Wellness</a></li>
+                        <li><a href="beauty-care.html">Beauty Care</a></li>
+                    </ul>
+                </li>
+                <li><a href="consultation.html">Consultation</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+            
+            <div class="header-ctas">
+                <a href="book.html" class="btn btn-primary" style="display: flex; align-items: center; gap: 8px;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Book Appointment
+                </a>
+                <a href="https://wa.me/23058074009" class="btn btn-outline whatsapp-btn" style="display: flex; align-items: center; gap: 8px; border-color: #25D366; color: #25D366;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    WhatsApp Us
+                </a>
+            </div>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="therapies-hero">
+        <div class="container">
+            <span class="section-badge">Traditional Healing & Restorative Care</span>
+            <h1>Our Holistic Therapies</h1>
+            <p>Explore our three distinct pillars of holistic well-being: authentic classical Ayurveda, restorative wellness bodywork, and traditional botanical beauty care in Mauritius.</p>
+            
+            <div class="category-nav">
+                <a href="#ayurveda" class="category-pill">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c-4-4-8-8-8-14a8 8 0 1 1 16 0c0 6-4 10-8 14z"></path><path d="M12 22V12"></path></svg>
+                    1. Classical Ayurveda
+                </a>
+                <a href="#wellness" class="category-pill">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                    2. Wellness & Massages
+                </a>
+                <a href="#beauty-care" class="category-pill">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+                    3. Botanical Beauty Care
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 1: AYURVEDA -->
+    <section id="ayurveda" class="therapy-section section-light">
+        <div class="container">
+            <div class="therapy-intro-grid">
+                <div>
+                    <span class="section-badge">Pillar 01 — Ancient Wisdom</span>
+                    <h2 style="font-size: 2.6rem; margin-bottom: 1.2rem; color: var(--color-primary);">Classical Ayurvedic Treatments</h2>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; opacity: 0.9;">
+                        Ayurveda is one of the world's most sophisticated traditional healing sciences, originating in India over 5,000 years ago. At Ayuryoga International, our authentic therapies are administered with specially formulated warm herbal oils, medicated decoctions, and traditional techniques.
+                    </p>
+                    <p style="font-size: 1rem; line-height: 1.7; margin-bottom: 2rem; opacity: 0.85;">
+                        Whether you are seeking relief from muscular tension, joint stiffness, mental stress, or simply looking to detoxify and revitalize your vital energies (Doshas), our classical Ayurvedic therapies provide holistic, time-tested restorative care.
+                    </p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="ayurveda.html" class="btn btn-primary">View Full Ayurveda Menu</a>
+                        <a href="book.html" class="btn btn-outline">Book Ayurveda Therapy</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="therapy-img-frame">
+                        <img src="images/ayurveda_hero.png" alt="Ayurvedic Treatment in Mauritius">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Ayurveda Cards -->
+            <div class="therapy-features-grid">
+                <div class="therapy-feature-card">
+                    <h4>Abhyangam <span class="duration-tag">45 / 60 Mins</span></h4>
+                    <p>Traditional rhythmic full-body massage using warm medicated herbal oils to improve blood flow, soothe the nervous system, nourish tissues, and enhance cellular vitality.</p>
+                </div>
+                <div class="therapy-feature-card">
+                    <h4>Sirodhara <span class="duration-tag">60 Mins</span></h4>
+                    <p>A continuous, gentle stream of warm herbal oil or medicated milk poured over the forehead (Ajna chakra) to melt mental fatigue, relieve insomnia, and induce profound mental peace.</p>
+                </div>
+                <div class="therapy-feature-card">
+                    <h4>Kizhi Poultice Therapies <span class="duration-tag">45 / 60 Mins</span></h4>
+                    <p>Warm herbal boluses (Podikizhi, Naranga Kizhi, Navara Kizhi) applied over the body to alleviate joint stiffness, ease muscular inflammation, and enhance mobility.</p>
+                </div>
+                <div class="therapy-feature-card">
+                    <h4>Vasthi & Kati Vasthi <span class="duration-tag">45 Mins</span></h4>
+                    <p>Therapeutic herbal dough reservoirs retaining warm medicinal oils over specific areas such as the lower back, neck, or knees to alleviate localized tension and disc strain.</p>
+                </div>
+                <div class="therapy-feature-card">
+                    <h4>Nasyam <span class="duration-tag">30 Mins</span></h4>
+                    <p>Purifying nasal administration of herb-infused oils following facial massage and mild steam, cleansing sinuses, sharpening sensory organs, and soothing tension headaches.</p>
+                </div>
+                <div class="therapy-feature-card">
+                    <h4>Udwarthanam <span class="duration-tag">60 Mins</span></h4>
+                    <p>Invigorating therapeutic dry herbal powder scrub massaged in upward strokes to stimulate lymphatic drainage, enhance skin texture, and support healthy metabolism.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: WELLNESS & MASSAGES -->
+    <section id="wellness" class="therapy-section section-sand">
+        <div class="container">
+            <div class="therapy-intro-grid reverse">
+                <div>
+                    <span class="section-badge">Pillar 02 — Relaxation & Bodywork</span>
+                    <h2 style="font-size: 2.6rem; margin-bottom: 1.2rem; color: var(--color-primary);">Restorative Wellness & Massages</h2>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; opacity: 0.9;">
+                        Modern lifestyles often accumulate physical fatigue and mental overload. Our wellness collection is crafted to give you dedicated time and space to recharge, de-stress, and regain physical harmony in a tranquil environment.
+                    </p>
+                    <p style="font-size: 1rem; line-height: 1.7; margin-bottom: 2rem; opacity: 0.85;">
+                        From signature full-body relaxation sessions to focused deep tissue bodywork, warm basalt stone therapies, and herbal steam baths, each session is tailored to your comfort and relaxation goals.
+                    </p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="wellness.html" class="btn btn-primary">View Full Wellness Menu</a>
+                        <a href="book.html" class="btn btn-outline">Book Wellness Session</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="therapy-img-frame">
+                        <img src="images/card_wellness.png" alt="Wellness and Massage Therapies">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Wellness Cards -->
+            <div class="therapy-features-grid">
+                <div class="therapy-feature-card">
+                    <h4>Ayur Relax Full-Body Massage <span class="duration-tag">60 Mins</span></h4>
+                    <p>A harmonious synthesis of traditional warmth and fluid relaxation massage strokes from head to toe, leaving body and mind feeling profoundly centered.</p>
+                </div>
+                <div class="therapy-feature-card">
+                    <h4>Deep Tissue Massage <span class="duration-tag">60 / 90 Mins</span></h4>
+                    <p>Focused, firmer pressure aimed at releasing deep muscular knots, chronic tension patterns, and postural tightness resulting from daily exertion.</p>
+                </div>
+                <div class="therapy-feature-card">
+                    <h4>Swedish Therapeutic Massage <span class="duration-tag">60 Mins</span></h4>
+                    <p>Classic long, sweeping strokes designed to encourage cardiovascular circulation, increase oxygen delivery to muscles, and ease physical fatigue.</p>
+                </div>
+                <div class="therapy-feature-card">
+                    <h4>Aroma & Hot Stone Therapies <span class="duration-tag">60 / 75 Mins</span></h4>
+                    <p>Heated basalt volcanic stones and pure essential oil blends working in synergy to melt muscular tightness and envelop the senses in calming warmth.</p>
+                </div>
+                <div class="therapy-feature-card">
+                    <h4>Reflexology & Padabhyangam <span class="duration-tag">30 / 45 Mins</span></h4>
+                    <p>Targeted pressure point stimulation on the feet and hands corresponding to major organs, activating restorative energy channels throughout the entire body.</p>
+                </div>
+                <div class="therapy-feature-card">
+                    <h4>Bhashpa Sweda (Herbal Steam) <span class="duration-tag">30 Mins</span></h4>
+                    <p>Traditional herbal steam cabin treatment following massage to open pores, promote gentle perspiration, and help herbal oils absorb deeply into tissues.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: BEAUTY CARE -->
+    <section id="beauty-care" class="therapy-section section-light">
+        <div class="container">
+            <div class="therapy-intro-grid">
+                <div>
+                    <span class="section-badge">Pillar 03 — Botanical Radiance</span>
+                    <h2 style="font-size: 2.6rem; margin-bottom: 1.2rem; color: var(--color-primary);">Natural Ayurvedic Beauty Care</h2>
+                    <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem; opacity: 0.9;">
+                        In Ayurvedic philosophy, outer beauty reflects inner vitality (Saundarya). Our natural beauty care rituals harness fresh botanicals, precious herbal pastes, organic floral waters, and medicinal roots without harsh artificial additives.
+                    </p>
+                    <p style="font-size: 1rem; line-height: 1.7; margin-bottom: 2rem; opacity: 0.85;">
+                        Treat your complexion and hair to personalized therapies that gently cleanse, deeply moisturize, and restore a radiant, luminous glow through the power of pure nature.
+                    </p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <a href="beauty-care.html" class="btn btn-primary">View Full Beauty Care Menu</a>
+                        <a href="book.html" class="btn btn-outline">Book Beauty Treatment</a>
+                    </div>
+                </div>
+                <div>
+                    <div class="therapy-img-frame">
+                        <img src="images/card_beauty.png" alt="Natural Ayurvedic Beauty Care">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Beauty Care Cards -->
+            <div class="therapy-features-grid">
+                <div class="therapy-feature-card">
+                    <h4>Navara Rice Facial <span class="duration-tag">60 Mins</span></h4>
+                    <p>A luxurious ritual using cooked Navara medicinal red rice combined with organic herbal milk decoction to deliver intense hydration, firmness, and natural luminosity.</p>
+                </div>
+                <div class="therapy-feature-card">
+                    <h4>Panchagavya Herbal Facial <span class="duration-tag">60 Mins</span></h4>
+                    <p>An authentic herbal formulation applied with therapeutic acupressure techniques to purify blemishes, soothe delicate skin, and restore youthful elasticity.</p>
+                </div>
+                <div class="therapy-feature-card">
+                    <h4>Deep Cleansing Mukha Lepam <span class="duration-tag">60 Mins</span></h4>
+                    <p>A clarifying facial treatment with steam, gentle natural exfoliation, and custom herbal clay masks formulated to unclog pores and refine skin texture.</p>
+                </div>
+                <div class="therapy-feature-card">
+                    <h4>Anti-Aging Botanical Treatment <span class="duration-tag">60 Mins</span></h4>
+                    <p>Nutrient-rich herbal serums, cold-pressed oils, and collagen-supporting face massage designed to reduce fine lines and preserve youthful firmness.</p>
+                </div>
+                <div class="therapy-feature-card">
+                    <h4>Herbal Hair & Scalp Pack <span class="duration-tag">30 / 45 Mins</span></h4>
+                    <p>Traditional scalp oil massage followed by nourishing herbal leaf pastes (Keshaposhini) that strengthen roots, reduce dandruff, and boost natural shine.</p>
+                </div>
+                <div class="therapy-feature-card">
+                    <h4>Herbal Body Scrub & Polish <span class="duration-tag">45 / 60 Mins</span></h4>
+                    <p>Exfoliating botanical grains and aromatic herbal powders that polish away dry, dull surface cells, revealing softer, refreshed, glowing skin.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation & Tailored Plans CTA -->
+    <section class="cta-banner">
+        <div class="container">
+            <h2>Unsure Which Therapy Is Right for You?</h2>
+            <p>Our experienced Ayurvedic doctors and wellness therapists are here to assess your unique constitution and recommend the most beneficial treatment plan.</p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="consultation.html" class="btn btn-accent">Book a Consultation</a>
+                <a href="packages.html" class="btn btn-outline-light">Explore Packages</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Locations Strip -->
+    <section style="background-color: #E6D5B8; padding: 4rem 0;">
+        <div class="container" style="text-align: center;">
+            <h2 style="font-size: 2.2rem; color: var(--color-primary); margin-bottom: 0.8rem;">Available Across Mauritius</h2>
+            <p style="margin-bottom: 2rem; color: var(--color-text);">Experience our treatments at any of our three convenient clinics:</p>
+            <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 2rem;">
+                <div style="background: white; padding: 1.5rem 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); min-width: 240px;">
+                    <strong style="color: var(--color-accent); font-size: 1.2rem; display: block; margin-bottom: 0.3rem;">1. Moka Clinic</strong>
+                    <p style="font-size: 0.95rem; margin-bottom: 0.5rem;">Leclezio Avenue, Moka</p>
+                    <a href="tel:23058074009" style="font-weight: 600; color: var(--color-primary);">📞 58074009</a>
+                </div>
+                <div style="background: white; padding: 1.5rem 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); min-width: 240px;">
+                    <strong style="color: var(--color-accent); font-size: 1.2rem; display: block; margin-bottom: 0.3rem;">2. Grand Baie Clinic</strong>
+                    <p style="font-size: 0.95rem; margin-bottom: 0.5rem;">Lorient Lane, Grand Baie</p>
+                    <a href="tel:23059429564" style="font-weight: 600; color: var(--color-primary);">📞 59429564</a>
+                </div>
+                <div style="background: white; padding: 1.5rem 2rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); min-width: 240px;">
+                    <strong style="color: var(--color-accent); font-size: 1.2rem; display: block; margin-bottom: 0.3rem;">3. Curepipe Clinic</strong>
+                    <p style="font-size: 0.95rem; margin-bottom: 0.5rem;">Central Curepipe</p>
+                    <a href="tel:23058857888" style="font-weight: 600; color: var(--color-primary);">📞 58857888</a>
+                </div>
+            </div>
+            <a href="book.html" class="btn btn-primary">Book Your Therapy Session</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="display: block; margin-bottom: 1rem;"><img src="images/logo_dark.png" alt="Ayuryoga" style="height: 60px; width: auto;"></a>
+                    <p><strong>Traditional Wisdom. Personalized Wellness.</strong><br>Ayurveda | Wellness | Beauty Care</p>
+                    <a href="book.html" class="btn btn-accent">Book an Appointment</a>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="therapies.html">Therapies</a></li>
+                        <li><a href="consultation.html">Consultation</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="book.html">Book Appointment</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Locations</h4>
+                    <div class="footer-location">
+                        <strong>Moka</strong>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Leclezio Avenue, Moka</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Grand Baie</strong>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Lorient Lane, Grand Baie</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Curepipe</strong>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Central Curepipe</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Contact</h4>
+                    <div class="footer-location">
+                        <strong>Moka</strong>
+                        <p style="opacity: 0.8;">+230 58074009</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Grand Baie</strong>
+                        <p style="opacity: 0.8;">+230 59429564</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Curepipe</strong>
+                        <p style="opacity: 0.8;">+230 58857888</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>&copy; 2026 Ayuryoga International Mauritius. All Rights Reserved.</div>
+                <div class="legal-links">
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

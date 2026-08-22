@@ -4,15 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Your Ayuryoga Experience | Mauritius</title>
+    <meta name="description" content="Book your authentic Ayurvedic therapies, wellness massages, and beauty treatments at Ayuryoga International Mauritius in Moka, Grand Baie, or Curepipe.">
     <link rel="stylesheet" href="css/style.css">
     <style>
+        .booking-hero {
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('images/hero_bg.png') center center/cover no-repeat;
+            padding: 7rem 0 5rem;
+            text-align: center;
+            color: #ffffff;
+        }
+        .booking-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+        }
+        .booking-hero p {
+            font-size: 1.2rem;
+            max-width: 750px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+        }
         .booking-container {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
             background: var(--color-white);
-            padding: 3rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            padding: 3.5rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.05);
         }
         .form-row {
             display: grid;
@@ -26,26 +48,106 @@
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            font-weight: 500;
+            font-weight: 600;
+            color: var(--color-primary);
+            font-size: 0.95rem;
         }
         .form-control {
             width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+            padding: 0.85rem 1rem;
+            border: 1px solid #dcdcdc;
+            border-radius: 6px;
             font-family: var(--font-body);
+            font-size: 0.95rem;
+            background-color: #fafafa;
+            color: var(--color-text);
+            transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(30, 57, 42, 0.1);
         }
         textarea.form-control {
             resize: vertical;
             min-height: 100px;
         }
+        .treatment-chips-wrapper {
+            margin-top: 0.8rem;
+            padding: 1.2rem;
+            background: var(--color-secondary-light);
+            border-radius: 8px;
+            border: 1px solid rgba(30, 57, 42, 0.1);
+        }
+        .treatment-chips-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .treatment-chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .treatment-chip {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 14px;
+            background: #ffffff;
+            color: var(--color-primary);
+            border: 1px solid rgba(30, 57, 42, 0.2);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+        .treatment-chip:hover {
+            background: var(--color-primary);
+            color: #ffffff;
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+        }
+        .treatment-chip.active {
+            background: var(--color-primary);
+            color: #ffffff;
+            border-color: var(--color-primary);
+            box-shadow: 0 3px 10px rgba(30, 57, 42, 0.25);
+            font-weight: 600;
+        }
+        .booking-actions-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-top: 2rem;
+        }
         @media (max-width: 768px) {
-            .form-row { grid-template-columns: 1fr; gap: 0; }
+            .booking-container {
+                padding: 2rem 1.5rem;
+            }
+            .booking-hero h1 {
+                font-size: 2.3rem;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+            .booking-actions-row {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-        <header>
+    <header>
         <div class="header-container">
             <a href="index.html" class="logo"><img src="images/logo_light_2.png" alt="Ayuryoga" style="height: 50px; width: auto;"></a>
             
@@ -57,6 +159,10 @@
                         <li><a href="ayurveda.html">Ayurveda</a></li>
                         <li><a href="wellness.html">Wellness</a></li>
                         <li><a href="beauty-care.html">Beauty Care</a></li>
+                        <li><a href="face-care.html">Face Care</a></li>
+                        <li><a href="body-care.html">Body Care</a></li>
+                        <li><a href="hair-care.html">Hair Care</a></li>
+                        <li><a href="hand-foot-care.html">Hand & Foot Care</a></li>
                     </ul>
                 </li>
                 <li><a href="consultation.html">Consultation</a></li>
@@ -69,7 +175,7 @@
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                     Book Appointment
                 </a>
-                <a href="https://wa.me/23058074009" class="btn btn-outline whatsapp-btn" style="display: flex; align-items: center; gap: 8px; border-color: #25D366; color: #25D366;">
+                <a href="https://wa.me/23058074009?text=Hello%20Ayuryoga%20International%2C%20I%20would%20like%20to%20book%20an%20appointment.%20Please%20contact%20me%20to%20help%20me%20with%20the%20available%20treatments%2C%20dates%2C%20and%20timings.%0A%0AThank%20you." class="btn btn-outline whatsapp-btn" style="display: flex; align-items: center; gap: 8px; border-color: #25D366; color: #25D366;">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                     WhatsApp Us
                 </a>
@@ -83,74 +189,120 @@
         </div>
     </header>
 
-    <section class="section-sand">
+    <!-- Hero Section -->
+    <section class="booking-hero">
         <div class="container">
-            <div style="text-align: center; margin-bottom: 3rem;">
-                <h1 style="font-size: 3rem; margin-bottom: 1rem;">Book Your Ayuryoga Experience</h1>
-                <p>Choose your preferred service and location and send us your appointment request.</p>
-            </div>
-            
+            <h1>Book Your Ayuryoga Experience</h1>
+            <p>Choose your preferred therapy, location, and timing. Our dedicated wellness team will confirm your appointment.</p>
+        </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section class="section-sand" style="padding-top: 4rem; padding-bottom: 5rem;">
+        <div class="container">
             <div class="booking-container">
-                <form action="#" method="POST" id="bookingForm">
-                    <div class="form-group">
-                        <label>Full Name</label>
-                        <input type="text" class="form-control" required>
-                    </div>
-                    
+                <form id="bookingForm">
+                    <!-- Row 1: Name & Gender -->
                     <div class="form-row">
                         <div class="form-group" style="margin-bottom: 0;">
-                            <label>Phone / WhatsApp</label>
-                            <input type="tel" class="form-control" required>
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" class="form-control" placeholder="Enter your full name" required>
                         </div>
                         <div class="form-group" style="margin-bottom: 0;">
-                            <label>Email Address</label>
-                            <input type="email" class="form-control" required>
+                            <label for="genderSelect">Gender *</label>
+                            <select class="form-control" id="genderSelect" required>
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="Female">Female</option>
+                                <option value="Male">Male</option>
+                                <option value="Other">Other / Prefer not to say</option>
+                            </select>
                         </div>
                     </div>
                     
+                    <!-- Row 2: Phone & Email -->
                     <div class="form-row">
                         <div class="form-group" style="margin-bottom: 0;">
-                            <label>Preferred Location</label>
-                            <select class="form-control" required>
+                            <label for="phoneInput">Phone / WhatsApp Number *</label>
+                            <input type="tel" id="phoneInput" class="form-control" placeholder="E.g., +230 58074009" required>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="emailInput">Email Address *</label>
+                            <input type="email" id="emailInput" class="form-control" placeholder="your.email@example.com" required>
+                        </div>
+                    </div>
+                    
+                    <!-- Row 3: Location & Service Category -->
+                    <div class="form-row">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="locationSelect">Preferred Location *</label>
+                            <select class="form-control" id="locationSelect" required>
                                 <option value="" disabled selected>Select Location</option>
-                                <option value="moka">Moka</option>
-                                <option value="grand-baie">Grand Baie</option>
+                                <option value="Moka">Moka</option>
+                                <option value="Grand Baie">Grand Baie</option>
+                                <option value="Curepipe">Curepipe</option>
                             </select>
                         </div>
                         <div class="form-group" style="margin-bottom: 0;">
-                            <label>Service Category</label>
-                            <select class="form-control" required>
+                            <label for="categorySelect">Service Category *</label>
+                            <select class="form-control" id="categorySelect" required>
                                 <option value="" disabled selected>Select Category</option>
                                 <option value="ayurveda">Ayurveda</option>
                                 <option value="wellness">Wellness</option>
                                 <option value="beauty">Beauty Care</option>
-                                <option value="physiotherapy">Physiotherapy</option>
+                                <option value="facecare">Face Care</option>
+                                <option value="bodycare">Body Care</option>
+                                <option value="haircare">Hair Care</option>
+                                <option value="handfoot">Hand & Foot Care</option>
+                                <option value="packages">Wellness Packages</option>
                             </select>
                         </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label>Specific Treatment (Optional)</label>
-                        <input type="text" class="form-control" placeholder="E.g., Abhyangam, Neck Pain Physiotherapy...">
+                    <!-- Dynamic Treatment Section -->
+                    <div class="form-group" id="treatmentGroup">
+                        <label for="treatmentSelect">Specific Treatment / Package *</label>
+                        <select class="form-control" id="treatmentSelect" required disabled>
+                            <option value="" disabled selected>Please select a Service Category first</option>
+                        </select>
+                        
+                        <!-- Dynamic Clickable Related Treatments -->
+                        <div class="treatment-chips-wrapper" id="treatmentChipsWrapper" style="display: none;">
+                            <div class="treatment-chips-title">
+                                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                                Available Treatments (Click to select):
+                            </div>
+                            <div class="treatment-chips" id="treatmentChips"></div>
+                        </div>
                     </div>
                     
+                    <!-- Row 4: Preferred Date & Time -->
                     <div class="form-row">
                         <div class="form-group" style="margin-bottom: 0;">
-                            <label>Preferred Date</label>
-                            <input type="date" class="form-control" required>
+                            <label for="dateInput">Preferred Date *</label>
+                            <input type="date" id="dateInput" class="form-control" required>
                         </div>
                         <div class="form-group" style="margin-bottom: 0;">
-                            <label>Preferred Time</label>
-                            <input type="time" class="form-control" required>
+                            <label for="timeInput">Preferred Time *</label>
+                            <input type="time" id="timeInput" class="form-control" required>
                         </div>
                     </div>
                     
+                    <!-- Additional Information -->
                     <div class="form-group">
-                        <label>Additional Information</label>
-                        <textarea class="form-control" placeholder="Any specific requirements or medical conditions we should know about?"></textarea>
+                        <label for="notesInput">Additional Information / Health Considerations (Optional)</label>
+                        <textarea id="notesInput" class="form-control" placeholder="Please mention any specific conditions, preferences, or questions for our practitioners..."></textarea>
                     </div>
                     
-                    <button type="button" onclick="alert('Thank you for contacting Ayuryoga International. Our team will review your request and contact you to confirm the appointment.')" class="btn btn-primary" style="width: 100%; font-size: 1.1rem; padding: 1rem;">Request Appointment</button>
+                    <!-- Action CTAs: 1 Row 2 Column Structure -->
+                    <div class="booking-actions-row">
+                        <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.05rem; padding: 0.95rem; border-radius: 6px; display: flex; align-items: center; justify-content: center;">
+                            Request Appointment
+                        </button>
+                        <button type="button" id="whatsappBookBtn" class="btn btn-outline whatsapp-btn" style="width: 100%; font-size: 1.05rem; padding: 0.95rem; border-color: #25D366; color: #25D366; display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 6px;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            Instant Booking via WhatsApp
+                        </button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -158,10 +310,10 @@
 
     <footer>
         <div class="container">
-                        <div class="footer-grid">
+            <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="index.html" class="logo" style="display: block; margin-bottom: 1rem;"><img src="images/logo_dark.png" alt="Ayuryoga" style="height: 60px; width: auto;"></a>
-                    <p><strong>Traditional Wisdom. Personalized Wellness.</strong><br>Ayurveda | Wellness | Beauty Care</p>
+                    <p><strong>Traditional Wisdom. Personalized Wellness.</strong><br>Ayurveda | Wellness | Beauty Care | Hair Care | Hand & Foot Care</p>
                     <a href="book.html" class="btn btn-accent">Book an Appointment</a>
                 </div>
                 
@@ -171,10 +323,14 @@
                         <li><a href="about.html">About</a></li>
                         <li><a href="therapies.html">Therapies</a></li>
                         <li><a href="consultation.html">Consultation</a></li>
-                <li><a href="packages.html">Packages</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="face-care.html">Face Care</a></li>
+                        <li><a href="body-care.html">Body Care</a></li>
+                        <li><a href="hair-care.html">Hair Care</a></li>
+                        <li><a href="hand-foot-care.html">Hand & Foot Care</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="book.html">Book Appointment</a></li>
-</ul>
+                    </ul>
                 </div>
                 
                 <div>
@@ -185,7 +341,7 @@
                     </div>
                     <div class="footer-location">
                         <strong>Grand Baie</strong>
-                        <p style="opacity: 0.8; font-size: 0.9rem;">Leclezio Avenue, Moka</p>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Lorient Lane, Grand Baie</p>
                     </div>
                     <div class="footer-location">
                         <strong>Curepipe</strong>
@@ -221,7 +377,3 @@
     <script src="js/main.js"></script>
 </body>
 </html>
-
-
-
-

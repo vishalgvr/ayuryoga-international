@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurvedic Face Care | Ayuryoga International Mauritius</title>
+    <meta name="description" content="Experience bespoke Ayurvedic Face Care treatments in Mauritius. Navara Facial, Panchagavya, Red Sandal, Anti-Aging, Deep Cleansing, Brightening, and Threading.">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .facecare-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2.2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .facecare-card {
+            background: var(--color-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            flex: 0 1 calc(33.333% - 1.5rem);
+            min-width: 320px;
+            max-width: 380px;
+            width: 100%;
+            text-align: center;
+            transition: transform 0.38s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.38s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.35s ease;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+        .facecare-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 42px rgba(0,0,0,0.13);
+            border-color: rgba(30, 57, 42, 0.22);
+        }
+        .facecare-card-img {
+            position: relative;
+            height: 230px;
+            overflow: hidden;
+        }
+        .facecare-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .facecare-card:hover .facecare-card-img img {
+            transform: scale(1.08);
+        }
+        .facecare-duration-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: rgba(30, 57, 42, 0.9);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .facecare-card:hover .facecare-duration-badge {
+            transform: scale(1.06);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+        .facecare-card-body {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex-grow: 1;
+        }
+        .facecare-card-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 0.4rem;
+            line-height: 1.25;
+            text-align: center;
+            transition: color 0.3s ease;
+        }
+        .facecare-card:hover .facecare-card-title {
+            color: var(--color-primary);
+        }
+        .facecare-card-meta {
+            font-size: 0.92rem;
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .facecare-card-desc {
+            font-size: 0.94rem;
+            color: var(--color-text);
+            opacity: 0.88;
+            line-height: 1.6;
+            margin-bottom: 1.4rem;
+            flex-grow: 1;
+            text-align: center;
+        }
+        .facecare-inclusions-block {
+            width: 100%;
+            margin-bottom: 1.4rem;
+            padding-top: 1.1rem;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            text-align: center;
+        }
+        .facecare-inclusions-label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.6rem;
+            display: block;
+            text-align: center;
+        }
+        .facecare-inclusions-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+        }
+        .facecare-inclusion-tag {
+            background: var(--color-secondary-light);
+            color: var(--color-primary);
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 4px 9px;
+            border-radius: 4px;
+            transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+        }
+        .facecare-inclusion-tag:hover {
+            transform: translateY(-2px);
+            background-color: var(--color-primary);
+            color: #ffffff;
+        }
+        .facecare-card-footer {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+            padding-top: 1.1rem;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            margin-top: auto;
+            align-items: center;
+        }
+        .facecare-price-row {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 10px;
+        }
+        .facecare-price {
+            font-family: var(--font-heading);
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1;
+        }
+        .facecare-price-sub {
+            font-size: 0.85rem;
+            font-family: var(--font-body);
+            color: #666;
+            font-weight: 500;
+        }
+        .facecare-ctas {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            width: 100%;
+        }
+        .facecare-ctas .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 0.75rem 0.5rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 6px;
+            white-space: nowrap;
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, color 0.3s ease;
+        }
+        .facecare-ctas .btn:hover {
+            transform: translateY(-3px);
+        }
+        .facecare-ctas .btn-primary:hover {
+            box-shadow: 0 6px 18px rgba(30, 57, 42, 0.3);
+        }
+        .facecare-ctas .whatsapp-btn {
+            border-color: #25D366;
+            color: #25D366;
+        }
+        .facecare-ctas .whatsapp-btn:hover {
+            background-color: #25D366;
+            color: #ffffff !important;
+            box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+        }
+        .facecare-ctas .whatsapp-btn:hover svg {
+            transform: scale(1.15) rotate(-5deg);
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        .benefit-card {
+            background: var(--color-white);
+            padding: 2rem 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: transform 0.38s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.38s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.35s ease;
+        }
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+            border-color: rgba(30,57,42,0.18);
+        }
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 1.2rem;
+            color: var(--color-primary);
+            transition: transform 0.35s ease;
+        }
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.14);
+        }
+        .benefit-card h4 {
+            font-size: 1.15rem;
+            color: var(--color-primary);
+            margin-bottom: 0.6rem;
+        }
+        .benefit-card p {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            line-height: 1.5;
+            margin: 0;
+        }
+        @media (max-width: 1080px) {
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .facecare-card {
+                flex: 1 1 100%;
+                max-width: 480px;
+            }
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            .facecare-ctas {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo"><img src="images/logo_light_2.png" alt="Ayuryoga" style="height: 50px; width: auto;"></a>
+            
+            <ul class="nav-menu">
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="therapies.html" style="color: var(--color-accent);">Therapies <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px;"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="ayurveda.html">Ayurveda</a></li>
+                        <li><a href="wellness.html">Wellness</a></li>
+                        <li><a href="beauty-care.html">Beauty Care</a></li>
+                        <li><a href="face-care.html" style="color: var(--color-accent); font-weight: 600;">Face Care</a></li>
+                        <li><a href="body-care.html">Body Care</a></li>
+                        <li><a href="hair-care.html">Hair Care</a></li>
+                        <li><a href="hand-foot-care.html">Hand & Foot Care</a></li>
+                    </ul>
+                </li>
+                <li><a href="consultation.html">Consultation</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+            
+            <div class="header-ctas">
+                <a href="book.html" class="btn btn-primary" style="display: flex; align-items: center; gap: 8px;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Book Appointment
+                </a>
+                <a href="https://wa.me/23058074009?text=Hello%20Ayuryoga%20International%2C%20I%20would%20like%20to%20book%20an%20appointment.%20Please%20contact%20me%20to%20help%20me%20with%20the%20available%20treatments%2C%20dates%2C%20and%20timings.%0A%0AThank%20you." class="btn btn-outline whatsapp-btn" style="display: flex; align-items: center; gap: 8px; border-color: #25D366; color: #25D366;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    WhatsApp Us
+                </a>
+            </div>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Face Care Hero / Slider Section -->
+    <section class="facecare-hero">
+        <div class="container">
+            <h1>Ayurvedic Face Care Rituals</h1>
+            <p>Reveal natural radiance, nourish deep dermal layers, and restore timeless skin vitality with our authentic botanical facials in Mauritius.</p>
+            <div class="hero-ctas">
+                <a href="book.html" class="btn btn-slider" style="padding: 0.9rem 2.5rem; font-size: 1.05rem;">Book Appointment</a>
+                <a href="#facecare-treatments" class="btn btn-outline-light" style="padding: 0.9rem 2.2rem; font-size: 1.05rem;">Explore Facials</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Treatments Grid Section -->
+    <section class="section-sand" id="facecare-treatments" style="padding-top: 5rem; padding-bottom: 5rem;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 3.5rem;">
+                <h2 style="font-size: 2.6rem; margin-bottom: 0.8rem; color: var(--color-primary);">Our Ayurvedic Facials & Treatments</h2>
+                <p style="max-width: 680px; margin: 0 auto; opacity: 0.85; line-height: 1.6;">Prepared with fresh medicinal herbs, precious sandalwood, saffron, and nourishing botanical extracts tailored to your skin dosha.</p>
+            </div>
+
+            <div class="facecare-grid">
+                <!-- Treatment 1: Njavara Facial -->
+                <div class="facecare-card">
+                    <div class="facecare-card-img">
+                        <img src="images/pkg_beauty.png" alt="Njavara Facial">
+                        <div class="facecare-duration-badge">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            60 min
+                        </div>
+                    </div>
+                    <div class="facecare-card-body">
+                        <h3 class="facecare-card-title">Njavara Facial</h3>
+                        <div class="facecare-card-meta">Duration: 60 Minutes</div>
+                        <p class="facecare-card-desc">Classical royal Ayurvedic facial using medicated Njavara rice cooked in herbal milk to deeply nourish tissues and restore youthful radiance.</p>
+                        
+                        <div class="facecare-inclusions-block">
+                            <span class="facecare-inclusions-label">Treatment Includes:</span>
+                            <div class="facecare-inclusions-list">
+                                <span class="facecare-inclusion-tag">Njavara Rice Compress</span>
+                                <span class="facecare-inclusion-tag">Mukhabhyanga Massage</span>
+                                <span class="facecare-inclusion-tag">Herbal Cleanse & Steam</span>
+                                <span class="facecare-inclusion-tag">Nourishing Face Pack</span>
+                            </div>
+                        </div>
+
+                        <div class="facecare-card-footer">
+                            <div class="facecare-price-row">
+                                <div class="facecare-price">Rs 1,500.00</div>
+                            </div>
+                            <div class="facecare-ctas">
+                                <a href="book.html" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Njavara%20Facial%20(Rs%201,500.00%20-%2060%20min)" class="btn btn-outline whatsapp-btn" title="Book via WhatsApp">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 2: Panchagavya Facial -->
+                <div class="facecare-card">
+                    <div class="facecare-card-img">
+                        <img src="images/card_beauty.png" alt="Panchagavya Facial">
+                        <div class="facecare-duration-badge">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            60 min
+                        </div>
+                    </div>
+                    <div class="facecare-card-body">
+                        <h3 class="facecare-card-title">Panchagavya Facial</h3>
+                        <div class="facecare-card-meta">Duration: 60 Minutes</div>
+                        <p class="facecare-card-desc">Sacred Ayurvedic purifying therapy formulated with classical botanical ingredients to clear blemishes, balance natural sebum, and detoxify congested facial pores.</p>
+                        
+                        <div class="facecare-inclusions-block">
+                            <span class="facecare-inclusions-label">Treatment Includes:</span>
+                            <div class="facecare-inclusions-list">
+                                <span class="facecare-inclusion-tag">Deep Pore Cleansing</span>
+                                <span class="facecare-inclusion-tag">Panchagavya Herbal Pack</span>
+                                <span class="facecare-inclusion-tag">Facial Acupressure</span>
+                                <span class="facecare-inclusion-tag">Hydrating Floral Mist</span>
+                            </div>
+                        </div>
+
+                        <div class="facecare-card-footer">
+                            <div class="facecare-price-row">
+                                <div class="facecare-price">Rs 1,500.00</div>
+                            </div>
+                            <div class="facecare-ctas">
+                                <a href="book.html" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Panchagavya%20Facial%20(Rs%201,500.00%20-%2060%20min)" class="btn btn-outline whatsapp-btn" title="Book via WhatsApp">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 3: Red Sandal Facial -->
+                <div class="facecare-card">
+                    <div class="facecare-card-img">
+                        <img src="images/pkg_relax.png" alt="Red Sandal Facial">
+                        <div class="facecare-duration-badge">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            60 min
+                        </div>
+                    </div>
+                    <div class="facecare-card-body">
+                        <h3 class="facecare-card-title">Red Sandal Facial</h3>
+                        <div class="facecare-card-meta">Duration: 60 Minutes</div>
+                        <p class="facecare-card-desc">Opulent cooling therapy enriched with pure red sandalwood to soothe inflammation, minimize sun tanning, and restore an even, luminous complexion.</p>
+                        
+                        <div class="facecare-inclusions-block">
+                            <span class="facecare-inclusions-label">Treatment Includes:</span>
+                            <div class="facecare-inclusions-list">
+                                <span class="facecare-inclusion-tag">Red Sandalwood Infusion</span>
+                                <span class="facecare-inclusion-tag">Cooling Herbal Scrub</span>
+                                <span class="facecare-inclusion-tag">Lymphatic Massage</span>
+                                <span class="facecare-inclusion-tag">Raktachandana Lepam</span>
+                            </div>
+                        </div>
+
+                        <div class="facecare-card-footer">
+                            <div class="facecare-price-row">
+                                <div class="facecare-price">Rs 1,500.00</div>
+                            </div>
+                            <div class="facecare-ctas">
+                                <a href="book.html" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Red%20Sandal%20Facial%20(Rs%201,500.00%20-%2060%20min)" class="btn btn-outline whatsapp-btn" title="Book via WhatsApp">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 4: Deep Cleansing Facial -->
+                <div class="facecare-card">
+                    <div class="facecare-card-img">
+                        <img src="images/pkg_therapy.png" alt="Deep Cleansing Facial">
+                        <div class="facecare-duration-badge">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            60 min
+                        </div>
+                    </div>
+                    <div class="facecare-card-body">
+                        <h3 class="facecare-card-title">Deep Cleansing Facial</h3>
+                        <div class="facecare-card-meta">Duration: 60 Minutes</div>
+                        <p class="facecare-card-desc">Intensive purifying treatment combining gentle steam, herbal exfoliation, and therapeutic clay masks to eliminate pollutants and refresh dull tired skin.</p>
+                        
+                        <div class="facecare-inclusions-block">
+                            <span class="facecare-inclusions-label">Treatment Includes:</span>
+                            <div class="facecare-inclusions-list">
+                                <span class="facecare-inclusion-tag">Steam & Gentle Extraction</span>
+                                <span class="facecare-inclusion-tag">Botanical Exfoliation</span>
+                                <span class="facecare-inclusion-tag">Clay & Herbal Mask</span>
+                                <span class="facecare-inclusion-tag">Toning Herbal Mist</span>
+                            </div>
+                        </div>
+
+                        <div class="facecare-card-footer">
+                            <div class="facecare-price-row">
+                                <div class="facecare-price">Rs 1,500.00</div>
+                            </div>
+                            <div class="facecare-ctas">
+                                <a href="book.html" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Deep%20Cleansing%20Facial%20(Rs%201,500.00%20-%2060%20min)" class="btn btn-outline whatsapp-btn" title="Book via WhatsApp">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 5: Anti-Aging Facial -->
+                <div class="facecare-card">
+                    <div class="facecare-card-img">
+                        <img src="images/pkg_rejuv.png" alt="Anti-Aging Facial">
+                        <div class="facecare-duration-badge">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            60 min
+                        </div>
+                    </div>
+                    <div class="facecare-card-body">
+                        <h3 class="facecare-card-title">Anti-Aging Facial</h3>
+                        <div class="facecare-card-meta">Duration: 60 Minutes</div>
+                        <p class="facecare-card-desc">Restorative age-defying ritual infused with Kumkumadi oils and firming Marma massage to boost natural collagen synthesis and soften fine lines.</p>
+                        
+                        <div class="facecare-inclusions-block">
+                            <span class="facecare-inclusions-label">Treatment Includes:</span>
+                            <div class="facecare-inclusions-list">
+                                <span class="facecare-inclusion-tag">Firming Marma Massage</span>
+                                <span class="facecare-inclusion-tag">Kumkumadi Serum Infusion</span>
+                                <span class="facecare-inclusion-tag">Herbal Collagen Mask</span>
+                                <span class="facecare-inclusion-tag">Eye Contour Care</span>
+                            </div>
+                        </div>
+
+                        <div class="facecare-card-footer">
+                            <div class="facecare-price-row">
+                                <div class="facecare-price">Rs 1,500.00</div>
+                            </div>
+                            <div class="facecare-ctas">
+                                <a href="book.html" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Anti-Aging%20Facial%20(Rs%201,500.00%20-%2060%20min)" class="btn btn-outline whatsapp-btn" title="Book via WhatsApp">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 6: Brightening Facial -->
+                <div class="facecare-card">
+                    <div class="facecare-card-img">
+                        <img src="images/card_ayurveda.png" alt="Brightening Facial">
+                        <div class="facecare-duration-badge">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            60 min
+                        </div>
+                    </div>
+                    <div class="facecare-card-body">
+                        <h3 class="facecare-card-title">Brightening Facial</h3>
+                        <div class="facecare-card-meta">Duration: 60 Minutes</div>
+                        <p class="facecare-card-desc">Glow-enhancing facial rich in saffron, turmeric, and natural antioxidants to fade dark spots and unveil vibrant, translucent, radiant facial skin.</p>
+                        
+                        <div class="facecare-inclusions-block">
+                            <span class="facecare-inclusions-label">Treatment Includes:</span>
+                            <div class="facecare-inclusions-list">
+                                <span class="facecare-inclusion-tag">Saffron & Turmeric Scrub</span>
+                                <span class="facecare-inclusion-tag">Luminous Glow Massage</span>
+                                <span class="facecare-inclusion-tag">Herbal Brightening Pack</span>
+                                <span class="facecare-inclusion-tag">Rose Water Hydration</span>
+                            </div>
+                        </div>
+
+                        <div class="facecare-card-footer">
+                            <div class="facecare-price-row">
+                                <div class="facecare-price">Rs 1,500.00</div>
+                            </div>
+                            <div class="facecare-ctas">
+                                <a href="book.html" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Brightening%20Facial%20(Rs%201,500.00%20-%2060%20min)" class="btn btn-outline whatsapp-btn" title="Book via WhatsApp">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 7: Manjishta Facial -->
+                <div class="facecare-card">
+                    <div class="facecare-card-img">
+                        <img src="images/card_beauty.png" alt="Manjishta Facial">
+                        <div class="facecare-duration-badge">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            60 min
+                        </div>
+                    </div>
+                    <div class="facecare-card-body">
+                        <h3 class="facecare-card-title">Manjishta Facial</h3>
+                        <div class="facecare-card-meta">Duration: 60 Minutes</div>
+                        <p class="facecare-card-desc">Targeted complexion-clearing facial utilizing potent Manjistha roots to purify blood toxins, soothe persistent redness, and impart a crystal-clear natural tone.</p>
+                        
+                        <div class="facecare-inclusions-block">
+                            <span class="facecare-inclusions-label">Treatment Includes:</span>
+                            <div class="facecare-inclusions-list">
+                                <span class="facecare-inclusion-tag">Manjistha Herbal Cleanser</span>
+                                <span class="facecare-inclusion-tag">Detoxifying Face Pack</span>
+                                <span class="facecare-inclusion-tag">Acupressure Marma Massage</span>
+                                <span class="facecare-inclusion-tag">Clarifying Herbal Mist</span>
+                            </div>
+                        </div>
+
+                        <div class="facecare-card-footer">
+                            <div class="facecare-price-row">
+                                <div class="facecare-price">Rs 1,800.00</div>
+                            </div>
+                            <div class="facecare-ctas">
+                                <a href="book.html" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Manjishta%20Facial%20(Rs%201,800.00%20-%2060%20min)" class="btn btn-outline whatsapp-btn" title="Book via WhatsApp">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 8: Eladi Facial -->
+                <div class="facecare-card">
+                    <div class="facecare-card-img">
+                        <img src="images/pkg_rejuv.png" alt="Eladi Facial">
+                        <div class="facecare-duration-badge">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            60 min
+                        </div>
+                    </div>
+                    <div class="facecare-card-body">
+                        <h3 class="facecare-card-title">Eladi Facial</h3>
+                        <div class="facecare-card-meta">Duration: 60 Minutes</div>
+                        <p class="facecare-card-desc">Ancient Ayurvedic beauty ritual with Eladi Choornam and aromatic herbs to refine skin texture, combat environmental pollution, and balance moisture.</p>
+                        
+                        <div class="facecare-inclusions-block">
+                            <span class="facecare-inclusions-label">Treatment Includes:</span>
+                            <div class="facecare-inclusions-list">
+                                <span class="facecare-inclusion-tag">Eladi Choornam Exfoliation</span>
+                                <span class="facecare-inclusion-tag">Herbal Steam & Cleanse</span>
+                                <span class="facecare-inclusion-tag">Soothing Eladi Oil Massage</span>
+                                <span class="facecare-inclusion-tag">Pore-Refining Lepam</span>
+                            </div>
+                        </div>
+
+                        <div class="facecare-card-footer">
+                            <div class="facecare-price-row">
+                                <div class="facecare-price">Rs 1,800.00</div>
+                            </div>
+                            <div class="facecare-ctas">
+                                <a href="book.html" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Eladi%20Facial%20(Rs%201,800.00%20-%2060%20min)" class="btn btn-outline whatsapp-btn" title="Book via WhatsApp">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 9: Nalpamaradi Facial -->
+                <div class="facecare-card">
+                    <div class="facecare-card-img">
+                        <img src="images/pkg_therapy.png" alt="Nalpamaradi Facial">
+                        <div class="facecare-duration-badge">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            60 min
+                        </div>
+                    </div>
+                    <div class="facecare-card-body">
+                        <h3 class="facecare-card-title">Nalpamaradi Facial</h3>
+                        <div class="facecare-card-meta">Duration: 60 Minutes</div>
+                        <p class="facecare-card-desc">Luxurious skin-brightening therapy formulated with sacred Nalpamara barks and turmeric to repair sun damage and illuminate your natural golden glow.</p>
+                        
+                        <div class="facecare-inclusions-block">
+                            <span class="facecare-inclusions-label">Treatment Includes:</span>
+                            <div class="facecare-inclusions-list">
+                                <span class="facecare-inclusion-tag">Nalpamaradi Oil Infusion</span>
+                                <span class="facecare-inclusion-tag">Brightening Herbal Scrub</span>
+                                <span class="facecare-inclusion-tag">Luminous Mukha Lepam</span>
+                                <span class="facecare-inclusion-tag">Floral Water Hydration</span>
+                            </div>
+                        </div>
+
+                        <div class="facecare-card-footer">
+                            <div class="facecare-price-row">
+                                <div class="facecare-price">Rs 1,800.00</div>
+                            </div>
+                            <div class="facecare-ctas">
+                                <a href="book.html" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Nalpamaradi%20Facial%20(Rs%201,800.00%20-%2060%20min)" class="btn btn-outline whatsapp-btn" title="Book via WhatsApp">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 10: Threading -->
+                <div class="facecare-card">
+                    <div class="facecare-card-img">
+                        <img src="images/hero_bg.png" alt="Threading">
+                        <div class="facecare-duration-badge">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            10 min
+                        </div>
+                    </div>
+                    <div class="facecare-card-body">
+                        <h3 class="facecare-card-title">Threading</h3>
+                        <div class="facecare-card-meta">Duration: 10 Minutes</div>
+                        <p class="facecare-card-desc">Precise, gentle organic cotton thread facial hair removal for perfectly sculpted eyebrows, upper lip, or chin, finished with cooling aloe.</p>
+                        
+                        <div class="facecare-inclusions-block">
+                            <span class="facecare-inclusions-label">Treatment Includes:</span>
+                            <div class="facecare-inclusions-list">
+                                <span class="facecare-inclusion-tag">Organic Cotton Threading</span>
+                                <span class="facecare-inclusion-tag">Precision Brow Shaping</span>
+                                <span class="facecare-inclusion-tag">Cooling Aloe Vera Touch</span>
+                            </div>
+                        </div>
+
+                        <div class="facecare-card-footer">
+                            <div class="facecare-price-row">
+                                <div class="facecare-price">Rs 90.00</div>
+                            </div>
+                            <div class="facecare-ctas">
+                                <a href="book.html" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20Threading%20(Rs%2090.00%20-%2010%20min)" class="btn btn-outline whatsapp-btn" title="Book via WhatsApp">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ayurvedic Face Care Philosophy Section (Mukha Lepam) -->
+    <section class="section-light" style="padding-top: 5rem; padding-bottom: 5rem;">
+        <div class="container">
+            <div style="text-align: center; max-width: 750px; margin: 0 auto 3rem;">
+                <h2 style="font-size: 2.4rem; margin-bottom: 0.8rem; color: var(--color-primary);">The Ayurvedic Philosophy of Mukha Saundarya</h2>
+                <p style="opacity: 0.88; line-height: 1.7;">In classical Ayurveda, true beauty (*Saundarya*) reflects balanced doshas and purified tissues. Our facial rituals harmonize classical botanicals with Marma pressure point techniques.</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0 1 12 2z"></path><path d="M12 6v6l4 2"></path></svg>
+                    </div>
+                    <h4>100% Pure Botanicals</h4>
+                    <p>Enriched with authentic Navara rice, Red Sandalwood, saffron, and pure herbal extracts with zero harsh chemicals.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    </div>
+                    <h4>Collagen & Firming</h4>
+                    <p>Ayurvedic Rasayana herbs stimulate microcirculation, improving dermal elasticity and softening expression lines.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    </div>
+                    <h4>Dosha Balancing</h4>
+                    <p>Soothes Pitta redness, clears Kapha sebum congestion, and hydrates Vata dryness for lasting harmony.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    </div>
+                    <h4>Facial Marma Vitality</h4>
+                    <p>Gentle pressure on facial Marma points releases cranial tension, relieves headaches, and imparts an inner glow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation & Custom Plan CTA -->
+    <section class="section-sand" style="padding-top: 4rem; padding-bottom: 5rem;">
+        <div class="container">
+            <div style="text-align: center; background: var(--color-white); padding: 3.5rem 2.5rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); max-width: 850px; margin: 0 auto; border: 1px solid rgba(0,0,0,0.05);">
+                <h3 style="font-size: 2rem; margin-bottom: 0.8rem; color: var(--color-primary);">Personalized Skin Assessment</h3>
+                <p style="opacity: 0.85; margin-bottom: 2rem; line-height: 1.6; max-width: 650px; margin-left: auto; margin-right: auto;">Our qualified Ayurvedic doctors evaluate your skin dosha type and recommend the perfect facial and herbal lepam for long-lasting vitality.</p>
+                <div style="display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="consultation.html" class="btn btn-primary" style="padding: 0.85rem 2rem;">Book Consultation</a>
+                    <a href="https://wa.me/23058074009" class="btn btn-outline whatsapp-btn" style="border-color: #25D366; color: #25D366; padding: 0.85rem 2rem;">Chat on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="display: block; margin-bottom: 1rem;"><img src="images/logo_dark.png" alt="Ayuryoga" style="height: 60px; width: auto;"></a>
+                    <p><strong>Traditional Wisdom. Personalized Wellness.</strong><br>Ayurveda | Wellness | Beauty Care | Face Care | Hair Care | Hand & Foot Care</p>
+                    <a href="book.html" class="btn btn-accent">Book an Appointment</a>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="therapies.html">Therapies</a></li>
+                        <li><a href="consultation.html">Consultation</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="face-care.html">Face Care</a></li>
+                        <li><a href="body-care.html">Body Care</a></li>
+                        <li><a href="hair-care.html">Hair Care</a></li>
+                        <li><a href="hand-foot-care.html">Hand & Foot Care</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="book.html">Book Appointment</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Locations</h4>
+                    <div class="footer-location">
+                        <strong>Moka</strong>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Leclezio Avenue, Moka</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Grand Baie</strong>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Lorient Lane, Grand Baie</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Curepipe</strong>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Leclezio Avenue, Curepipe</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Contact</h4>
+                    <div class="footer-location">
+                        <strong>Moka</strong>
+                        <p style="opacity: 0.8;">+230 58074009</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Grand Baie</strong>
+                        <p style="opacity: 0.8;">+230 59429564</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Curepipe</strong>
+                        <p style="opacity: 0.8;">+230 58857888</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>&copy; 2026 Ayuryoga International Mauritius. All Rights Reserved.</div>
+                <div class="legal-links">
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="js/main.js"></script>
+</body>
+</html>

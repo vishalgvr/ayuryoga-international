@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand & Foot Care | Ayuryoga International Mauritius</title>
+    <meta name="description" content="Experience luxurious Ayurvedic Hand & Foot Care therapies in Mauritius. Manicures, pedicures, Royal Pedicure, and Paraffin Foot Spa treatments.">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .handfoot-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2.2rem;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        .handfoot-card {
+            background: var(--color-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            flex: 0 1 calc(33.333% - 1.5rem);
+            min-width: 320px;
+            max-width: 380px;
+            width: 100%;
+            text-align: center;
+            transition: transform 0.38s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.38s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.35s ease;
+            border: 1px solid rgba(0,0,0,0.06);
+        }
+        .handfoot-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 42px rgba(0,0,0,0.13);
+            border-color: rgba(30, 57, 42, 0.22);
+        }
+        .handfoot-card-img {
+            position: relative;
+            height: 230px;
+            overflow: hidden;
+        }
+        .handfoot-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .handfoot-card:hover .handfoot-card-img img {
+            transform: scale(1.08);
+        }
+        .handfoot-duration-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: rgba(30, 57, 42, 0.9);
+            backdrop-filter: blur(8px);
+            color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .handfoot-card:hover .handfoot-duration-badge {
+            transform: scale(1.06);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+        }
+        .handfoot-card-body {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex-grow: 1;
+        }
+        .handfoot-card-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 0.4rem;
+            line-height: 1.25;
+            text-align: center;
+            transition: color 0.3s ease;
+        }
+        .handfoot-card:hover .handfoot-card-title {
+            color: var(--color-primary);
+        }
+        .handfoot-card-meta {
+            font-size: 0.92rem;
+            color: var(--color-accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .handfoot-card-desc {
+            font-size: 0.94rem;
+            color: var(--color-text);
+            opacity: 0.88;
+            line-height: 1.6;
+            margin-bottom: 1.4rem;
+            flex-grow: 1;
+            text-align: center;
+        }
+        .handfoot-inclusions-block {
+            width: 100%;
+            margin-bottom: 1.4rem;
+            padding-top: 1.1rem;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            text-align: center;
+        }
+        .handfoot-inclusions-label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.6rem;
+            display: block;
+            text-align: center;
+        }
+        .handfoot-inclusions-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            justify-content: center;
+        }
+        .handfoot-inclusion-tag {
+            background: var(--color-secondary-light);
+            color: var(--color-primary);
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 4px 9px;
+            border-radius: 4px;
+            transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+        }
+        .handfoot-inclusion-tag:hover {
+            transform: translateY(-2px);
+            background-color: var(--color-primary);
+            color: #ffffff;
+        }
+        .handfoot-card-footer {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1rem;
+            padding-top: 1.1rem;
+            border-top: 1px solid rgba(0,0,0,0.06);
+            margin-top: auto;
+            align-items: center;
+        }
+        .handfoot-price-row {
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            gap: 10px;
+        }
+        .handfoot-price {
+            font-family: var(--font-heading);
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1;
+        }
+        .handfoot-price-sub {
+            font-size: 0.85rem;
+            font-family: var(--font-body);
+            color: #666;
+            font-weight: 500;
+        }
+        .handfoot-ctas {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            width: 100%;
+        }
+        .handfoot-ctas .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 0.75rem 0.5rem;
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 6px;
+            white-space: nowrap;
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, color 0.3s ease;
+        }
+        .handfoot-ctas .btn:hover {
+            transform: translateY(-3px);
+        }
+        .handfoot-ctas .btn-primary:hover {
+            box-shadow: 0 6px 18px rgba(30, 57, 42, 0.3);
+        }
+        .handfoot-ctas .whatsapp-btn {
+            border-color: #25D366;
+            color: #25D366;
+        }
+        .handfoot-ctas .whatsapp-btn:hover {
+            background-color: #25D366;
+            color: #ffffff !important;
+            box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+        }
+        .handfoot-ctas .whatsapp-btn:hover svg {
+            transform: scale(1.15) rotate(-5deg);
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        .benefit-card {
+            background: var(--color-white);
+            padding: 2rem 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: transform 0.38s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.38s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.35s ease;
+        }
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+            border-color: rgba(30,57,42,0.18);
+        }
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 1.2rem;
+            color: var(--color-primary);
+            transition: transform 0.35s ease;
+        }
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.14);
+        }
+        .benefit-card h4 {
+            font-size: 1.15rem;
+            color: var(--color-primary);
+            margin-bottom: 0.6rem;
+        }
+        .benefit-card p {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            line-height: 1.5;
+            margin: 0;
+        }
+        @media (max-width: 1080px) {
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .handfoot-card {
+                flex: 1 1 100%;
+                max-width: 480px;
+            }
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            .handfoot-ctas {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo"><img src="images/logo_light_2.png" alt="Ayuryoga" style="height: 50px; width: auto;"></a>
+            
+            <ul class="nav-menu">
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="therapies.html" style="color: var(--color-accent);">Therapies <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px;"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="ayurveda.html">Ayurveda</a></li>
+                        <li><a href="wellness.html">Wellness</a></li>
+                        <li><a href="beauty-care.html">Beauty Care</a></li>
+                        <li><a href="face-care.html">Face Care</a></li>
+                        <li><a href="body-care.html">Body Care</a></li>
+                        <li><a href="hair-care.html">Hair Care</a></li>
+                        <li><a href="hand-foot-care.html" style="color: var(--color-accent); font-weight: 600;">Hand & Foot Care</a></li>
+                    </ul>
+                </li>
+                <li><a href="consultation.html">Consultation</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+            
+            <div class="header-ctas">
+                <a href="book.html" class="btn btn-primary" style="display: flex; align-items: center; gap: 8px;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Book Appointment
+                </a>
+                <a href="https://wa.me/23058074009?text=Hello%20Ayuryoga%20International%2C%20I%20would%20like%20to%20book%20an%20appointment.%20Please%20contact%20me%20to%20help%20me%20with%20the%20available%20treatments%2C%20dates%2C%20and%20timings.%0A%0AThank%20you." class="btn btn-outline whatsapp-btn" style="display: flex; align-items: center; gap: 8px; border-color: #25D366; color: #25D366;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    WhatsApp Us
+                </a>
+            </div>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hand & Foot Care Hero / Slider Section -->
+    <section class="handfoot-hero">
+        <div class="container">
+            <h1>Ayurvedic Hand & Foot Care</h1>
+            <p>Revitalize tired limbs, soften rough skin, and soothe vital Marma points with our luxurious hand and foot grooming rituals in Mauritius.</p>
+            <div class="hero-ctas">
+                <a href="book.html" class="btn btn-slider" style="padding: 0.9rem 2.5rem; font-size: 1.05rem;">Book Appointment</a>
+                <a href="#handfoot-treatments" class="btn btn-outline-light" style="padding: 0.9rem 2.2rem; font-size: 1.05rem;">Explore Treatments</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Treatments Grid Section -->
+    <section class="section-sand" id="handfoot-treatments" style="padding-top: 5rem; padding-bottom: 5rem;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 3.5rem;">
+                <h2 style="font-size: 2.6rem; margin-bottom: 0.8rem; color: var(--color-primary);">Our Hand & Foot Rituals</h2>
+                <p style="max-width: 680px; margin: 0 auto; opacity: 0.85; line-height: 1.6;">From express nail grooming to deep thermal paraffin wraps and royal floral baths, indulge your extremities in total comfort.</p>
+            </div>
+
+            <div class="handfoot-grid">
+                <!-- Treatment 1: Pedicure & Manicure -->
+                <div class="handfoot-card">
+                    <div class="handfoot-card-img">
+                        <img src="images/pkg_pedi_mani.jpg" alt="Pedicure & Manicure">
+                        <div class="handfoot-duration-badge">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            90 min
+                        </div>
+                    </div>
+                    <div class="handfoot-card-body">
+                        <h3 class="handfoot-card-title">Pedicure & Manicure</h3>
+                        <div class="handfoot-card-meta">Duration: 90 Minutes</div>
+                        <p class="handfoot-card-desc">A complete holistic grooming package for both hands and feet. Combines nail shaping, gentle cuticle care, exfoliating herbal scrubs, and a deeply relaxing pressure massage for soft, revitalized skin.</p>
+                        
+                        <div class="handfoot-inclusions-block">
+                            <span class="handfoot-inclusions-label">Package Includes:</span>
+                            <div class="handfoot-inclusions-list">
+                                <span class="handfoot-inclusion-tag">Classic Manicure</span>
+                                <span class="handfoot-inclusion-tag">Full Pedicure</span>
+                                <span class="handfoot-inclusion-tag">Herbal Exfoliation</span>
+                                <span class="handfoot-inclusion-tag">Hand & Foot Massage</span>
+                            </div>
+                        </div>
+
+                        <div class="handfoot-card-footer">
+                            <div class="handfoot-price-row">
+                                <div class="handfoot-price">Rs 1,800.00</div>
+                            </div>
+                            <div class="handfoot-ctas">
+                                <a href="book.html" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Pedicure%20%26%20Manicure%20Package%20(Rs%201,800.00%20-%2090%20min)" class="btn btn-outline whatsapp-btn" title="Book via WhatsApp">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 2: Pedicure -->
+                <div class="handfoot-card">
+                    <div class="handfoot-card-img">
+                        <img src="images/pkg_pedicure.jpg" alt="Pedicure">
+                        <div class="handfoot-duration-badge">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            60 min
+                        </div>
+                    </div>
+                    <div class="handfoot-card-body">
+                        <h3 class="handfoot-card-title">Pedicure</h3>
+                        <div class="handfoot-card-meta">Duration: 60 Minutes</div>
+                        <p class="handfoot-card-desc">An essential foot treatment designed to cleanse, exfoliate dry calluses, shape toenails, and relieve tension in tired soles through an invigorating herbal soak and soothing foot massage.</p>
+                        
+                        <div class="handfoot-inclusions-block">
+                            <span class="handfoot-inclusions-label">Package Includes:</span>
+                            <div class="handfoot-inclusions-list">
+                                <span class="handfoot-inclusion-tag">Herbal Foot Soak</span>
+                                <span class="handfoot-inclusion-tag">Dead Skin Scrub</span>
+                                <span class="handfoot-inclusion-tag">Nail & Cuticle Care</span>
+                                <span class="handfoot-inclusion-tag">Soothing Foot Massage</span>
+                            </div>
+                        </div>
+
+                        <div class="handfoot-card-footer">
+                            <div class="handfoot-price-row">
+                                <div class="handfoot-price">Rs 1,440.00</div>
+                            </div>
+                            <div class="handfoot-ctas">
+                                <a href="book.html" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Pedicure%20(Rs%201,440.00%20-%2060%20min)" class="btn btn-outline whatsapp-btn" title="Book via WhatsApp">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 3: Manicure -->
+                <div class="handfoot-card">
+                    <div class="handfoot-card-img">
+                        <img src="images/pkg_manicure.jpg" alt="Manicure">
+                        <div class="handfoot-duration-badge">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            30 min
+                        </div>
+                    </div>
+                    <div class="handfoot-card-body">
+                        <h3 class="handfoot-card-title">Manicure</h3>
+                        <div class="handfoot-card-meta">Duration: 30 Minutes</div>
+                        <p class="handfoot-card-desc">A quick yet thorough hand care ritual focusing on precise nail shaping, cuticle nourishment, botanical exfoliation, and a hydrating hand massage to leave your hands neat and smooth.</p>
+                        
+                        <div class="handfoot-inclusions-block">
+                            <span class="handfoot-inclusions-label">Package Includes:</span>
+                            <div class="handfoot-inclusions-list">
+                                <span class="handfoot-inclusion-tag">Nail Shaping & Buffing</span>
+                                <span class="handfoot-inclusion-tag">Cuticle Conditioning</span>
+                                <span class="handfoot-inclusion-tag">Herbal Hand Scrub</span>
+                                <span class="handfoot-inclusion-tag">Hydrating Massage</span>
+                            </div>
+                        </div>
+
+                        <div class="handfoot-card-footer">
+                            <div class="handfoot-price-row">
+                                <div class="handfoot-price">Rs 600.00</div>
+                            </div>
+                            <div class="handfoot-ctas">
+                                <a href="book.html" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Manicure%20(Rs%20600.00%20-%2030%20min)" class="btn btn-outline whatsapp-btn" title="Book via WhatsApp">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 4: Royal Pedicure -->
+                <div class="handfoot-card">
+                    <div class="handfoot-card-img">
+                        <img src="images/pkg_royal_pedicure.jpg" alt="Royal Pedicure">
+                        <div class="handfoot-duration-badge">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            60 min
+                        </div>
+                    </div>
+                    <div class="handfoot-card-body">
+                        <h3 class="handfoot-card-title">Royal Pedicure</h3>
+                        <div class="handfoot-card-meta">Duration: 60 Minutes</div>
+                        <p class="handfoot-card-desc">An indulgent luxury foot therapy with fragrant floral baths, essential oil scrubs, intensive callus smoothing, and an extended Ayurvedic reflexology massage along the calves and soles.</p>
+                        
+                        <div class="handfoot-inclusions-block">
+                            <span class="handfoot-inclusions-label">Package Includes:</span>
+                            <div class="handfoot-inclusions-list">
+                                <span class="handfoot-inclusion-tag">Floral Rose Petal Soak</span>
+                                <span class="handfoot-inclusion-tag">Aromatic Herbal Scrub</span>
+                                <span class="handfoot-inclusion-tag">Intensive Callus Care</span>
+                                <span class="handfoot-inclusion-tag">Royal Calf & Foot Massage</span>
+                            </div>
+                        </div>
+
+                        <div class="handfoot-card-footer">
+                            <div class="handfoot-price-row">
+                                <div class="handfoot-price">Rs 1,800.00</div>
+                            </div>
+                            <div class="handfoot-ctas">
+                                <a href="book.html" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Royal%20Pedicure%20(Rs%201,800.00%20-%2060%20min)" class="btn btn-outline whatsapp-btn" title="Book via WhatsApp">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 5: Paraffin Foot Spa -->
+                <div class="handfoot-card">
+                    <div class="handfoot-card-img">
+                        <img src="images/pkg_paraffin_spa.jpg" alt="Paraffin Foot Spa">
+                        <div class="handfoot-duration-badge">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            90 min
+                        </div>
+                    </div>
+                    <div class="handfoot-card-body">
+                        <h3 class="handfoot-card-title">Paraffin Foot Spa</h3>
+                        <div class="handfoot-card-meta">Duration: 90 Minutes</div>
+                        <p class="handfoot-card-desc">A deeply therapeutic thermal treatment enveloping feet in warm paraffin wax. Locks in deep moisture, eases joint stiffness, repairs cracked heels, and stimulates circulation with reflexology.</p>
+                        
+                        <div class="handfoot-inclusions-block">
+                            <span class="handfoot-inclusions-label">Package Includes:</span>
+                            <div class="handfoot-inclusions-list">
+                                <span class="handfoot-inclusion-tag">Herbal Foot Exfoliation</span>
+                                <span class="handfoot-inclusion-tag">Warm Paraffin Wax Wrap</span>
+                                <span class="handfoot-inclusion-tag">Intensive Heel Repair</span>
+                                <span class="handfoot-inclusion-tag">Reflexology Massage</span>
+                            </div>
+                        </div>
+
+                        <div class="handfoot-card-footer">
+                            <div class="handfoot-price-row">
+                                <div class="handfoot-price">Rs 2,160.00</div>
+                            </div>
+                            <div class="handfoot-ctas">
+                                <a href="book.html" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Paraffin%20Foot%20Spa%20(Rs%202,160.00%20-%2090%20min)" class="btn btn-outline whatsapp-btn" title="Book via WhatsApp">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                    WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ayurvedic Foot Care Philosophy Section (Padabhyanga) -->
+    <section class="section-light" style="padding-top: 5rem; padding-bottom: 5rem;">
+        <div class="container">
+            <div style="text-align: center; max-width: 750px; margin: 0 auto 3rem;">
+                <h2 style="font-size: 2.4rem; margin-bottom: 0.8rem; color: var(--color-primary);">The Healing Power of Padabhyanga</h2>
+                <p style="opacity: 0.88; line-height: 1.7;">In classical Ayurveda, foot care (*Padabhyanga*) is revered as a gateway to overall wellness. The soles contain vital Marma points directly connected to your nervous and sensory systems.</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><path d="M12 6v6l4 2"></path></svg>
+                    </div>
+                    <h4>Marma & Nerve Vitality</h4>
+                    <p>Gentle pressure on key Marma points activates nerve channels, relieving stress throughout the body.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+                    </div>
+                    <h4>Deep Moisture & Repair</h4>
+                    <p>Botanical scrubs and warm thermal paraffin lock in hydration to repair dry, cracked heels.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                    </div>
+                    <h4>Circulation & Lightness</h4>
+                    <p>Stimulates microcirculation to reduce fatigue, fluid retention, and heaviness in tired feet.</p>
+                </div>
+
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    </div>
+                    <h4>Restful Sleep & Calm</h4>
+                    <p>Calms excess Vata dosha, reducing mental agitation and promoting deep, restorative sleep.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation & Custom Plan CTA -->
+    <section class="section-sand" style="padding-top: 4rem; padding-bottom: 5rem;">
+        <div class="container">
+            <div style="text-align: center; background: var(--color-white); padding: 3.5rem 2.5rem; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.04); max-width: 850px; margin: 0 auto; border: 1px solid rgba(0,0,0,0.05);">
+                <h3 style="font-size: 2rem; margin-bottom: 0.8rem; color: var(--color-primary);">Pamper Your Hands & Feet Today</h3>
+                <p style="opacity: 0.85; margin-bottom: 2rem; line-height: 1.6; max-width: 650px; margin-left: auto; margin-right: auto;">Book your appointment at any of our branches in Moka, Grand Baie, or Curepipe for an unforgettable wellness ritual.</p>
+                <div style="display: flex; gap: 1.2rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="book.html" class="btn btn-primary" style="padding: 0.85rem 2rem;">Book Appointment</a>
+                    <a href="https://wa.me/23058074009" class="btn btn-outline whatsapp-btn" style="border-color: #25D366; color: #25D366; padding: 0.85rem 2rem;">Chat on WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="display: block; margin-bottom: 1rem;"><img src="images/logo_dark.png" alt="Ayuryoga" style="height: 60px; width: auto;"></a>
+                    <p><strong>Traditional Wisdom. Personalized Wellness.</strong><br>Ayurveda | Wellness | Beauty Care | Hand & Foot Care</p>
+                    <a href="book.html" class="btn btn-accent">Book an Appointment</a>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="therapies.html">Therapies</a></li>
+                        <li><a href="consultation.html">Consultation</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="face-care.html">Face Care</a></li>
+                        <li><a href="body-care.html">Body Care</a></li>
+                        <li><a href="hair-care.html">Hair Care</a></li>
+                        <li><a href="hand-foot-care.html">Hand & Foot Care</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="book.html">Book Appointment</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Locations</h4>
+                    <div class="footer-location">
+                        <strong>Moka</strong>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Leclezio Avenue, Moka</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Grand Baie</strong>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Lorient Lane, Grand Baie</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Curepipe</strong>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Leclezio Avenue, Curepipe</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Contact</h4>
+                    <div class="footer-location">
+                        <strong>Moka</strong>
+                        <p style="opacity: 0.8;">+230 58074009</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Grand Baie</strong>
+                        <p style="opacity: 0.8;">+230 59429564</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Curepipe</strong>
+                        <p style="opacity: 0.8;">+230 58857888</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>&copy; 2026 Ayuryoga International Mauritius. All Rights Reserved.</div>
+                <div class="legal-links">
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>

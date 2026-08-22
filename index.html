@@ -59,32 +59,111 @@
             opacity: 0.8;
         }
         
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+        /* Therapies Cards Showcase (1st row: 4 cards, 2nd row: 3 cards) */
+        .therapies-cards-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.8rem;
+            max-width: 1240px;
+            margin: 3rem auto 0;
         }
-        .service-card {
+        .therapy-card {
+            flex: 0 0 calc(25% - 1.35rem);
+            width: calc(25% - 1.35rem);
+            max-width: calc(25% - 1.35rem);
+            height: 330px;
             background: var(--color-white);
-            padding: 2.5rem;
-            border-radius: 8px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 22px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(30, 57, 42, 0.08);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.38s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.38s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.35s ease;
+            position: relative;
+            box-sizing: border-box;
+        }
+        .therapy-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+            border-color: rgba(200, 155, 60, 0.45);
+        }
+        .therapy-card-media {
+            height: 200px;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            background-color: #f0f0f0;
+            flex-shrink: 0;
+        }
+        .therapy-card-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .therapy-card:hover .therapy-card-media img {
+            transform: scale(1.08);
+        }
+        .therapy-card-body {
+            padding: 1rem 1rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.65rem;
+            flex-grow: 1;
             text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-            transition: var(--transition);
+            background: var(--color-white);
         }
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+        .therapy-card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin: 0;
+            line-height: 1.25;
+            text-align: center;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        .therapy-card-body .show-more-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            padding: 0.32rem 0.85rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            border-radius: 16px;
+            margin-top: 0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            width: auto;
+            min-width: 90px;
         }
-        .service-card p {
-            margin-bottom: 1.5rem;
-            opacity: 0.8;
-            font-size: 0.95rem;
+        @media (max-width: 1100px) {
+            .therapy-card {
+                flex: 0 0 calc(50% - 1rem);
+                width: calc(50% - 1rem);
+                max-width: calc(50% - 1rem);
+            }
+        }
+        @media (max-width: 640px) {
+            .therapy-card {
+                flex: 0 0 100%;
+                width: 100%;
+                max-width: 360px;
+                height: 370px;
+            }
+            .therapies-cards-container {
+                gap: 1.4rem;
+            }
         }
         
         .stats-grid {
@@ -128,11 +207,199 @@
         }
         .section-header h2 { font-size: 2.5rem; }
         
+        /* Google Reviews Section (Ayuryoga Moka 5-Star Ratings) */
+        .reviews-section {
+            background-color: #FAF8F5;
+            padding: 5.5rem 0;
+            position: relative;
+        }
+        .google-badge-card {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--color-white);
+            padding: 0.75rem 1.6rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+            border: 1px solid rgba(30, 57, 42, 0.08);
+            margin-bottom: 1.5rem;
+        }
+        .google-rating-score {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+        .google-stars {
+            color: #FBBC05;
+            font-size: 1.15rem;
+            letter-spacing: 2px;
+        }
+        .google-reviews-count {
+            font-size: 0.85rem;
+            color: #666;
+            font-weight: 500;
+        }
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2.8rem;
+        }
+        .review-card {
+            background: var(--color-white);
+            border-radius: 12px;
+            padding: 2.2rem 1.8rem;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(30, 57, 42, 0.08);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.35s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease;
+            position: relative;
+        }
+        .review-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.09);
+            border-color: rgba(200, 155, 60, 0.45);
+        }
+        .review-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.2rem;
+        }
+        .reviewer-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .reviewer-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--color-secondary-light);
+            color: var(--color-primary);
+            font-weight: 700;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgba(200, 155, 60, 0.4);
+        }
+        .reviewer-name {
+            font-weight: 600;
+            font-size: 1.02rem;
+            color: var(--color-primary);
+            line-height: 1.2;
+            margin-bottom: 2px;
+        }
+        .reviewer-subtext {
+            font-size: 0.78rem;
+            color: #777;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .review-stars {
+            color: #FBBC05;
+            font-size: 1rem;
+            margin-bottom: 0.9rem;
+            letter-spacing: 1px;
+        }
+        .review-text {
+            font-size: 0.93rem;
+            line-height: 1.65;
+            color: var(--color-text);
+            opacity: 0.9;
+            flex-grow: 1;
+            margin-bottom: 1.4rem;
+        }
+        .review-footer-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.76rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            background: var(--color-secondary-light);
+            padding: 4px 10px;
+            border-radius: 4px;
+            align-self: flex-start;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--color-white);
+            padding: 6rem 0;
+        }
+        .faq-list {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            margin-bottom: 1.1rem;
+            border: 1px solid rgba(30, 57, 42, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            background: var(--color-white);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+        .faq-item:hover {
+            border-color: rgba(200, 155, 60, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        }
+        .faq-question {
+            padding: 1.35rem 1.6rem;
+            background: var(--color-white);
+            cursor: pointer;
+            font-size: 1.08rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            transition: color 0.25s ease;
+        }
+        .faq-question:hover {
+            color: var(--color-accent);
+        }
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--color-secondary-light);
+            color: var(--color-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-left: 12px;
+            transition: transform 0.3s ease;
+        }
+        .faq-answer {
+            padding: 0 1.6rem 1.4rem;
+            display: none;
+            color: var(--color-text);
+            opacity: 0.88;
+            line-height: 1.65;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(30, 57, 42, 0.06);
+            padding-top: 1.1rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+        }
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .hero-ctas { flex-direction: column; }
             .stats-grid { grid-template-columns: 1fr 1fr; }
             .treatment-list { grid-template-columns: 1fr; }
+            .reviews-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -151,6 +418,10 @@
                         <li><a href="ayurveda.html">Ayurveda</a></li>
                         <li><a href="wellness.html">Wellness</a></li>
                         <li><a href="beauty-care.html">Beauty Care</a></li>
+                        <li><a href="face-care.html">Face Care</a></li>
+                        <li><a href="body-care.html">Body Care</a></li>
+                        <li><a href="hair-care.html">Hair Care</a></li>
+                        <li><a href="hand-foot-care.html">Hand & Foot Care</a></li>
                     </ul>
                 </li>
                 <li><a href="consultation.html">Consultation</a></li>
@@ -163,7 +434,7 @@
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                     Book Appointment
                 </a>
-                <a href="https://wa.me/23058074009" class="btn btn-outline whatsapp-btn" style="display: flex; align-items: center; gap: 8px; border-color: #25D366; color: #25D366;">
+                <a href="https://wa.me/23058074009?text=Hello%20Ayuryoga%20International%2C%20I%20would%20like%20to%20book%20an%20appointment.%20Please%20contact%20me%20to%20help%20me%20with%20the%20available%20treatments%2C%20dates%2C%20and%20timings.%0A%0AThank%20you." class="btn btn-outline whatsapp-btn" style="display: flex; align-items: center; gap: 8px; border-color: #25D366; color: #25D366;">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                     WhatsApp Us
                 </a>
@@ -184,7 +455,7 @@
             <p>Authentic Ayurveda, restorative wellness and natural beauty care in Mauritius. Experience traditional therapies designed to support your journey towards greater balance and relaxation.</p>
             <div class="hero-ctas">
                 <a href="book.html" class="btn btn-slider">Book an Appointment</a>
-                <a href="#services" class="btn btn-outline-light">Explore Our Treatments</a>
+                <a href="#therapies" class="btn btn-outline-light">Explore Our Therapies</a>
             </div>
         </div>
     </section>
@@ -245,31 +516,121 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="section-sand">
+    <!-- Therapies Section -->
+    <section id="therapies" class="section-sand">
         <div class="container">
             <div class="section-header">
-                <h2>Explore Our Wellness Services</h2>
+                <span class="section-badge" style="display: inline-block; background-color: var(--color-primary); color: var(--color-accent); padding: 0.4rem 1.2rem; border-radius: 20px; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem;">Holistic Offerings</span>
+                <h2>Explore Our Holistic Therapies</h2>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <img src="images/card_ayurveda.png" alt="Ayurveda" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 4px; margin-bottom: 1.5rem;">
-                    <h3>Ayurveda</h3>
-                    <p>Discover traditional Ayurvedic therapies including Abhyangam, Sirodhara, Kizhi therapies, Vasthi, and specialized treatments.</p>
-                    <a href="ayurveda.html" class="btn btn-outline">Explore Ayurveda</a>
+
+            <!-- Therapies Cards Showcase (Row 1: 4 cards, Row 2: 3 cards) -->
+            <div class="therapies-cards-container">
+                <!-- Row 1: Card 1 -->
+                <div class="therapy-card">
+                    <div class="therapy-card-media">
+                        <img src="images/card_ayurveda.png" alt="Classical Ayurveda" loading="lazy">
+                    </div>
+                    <div class="therapy-card-body">
+                        <h3 class="therapy-card-title">Classical Ayurveda</h3>
+                        <a href="ayurveda.html" class="btn btn-outline show-more-btn">
+                            Show More
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <img src="images/card_wellness.png" alt="Wellness" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 4px; margin-bottom: 1.5rem;">
-                    <h3>Wellness</h3>
-                    <p>Relax, rejuvenate and recharge with Ayurvedic massages, therapeutic massages, steam therapies and wellness experiences.</p>
-                    <a href="wellness.html" class="btn btn-outline">Explore Wellness</a>
+
+                <!-- Row 1: Card 2 -->
+                <div class="therapy-card">
+                    <div class="therapy-card-media">
+                        <img src="images/card_wellness.png" alt="Restorative Wellness" loading="lazy">
+                    </div>
+                    <div class="therapy-card-body">
+                        <h3 class="therapy-card-title">Restorative Wellness</h3>
+                        <a href="wellness.html" class="btn btn-outline show-more-btn">
+                            Show More
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <img src="images/card_beauty.png" alt="Beauty Care" style="width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 4px; margin-bottom: 1.5rem;">
-                    <h3>Beauty Care</h3>
-                    <p>Complement your wellness experience with Ayurvedic facial, body and hair treatments using traditional-inspired care.</p>
-                    <a href="beauty-care.html" class="btn btn-outline">Explore Beauty Care</a>
+
+                <!-- Row 1: Card 3 -->
+                <div class="therapy-card">
+                    <div class="therapy-card-media">
+                        <img src="images/card_beauty.png" alt="Natural Beauty Care" loading="lazy">
+                    </div>
+                    <div class="therapy-card-body">
+                        <h3 class="therapy-card-title">Natural Beauty Care</h3>
+                        <a href="beauty-care.html" class="btn btn-outline show-more-btn">
+                            Show More
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                    </div>
                 </div>
+
+                <!-- Row 1: Card 4 -->
+                <div class="therapy-card">
+                    <div class="therapy-card-media">
+                        <img src="images/pkg_back_facial.jpg" alt="Holistic Face Care" loading="lazy">
+                    </div>
+                    <div class="therapy-card-body">
+                        <h3 class="therapy-card-title">Holistic Face Care</h3>
+                        <a href="face-care.html" class="btn btn-outline show-more-btn">
+                            Show More
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Row 2: Card 5 -->
+                <div class="therapy-card">
+                    <div class="therapy-card-media">
+                        <img src="images/pkg_rejuv.png" alt="Rejuvenating Body Care" loading="lazy">
+                    </div>
+                    <div class="therapy-card-body">
+                        <h3 class="therapy-card-title">Rejuvenating Body Care</h3>
+                        <a href="body-care.html" class="btn btn-outline show-more-btn">
+                            Show More
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Row 2: Card 6 -->
+                <div class="therapy-card">
+                    <div class="therapy-card-media">
+                        <img src="images/haircare_hero.jpg" alt="Ayurvedic Hair Care" loading="lazy">
+                    </div>
+                    <div class="therapy-card-body">
+                        <h3 class="therapy-card-title">Ayurvedic Hair Care</h3>
+                        <a href="hair-care.html" class="btn btn-outline show-more-btn">
+                            Show More
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Row 2: Card 7 -->
+                <div class="therapy-card">
+                    <div class="therapy-card-media">
+                        <img src="images/handfoot_hero.jpg" alt="Hand & Foot Care" loading="lazy">
+                    </div>
+                    <div class="therapy-card-body">
+                        <h3 class="therapy-card-title">Hand & Foot Care</h3>
+                        <a href="hand-foot-care.html" class="btn btn-outline show-more-btn">
+                            Show More
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- View All Therapies CTA bar -->
+            <div style="text-align: center; margin-top: 3.5rem;">
+                <a href="therapies.html" class="btn btn-primary" style="padding: 1rem 2.5rem; font-size: 1rem; border-radius: 30px;">
+                    View Complete Therapies Guide
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
             </div>
         </div>
     </section>
@@ -282,10 +643,10 @@
                 <p style="opacity: 0.9; margin-top: 1rem;">Our growing community of clients reflects the importance we place on personalized care, welcoming service and meaningful wellness experiences.</p>
             </div>
             <div class="stats-grid">
-                <div>
+                <a href="https://share.google/dBjajZ72gOCAYlZcy" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; display: block;">
                     <div class="stat-number">500+</div>
                     <div>Google Reviews</div>
-                </div>
+                </a>
                 <div>
                     <div class="stat-number">7K+</div>
                     <div>Instagram Followers</div>
@@ -302,7 +663,140 @@
         </div>
     </section>
 
-    <!-- Ayurveda Highlight -->
+    <!-- Google Reviews Section (Ayuryoga Moka 5-Star Ratings) -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 2rem;">
+                <a href="https://share.google/dBjajZ72gOCAYlZcy" target="_blank" rel="noopener noreferrer" class="google-badge-card" style="text-decoration: none; color: inherit;" title="View Google Reviews for Ayuryoga Moka">
+                    <!-- Google 'G' Logo SVG -->
+                    <svg width="24" height="24" viewBox="0 0 24 24">
+                        <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                        <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24z"/>
+                        <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                        <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                    </svg>
+                    <span class="google-rating-score">5.0</span>
+                    <span class="google-stars">★★★★★</span>
+                    <span class="google-reviews-count">Based on 500+ Google Reviews</span>
+                </a>
+                <h2>What Our Guests Say About Ayuryoga Moka</h2>
+                <p style="max-width: 720px; margin: 0.8rem auto 0; color: var(--color-text); opacity: 0.88;">Authentic feedback and 5-star experiences from our valued clients at our flagship Moka clinic in Mauritius.</p>
+            </div>
+
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card">
+                    <div>
+                        <div class="review-card-header">
+                            <div class="reviewer-meta">
+                                <div class="reviewer-avatar">ML</div>
+                                <div>
+                                    <div class="reviewer-name">Marie-Claire L.</div>
+                                    <div class="reviewer-subtext">
+                                        <span>Local Guide</span>
+                                        <span>•</span>
+                                        <span>5-Star Google Review</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <svg width="18" height="18" viewBox="0 0 24 24">
+                                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24z"/>
+                                <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                            </svg>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"An extraordinary healing experience at Ayuryoga Moka! The Abhyangam massage and Shirodhara completely melted away my stress and chronic neck pain. The therapists are exceptionally skilled and caring. Pristine cleanliness and very peaceful ambiance."</p>
+                    </div>
+                    <div class="review-footer-badge">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        Ayuryoga Moka Clinic
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card">
+                    <div>
+                        <div class="review-card-header">
+                            <div class="reviewer-meta">
+                                <div class="reviewer-avatar">DP</div>
+                                <div>
+                                    <div class="reviewer-name">Devin P.</div>
+                                    <div class="reviewer-subtext">
+                                        <span>Verified Client</span>
+                                        <span>•</span>
+                                        <span>5-Star Google Review</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <svg width="18" height="18" viewBox="0 0 24 24">
+                                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24z"/>
+                                <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                            </svg>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"Had an insightful Ayurvedic doctor consultation and Nadi Pariksha pulse diagnosis at Moka. The personalized herbal oil recommendation and Podikizhi treatment worked wonders for my backache. Outstanding professionalism!"</p>
+                    </div>
+                    <div class="review-footer-badge">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        Ayuryoga Moka Clinic
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card">
+                    <div>
+                        <div class="review-card-header">
+                            <div class="reviewer-meta">
+                                <div class="reviewer-avatar">SR</div>
+                                <div>
+                                    <div class="reviewer-name">Sophie R.</div>
+                                    <div class="reviewer-subtext">
+                                        <span>Local Guide</span>
+                                        <span>•</span>
+                                        <span>5-Star Google Review</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <svg width="18" height="18" viewBox="0 0 24 24">
+                                <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                                <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24z"/>
+                                <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                                <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                            </svg>
+                        </div>
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"The best Ayurvedic and natural beauty spa in Mauritius! I did the Mukha Lepam herbal facial and warm oil head massage at the Moka branch. My skin was glowing and I left feeling completely relaxed. 5/5 stars without hesitation!"</p>
+                    </div>
+                    <div class="review-footer-badge">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        Ayuryoga Moka Clinic
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <a href="https://share.google/dBjajZ72gOCAYlZcy" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="display: inline-flex; align-items: center; gap: 8px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24">
+                        <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.17z"/>
+                        <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.34 24 12 24z"/>
+                        <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.18 0 9.99 0 12s.45 3.82 1.25 5.42l4.03-3.15z"/>
+                        <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.34 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                    </svg>
+                    Read Google Reviews
+                </a>
+                <a href="https://share.google/dBjajZ72gOCAYlZcy" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                    Write a Review
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Classical Ayurveda Highlight -->
     <section class="section-light">
         <div class="container">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
@@ -311,7 +805,6 @@
                     <h2>Classical Ayurveda Treatments</h2>
                     <p style="margin-bottom: 1.5rem;">Reconnect with traditional Ayurvedic wellness through therapies designed to nurture the body and mind. Our Ayurvedic treatment menu includes full-body massages, oil therapies, herbal poultice treatments, therapeutic applications, and steam therapies.</p>
                     <p>Each treatment is provided in a peaceful environment with attention to individual requirements.</p>
-                    <a href="ayurveda.html" class="btn btn-primary" style="margin-top: 2rem;">View All Treatments</a>
                 </div>
                 <div>
                     <div style="background-color: var(--color-secondary-light); padding: 3rem; border-radius: 8px; margin-bottom: 2rem;">
@@ -330,6 +823,12 @@
                             <li>Bhashpa Sweda</li>
                             <li>Elakizhi</li>
                         </ul>
+                        <div style="margin-top: 2.2rem; text-align: center;">
+                            <a href="therapies.html" class="btn btn-primary" style="width: 100%; box-sizing: border-box; justify-content: center;">
+                                View All Treatments
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </a>
+                        </div>
                     </div>
 
                     <!-- Newsletter Form -->
@@ -342,6 +841,85 @@
                         </form>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Frequently Asked Questions (FAQ) Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge" style="display: inline-block; background-color: var(--color-primary); color: var(--color-accent); padding: 0.4rem 1.2rem; border-radius: 20px; font-weight: 700; font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem;">Got Questions?</span>
+                <h2>Frequently Asked Questions</h2>
+                <p style="max-width: 680px; margin: 0.8rem auto 0; color: var(--color-text); opacity: 0.88;">Find quick answers about our authentic Ayurvedic therapies, doctor consultations, clinic locations, and booking process.</p>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What authentic therapies does Ayuryoga International offer?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        We offer a comprehensive range of classical Kerala Ayurveda therapies (such as Abhyangam, Shirodhara, Kizhi herbal poultices, and Vasthi), restorative wellness massages, natural organic beauty care, botanical facials, rejuvenating body scrubs, Ayurvedic hair care, and reflexology hand & foot treatments.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Where is your Ayuryoga Moka clinic located?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        Our flagship Moka clinic is centrally located at Leclezio Avenue, right beside Moka Business Centre. We also welcome guests at our Grand Baie clinic (Lorient Lane, Chemin Vingt Pieds) and Curepipe clinic.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Do I need to book an appointment in advance?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, advance bookings are strongly recommended to guarantee therapist availability and allow adequate time for personalized preparation. You can easily book online or reach out via WhatsApp at +230 58074009.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How do I know which Ayurvedic therapy is right for my body?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        We offer specialized Ayurvedic Doctor Consultations featuring traditional Nadi Pariksha (Pulse Diagnosis). Our experienced doctors assess your unique Dosha balance (Vata, Pitta, Kapha) and curate an individualized treatment plan tailored to your health goals.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>How long do individual treatment sessions take?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        Treatment durations generally range between 45 to 90 minutes depending on the therapy selected. Comprehensive wellness and rejuvenation packages can extend from 90 to 180 minutes.
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Are the herbal oils and ingredients 100% natural?</span>
+                        <div class="faq-icon">+</div>
+                    </div>
+                    <div class="faq-answer">
+                        Yes. All our herbal oils, medicated decoctions, scrubs, and face masks are authentic, pure, and prepared according to classical Ayurvedic formulations without artificial additives or harsh chemicals.
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <p style="margin-bottom: 1.2rem; color: var(--color-text); opacity: 0.9;">Have more questions about our therapies or custom packages?</p>
+                <a href="faq.html" class="btn btn-outline" style="margin-right: 0.8rem;">View Full FAQ Guide</a>
+                <a href="contact.html" class="btn btn-primary">Contact Our Team</a>
             </div>
         </div>
     </section>
@@ -404,19 +982,19 @@
                     <div style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid #eee;">
                         <h4 style="color: var(--color-accent); font-size: 1.3rem; margin-bottom: 0.5rem;">Moka Clinic</h4>
                         <p style="opacity: 0.8; margin-bottom: 0.5rem; font-size: 1.05rem;">Leclezio Avenue, Beside Moka Business Centre</p>
-                        <a href="tel:23058074009" style="color: var(--color-text); font-weight: 500; font-size: 1.1rem; text-decoration: none;">📞 58074009</a>
+                        <a href="tel:+23058074009" style="color: var(--color-text); font-weight: 500; font-size: 1.1rem; text-decoration: none;">📞 +230 58074009</a>
                     </div>
                     
                     <div style="margin-bottom: 2rem; padding-bottom: 1.5rem; border-bottom: 1px solid #eee;">
                         <h4 style="color: var(--color-accent); font-size: 1.3rem; margin-bottom: 0.5rem;">Grand Baie Clinic</h4>
                         <p style="opacity: 0.8; margin-bottom: 0.5rem; font-size: 1.05rem;">Lorient Lane, Chemin Vingt Pieds, Near The Park</p>
-                        <a href="tel:23059429564" style="color: var(--color-text); font-weight: 500; font-size: 1.1rem; text-decoration: none;">📞 59429564</a>
+                        <a href="tel:+23059429564" style="color: var(--color-text); font-weight: 500; font-size: 1.1rem; text-decoration: none;">📞 +230 59429564</a>
                     </div>
                     
                     <div>
                         <h4 style="color: var(--color-accent); font-size: 1.3rem; margin-bottom: 0.5rem;">Curepipe Clinic</h4>
                         <p style="opacity: 0.8; margin-bottom: 0.5rem; font-size: 1.05rem;">Central Curepipe</p>
-                        <a href="tel:23058857888" style="color: var(--color-text); font-weight: 500; font-size: 1.1rem; text-decoration: none;">📞 58857888</a>
+                        <a href="tel:+23058857888" style="color: var(--color-text); font-weight: 500; font-size: 1.1rem; text-decoration: none;">📞 +230 58857888</a>
                     </div>
                 </div>
             </div>

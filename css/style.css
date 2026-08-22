@@ -72,37 +72,63 @@ section {
 
 /* Buttons */
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   padding: 0.8rem 2rem;
   font-family: var(--font-body);
-  font-weight: 500;
-  font-size: 1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
-  border: none;
-  transition: var(--transition);
+  border: 1px solid transparent;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.btn svg {
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.btn:hover svg {
+  transform: scale(1.12);
 }
 
 .btn-primary {
   background-color: var(--color-primary);
   color: var(--color-white);
   border: 1px solid var(--color-primary);
+  box-shadow: 0 4px 12px rgba(30, 57, 42, 0.15);
 }
 
 .btn-primary:hover {
-  background-color: transparent;
-  color: var(--color-primary);
+  background-color: #15291e;
+  border-color: #15291e;
+  color: var(--color-white);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(30, 57, 42, 0.32);
 }
 
 .btn-accent {
   background-color: var(--color-accent);
   color: var(--color-white);
+  box-shadow: 0 4px 12px rgba(200, 155, 60, 0.2);
 }
 
 .btn-accent:hover {
-  background-color: #b58932;
+  background-color: #b3852b;
+  color: var(--color-white);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(200, 155, 60, 0.38);
 }
 
 .btn-outline {
@@ -114,17 +140,23 @@ section {
 .btn-outline:hover {
   background-color: var(--color-primary);
   color: var(--color-white);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(30, 57, 42, 0.22);
 }
 
 .btn-outline-light {
   background-color: transparent;
-  color: var(--color-bg);
-  border: 1px solid var(--color-bg);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
 }
 
 .btn-outline-light:hover {
-  background-color: var(--color-bg);
+  background-color: #ffffff;
   color: var(--color-primary);
+  border-color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
 }
 
 /* Header & Navigation */
@@ -290,7 +322,7 @@ footer {
 
 /* Hero Section Background Image */
 .hero {
-    background-image: linear-gradient(rgba(17, 34, 28, 0.8), rgba(17, 34, 28, 0.75)), url('../images/hero_bg.png') !important;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('../images/hero_bg.png') !important;
     background-size: cover !important;
     background-position: center !important;
     background-attachment: fixed !important;
@@ -300,13 +332,74 @@ footer {
 .hero h1, .hero p {
     color: #ffffff !important;
 }
+.wellness-hero, .packages-hero, .haircare-hero, .handfoot-hero, .facecare-hero, .bodycare-hero {
+    position: relative;
+    padding: 8rem 0 6rem;
+    text-align: center;
+    color: #ffffff !important;
+}
+.wellness-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('../images/wellness_bg.jpg') center center/cover no-repeat !important;
+}
+.packages-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('../images/hero_bg.png') center center/cover no-repeat !important;
+}
+.haircare-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('../images/haircare_hero.jpg') center center/cover no-repeat !important;
+}
+.handfoot-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('../images/handfoot_hero.jpg') center center/cover no-repeat !important;
+}
+.facecare-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('../images/pkg_beauty.png') center center/cover no-repeat !important;
+}
+.bodycare-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('../images/pkg_relax.png') center center/cover no-repeat !important;
+}
+.wellness-hero h1, .packages-hero h1, .haircare-hero h1, .handfoot-hero h1, .facecare-hero h1, .bodycare-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff !important;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+.wellness-hero p, .packages-hero p, .haircare-hero p, .handfoot-hero p, .facecare-hero p, .bodycare-hero p {
+    font-size: 1.25rem;
+    max-width: 750px;
+    margin: 0 auto 2.5rem;
+    color: rgba(255, 255, 255, 0.95) !important;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+    line-height: 1.7;
+    opacity: 1 !important;
+}
+.wellness-hero .hero-ctas, .packages-hero .hero-ctas, .haircare-hero .hero-ctas, .handfoot-hero .hero-ctas, .facecare-hero .hero-ctas, .bodycare-hero .hero-ctas {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 1 !important;
+}
+@media (max-width: 768px) {
+    .wellness-hero, .packages-hero, .haircare-hero, .handfoot-hero, .facecare-hero, .bodycare-hero {
+        padding: 5rem 0 3.5rem;
+    }
+    .wellness-hero h1, .packages-hero h1, .haircare-hero h1, .handfoot-hero h1, .facecare-hero h1, .bodycare-hero h1 {
+        font-size: 2.2rem;
+    }
+    .wellness-hero .hero-ctas, .packages-hero .hero-ctas, .haircare-hero .hero-ctas, .handfoot-hero .hero-ctas, .facecare-hero .hero-ctas, .bodycare-hero .hero-ctas {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 .btn-slider {
     background-color: #5fa344 !important;
     color: #ffffff !important;
     border: none !important;
+    box-shadow: 0 4px 14px rgba(95, 163, 68, 0.28);
 }
 .btn-slider:hover {
     background-color: #4c8236 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(95, 163, 68, 0.42) !important;
 }
 
 /* Dropdown Menu */
@@ -345,36 +438,66 @@ footer {
 }
 
 /* Special Whatsapp CTA */
+.whatsapp-btn {
+    border-color: #25D366 !important;
+    color: #25D366 !important;
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, color 0.3s ease !important;
+}
 .whatsapp-btn:hover {
     background-color: #25D366 !important;
     color: var(--color-white) !important;
+    border-color: #25D366 !important;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 22px rgba(37, 211, 102, 0.4) !important;
+}
+.whatsapp-btn:hover svg {
+    transform: scale(1.15) rotate(-5deg);
 }
 
-/* Package Card Enhancements */
+/* Package & Treatment Card Enhancements with Smooth Hover Animations */
+.treatment-card,
 .package-card {
-    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    background: var(--color-white);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: transform 0.38s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.38s cubic-bezier(0.25, 0.1, 0.25, 1), border-color 0.35s ease;
+    cursor: pointer;
 }
+
+.treatment-card:hover,
 .package-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+    transform: translateY(-9px);
+    box-shadow: 0 18px 38px rgba(0,0,0,0.12) !important;
+    border-color: rgba(30, 57, 42, 0.2);
 }
+
 .package-img-wrapper {
     position: relative;
     width: 100%;
     aspect-ratio: 16/9;
-    margin-bottom: 1rem;
-    border-radius: 4px;
+    margin-bottom: 0;
     overflow: hidden;
+    background: #e8ede9;
 }
+
 .package-img-wrapper img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
     transition: transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
+
+.treatment-card:hover .package-img-wrapper img,
 .package-card:hover .package-img-wrapper img {
     transform: scale(1.08);
 }
+
 .package-img-overlay {
     position: absolute;
     top: 0;
@@ -387,9 +510,11 @@ footer {
     justify-content: center;
     transition: background 0.4s ease;
 }
+
 .package-card:hover .package-img-overlay {
     background: rgba(0,0,0,0.3);
 }
+
 .package-img-overlay h3 {
     color: #ffffff;
     margin: 0;
@@ -400,8 +525,63 @@ footer {
     font-weight: 600;
     transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
+
 .package-card:hover .package-img-overlay h3 {
     transform: scale(1.05);
+}
+
+.treatment-card .duration,
+.package-card .duration {
+    display: inline-block;
+    background: var(--color-primary);
+    color: #ffffff;
+    padding: 0.4rem 1.2rem;
+    border-radius: 20px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.treatment-card:hover .duration,
+.package-card:hover .duration {
+    transform: scale(1.06);
+    box-shadow: 0 4px 12px rgba(30, 57, 42, 0.28);
+}
+
+.treatment-card h3,
+.package-card h3 {
+    transition: color 0.3s ease;
+}
+
+.treatment-card:hover h3,
+.package-card:hover h3 {
+    color: var(--color-primary);
+}
+
+/* Approach Cards (Ayurveda page) */
+.approach-card {
+    background: var(--color-white);
+    padding: 2.5rem 2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.06);
+    text-align: center;
+    transition: transform 0.38s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.38s cubic-bezier(0.25, 0.1, 0.25, 1), border-color 0.35s ease;
+}
+
+.approach-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 36px rgba(0,0,0,0.1) !important;
+    border-color: rgba(30,57,42,0.2);
+}
+
+.approach-card svg {
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.approach-card:hover svg {
+    transform: scale(1.12);
 }
 
 /* Fix mobile menu flex issues with dropdown */
@@ -418,18 +598,29 @@ footer {
     }
 }
 .treatment-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2rem;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+.treatment-card {
+    flex: 0 1 calc(33.333% - 1.4rem);
+    min-width: 300px;
+    max-width: 380px;
+    width: 100%;
 }
 @media (max-width: 992px) {
-    .treatment-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .treatment-card {
+        flex: 0 1 calc(50% - 1.2rem);
+        max-width: 440px;
     }
 }
 @media (max-width: 768px) {
-    .treatment-grid {
-        grid-template-columns: 1fr;
+    .treatment-card {
+        flex: 1 1 100%;
+        max-width: 480px;
     }
 }
 /* Booking Form Styles */

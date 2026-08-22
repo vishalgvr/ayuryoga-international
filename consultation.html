@@ -6,6 +6,111 @@
     <title>Ayurvedic Consultation | Ayuryoga International</title>
     <meta name="description" content="Discover your unique constitution with an in-depth Ayurvedic consultation at Ayuryoga. Get personalized diet and lifestyle recommendations.">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .consultation-intro-img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.6s ease;
+            display: block;
+        }
+        .consultation-intro-img:hover {
+            transform: scale(1.025);
+            box-shadow: 0 18px 40px rgba(0,0,0,0.14);
+        }
+
+        .expect-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .expect-card {
+            background: var(--color-white);
+            padding: 2.5rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.06);
+            box-shadow: 0 4px 18px rgba(0,0,0,0.04);
+            transition: transform 0.38s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.38s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.35s ease;
+        }
+
+        .expect-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 36px rgba(0,0,0,0.09);
+            border-color: rgba(30, 57, 42, 0.22);
+        }
+
+        .expect-icon-wrapper {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--color-secondary-light);
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.35s ease;
+        }
+
+        .expect-card:hover .expect-icon-wrapper {
+            transform: scale(1.12) rotate(4deg);
+            background: rgba(197, 160, 89, 0.22);
+        }
+
+        .practitioners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .practitioner-card {
+            background: var(--color-white);
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+            text-align: center;
+            padding-bottom: 2.2rem;
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.35s ease;
+        }
+
+        .practitioner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 42px rgba(0,0,0,0.13);
+            border-color: rgba(30, 57, 42, 0.25);
+        }
+
+        .practitioner-img-wrapper {
+            width: 100%;
+            height: 330px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .practitioner-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .practitioner-card:hover .practitioner-img-wrapper img {
+            transform: scale(1.06);
+        }
+
+        .practitioner-card .btn-primary {
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .practitioner-card .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(30, 57, 42, 0.3);
+        }
+    </style>
 </head>
 <body>
         <header>
@@ -20,9 +125,13 @@
                         <li><a href="ayurveda.html">Ayurveda</a></li>
                         <li><a href="wellness.html">Wellness</a></li>
                         <li><a href="beauty-care.html">Beauty Care</a></li>
+                        <li><a href="face-care.html">Face Care</a></li>
+                        <li><a href="body-care.html">Body Care</a></li>
+                        <li><a href="hair-care.html">Hair Care</a></li>
+                        <li><a href="hand-foot-care.html">Hand & Foot Care</a></li>
                     </ul>
                 </li>
-                <li><a href="consultation.html">Consultation</a></li>
+                <li><a href="consultation.html" style="color: var(--color-accent);">Consultation</a></li>
                 <li><a href="packages.html">Packages</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
             </ul>
@@ -32,7 +141,7 @@
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                     Book Appointment
                 </a>
-                <a href="https://wa.me/23058074009" class="btn btn-outline whatsapp-btn" style="display: flex; align-items: center; gap: 8px; border-color: #25D366; color: #25D366;">
+                <a href="https://wa.me/23058074009?text=Hello%20Ayuryoga%20International%2C%20I%20would%20like%20to%20book%20an%20appointment.%20Please%20contact%20me%20to%20help%20me%20with%20the%20available%20treatments%2C%20dates%2C%20and%20timings.%0A%0AThank%20you." class="btn btn-outline whatsapp-btn" style="display: flex; align-items: center; gap: 8px; border-color: #25D366; color: #25D366;">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                     WhatsApp Us
                 </a>
@@ -58,7 +167,7 @@
                     <a href="book.html" class="btn btn-primary" style="font-size: 1.1rem; padding: 0.8rem 2rem;">Book Consultation</a>
                 </div>
                 <div style="flex: 1 1 400px;">
-                    <img src="images/gal_moka.png" alt="Ayurvedic Consultation" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                    <img src="images/gal_moka.png" alt="Ayurvedic Consultation" class="consultation-intro-img">
                 </div>
             </div>
         </div>
@@ -67,73 +176,75 @@
     <section class="section-sand">
         <div class="container">
             <h2 style="text-align: center; margin-bottom: 3.5rem; font-size: 3rem; color: var(--color-primary);">What to Expect</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+            <div class="expect-grid">
                 
-                <div class="package-card" style="background: var(--color-white); padding: 2.5rem 2rem; border-radius: 8px; text-align: center;">
-                    <div style="margin-bottom: 1.5rem;">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                <div class="expect-card">
+                    <div class="expect-icon-wrapper">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                     </div>
-                    <h3 style="color: var(--color-primary); font-size: 1.5rem; margin-bottom: 1rem;">In-Depth Assessment</h3>
-                    <p style="opacity: 0.9;">A detailed discussion of your health history, current lifestyle, and specific health concerns.</p>
+                    <h3 style="color: var(--color-primary); font-size: 1.45rem; margin-bottom: 0.8rem;">In-Depth Assessment</h3>
+                    <p style="opacity: 0.88; line-height: 1.6;">A detailed discussion of your health history, current lifestyle, and specific health concerns.</p>
                 </div>
                 
-                <div class="package-card" style="background: var(--color-white); padding: 2.5rem 2rem; border-radius: 8px; text-align: center;">
-                    <div style="margin-bottom: 1.5rem;">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+                <div class="expect-card">
+                    <div class="expect-icon-wrapper">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
                     </div>
-                    <h3 style="color: var(--color-primary); font-size: 1.5rem; margin-bottom: 1rem;">Pulse Diagnosis</h3>
-                    <p style="opacity: 0.9;">Traditional Nadi Pariksha to identify underlying imbalances in your body's energy channels.</p>
+                    <h3 style="color: var(--color-primary); font-size: 1.45rem; margin-bottom: 0.8rem;">Pulse Diagnosis</h3>
+                    <p style="opacity: 0.88; line-height: 1.6;">Traditional Nadi Pariksha to identify underlying imbalances in your body's energy channels.</p>
                 </div>
                 
-                <div class="package-card" style="background: var(--color-white); padding: 2.5rem 2rem; border-radius: 8px; text-align: center;">
-                    <div style="margin-bottom: 1.5rem;">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                <div class="expect-card">
+                    <div class="expect-icon-wrapper">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                     </div>
-                    <h3 style="color: var(--color-primary); font-size: 1.5rem; margin-bottom: 1rem;">Personalized Plan</h3>
-                    <p style="opacity: 0.9;">Customized dietary advice, herbal recommendations, and a tailored therapy schedule.</p>
+                    <h3 style="color: var(--color-primary); font-size: 1.45rem; margin-bottom: 0.8rem;">Personalized Plan</h3>
+                    <p style="opacity: 0.88; line-height: 1.6;">Customized dietary advice, herbal recommendations, and a tailored therapy schedule.</p>
                 </div>
                 
-                <div class="package-card" style="background: var(--color-white); padding: 2.5rem 2rem; border-radius: 8px; text-align: center;">
-                    <div style="margin-bottom: 1.5rem;">
-                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <div class="expect-card">
+                    <div class="expect-icon-wrapper">
+                        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                     </div>
-                    <h3 style="color: var(--color-primary); font-size: 1.5rem; margin-bottom: 1rem;">Follow-Up</h3>
-                    <p style="opacity: 0.9;">Ongoing support and adjustments to your wellness plan as your body responds and heals.</p>
+                    <h3 style="color: var(--color-primary); font-size: 1.45rem; margin-bottom: 0.8rem;">Follow-Up</h3>
+                    <p style="opacity: 0.88; line-height: 1.6;">Ongoing support and adjustments to your wellness plan as your body responds and heals.</p>
                 </div>
                 
             </div>
         </div>
     </section>
 
-    <section class="section-light" style="padding-top: 4rem; padding-bottom: 4rem;">
+    <section class="section-light" style="padding-top: 4.5rem; padding-bottom: 4.5rem;">
         <div class="container">
             <h2 style="text-align: center; margin-bottom: 3.5rem; font-size: 3rem; color: var(--color-primary);">Our Practitioners</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; max-width: 900px; margin: 0 auto;">
+            <div class="practitioners-grid">
                 
-                <!-- Doctor 1 (Moka) -->
-                <div style="background: var(--color-white); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; padding-bottom: 2rem;">
-                    <img src="https://placehold.co/400x300/E6D5B8/2C3E35?text=Dr.+Example+1" alt="Doctor 1" style="width: 100%; height: 300px; object-fit: cover; margin-bottom: 1.5rem;">
+                <!-- Doctor 1 (Dr. Anoop - Moka) -->
+                <div class="practitioner-card">
+                    <div class="practitioner-img-wrapper">
+                        <img src="images/doc_anoop.jpg" alt="Dr. Anoop - Moka Clinic">
+                    </div>
                     <div style="padding: 0 2rem;">
-                        <h3 style="color: var(--color-primary); font-size: 1.5rem; margin-bottom: 0.5rem;">Dr. Name One</h3>
-                        <p style="color: var(--color-accent); font-weight: 600; margin-bottom: 1rem;">Moka Clinic</p>
-                        <p style="opacity: 0.9; margin-bottom: 1rem;">Expert in Ayurvedic pulse diagnosis and holistic lifestyle management with over 10 years of clinical experience.</p>
-                        <div style="margin-bottom: 1.5rem; font-weight: 600; font-size: 1.1rem; color: var(--color-text);">Consultation Fee: MUR 500</div>
-                        <a href="https://wa.me/23058074009" class="btn btn-primary" style="width: 100%; display: flex; justify-content: center; align-items: center; gap: 8px;">
+                        <h3 style="color: var(--color-primary); font-size: 1.6rem; margin-bottom: 0.6rem;">Dr. Anoop</h3>
+                        <p style="color: var(--color-text); font-size: 1rem; font-weight: 500; margin-bottom: 0.4rem;"><strong>Qualification:</strong> BAMS</p>
+                        <p style="color: var(--color-accent); font-weight: 600; font-size: 1.05rem; margin-bottom: 1.5rem;"><strong>Location:</strong> Moka Clinic</p>
+                        <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20an%20Ayurvedic%20Consultation%20with%20Dr.%20Anoop%20at%20Moka" class="btn btn-primary" style="width: 100%; display: flex; justify-content: center; align-items: center; gap: 8px;">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                             Book Now (Moka)
                         </a>
                     </div>
                 </div>
 
-                <!-- Doctor 2 (Grand Baie) -->
-                <div style="background: var(--color-white); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; padding-bottom: 2rem;">
-                    <img src="https://placehold.co/400x300/E6D5B8/2C3E35?text=Dr.+Example+2" alt="Doctor 2" style="width: 100%; height: 300px; object-fit: cover; margin-bottom: 1.5rem;">
+                <!-- Doctor 2 (Dr. Naveen - Grand Baie) -->
+                <div class="practitioner-card">
+                    <div class="practitioner-img-wrapper">
+                        <img src="images/doc_naveen.jpg" alt="Dr. Naveen - Grand Baie Clinic">
+                    </div>
                     <div style="padding: 0 2rem;">
-                        <h3 style="color: var(--color-primary); font-size: 1.5rem; margin-bottom: 0.5rem;">Dr. Name Two</h3>
-                        <p style="color: var(--color-accent); font-weight: 600; margin-bottom: 1rem;">Grand Baie Clinic</p>
-                        <p style="opacity: 0.9; margin-bottom: 1rem;">Specialist in Panchakarma therapies and Ayurvedic dietetics, dedicated to restoring balance and vitality.</p>
-                        <div style="margin-bottom: 1.5rem; font-weight: 600; font-size: 1.1rem; color: var(--color-text);">Consultation Fee: MUR 500</div>
-                        <a href="https://wa.me/23059429564" class="btn btn-primary" style="width: 100%; display: flex; justify-content: center; align-items: center; gap: 8px;">
+                        <h3 style="color: var(--color-primary); font-size: 1.6rem; margin-bottom: 0.6rem;">Dr. Naveen</h3>
+                        <p style="color: var(--color-text); font-size: 1rem; font-weight: 500; margin-bottom: 0.4rem;"><strong>Qualification:</strong> BAMS</p>
+                        <p style="color: var(--color-accent); font-weight: 600; font-size: 1.05rem; margin-bottom: 1.5rem;"><strong>Location:</strong> Grand Baie Clinic</p>
+                        <a href="https://wa.me/23059429564?text=Hello,%20I%20would%20like%20to%20book%20an%20Ayurvedic%20Consultation%20with%20Dr.%20Naveen%20at%20Grand%20Baie" class="btn btn-primary" style="width: 100%; display: flex; justify-content: center; align-items: center; gap: 8px;">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
                             Book Now (Grand Baie)
                         </a>
@@ -173,11 +284,11 @@
                     </div>
                     <div class="footer-location">
                         <strong>Grand Baie</strong>
-                        <p style="opacity: 0.8; font-size: 0.9rem;">Leclezio Avenue, Moka</p>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Lorient Lane, Grand Baie</p>
                     </div>
                     <div class="footer-location">
                         <strong>Curepipe</strong>
-                        <p style="opacity: 0.8; font-size: 0.9rem;">Leclezio Avenue, Curepipe</p>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Central Curepipe</p>
                     </div>
                 </div>
                 

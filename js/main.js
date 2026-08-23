@@ -63,8 +63,262 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Floating Connect Hub Interaction (Desktop, Laptop, Tablet, Mobile, TV)
+    const hubWidget = document.getElementById('floatingHubWidget');
+    const hubTrigger = document.getElementById('floatingHubTrigger');
+    if (hubTrigger && hubWidget) {
+        function openHub() {
+            hubWidget.classList.remove('closed');
+            hubWidget.classList.add('active');
+            hubTrigger.setAttribute('aria-expanded', 'true');
+        }
+
+        function closeHub() {
+            hubWidget.classList.remove('active');
+            hubWidget.classList.add('closed');
+            hubTrigger.setAttribute('aria-expanded', 'false');
+        }
+
+        hubTrigger.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (hubWidget.classList.contains('active')) {
+                closeHub();
+            } else {
+                openHub();
+            }
+        });
+
+        // Reset closed state when pointer leaves the widget area so hover functions normally
+        hubWidget.addEventListener('mouseleave', () => {
+            if (!hubWidget.classList.contains('active')) {
+                hubWidget.classList.remove('closed');
+            }
+        });
+
+        // Close on clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hubWidget.contains(e.target)) {
+                closeHub();
+            }
+        });
+
+        // Close on Escape key press (on any screen / TV remote)
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' || e.key === 'Esc') {
+                closeHub();
+            }
+        });
+    }
+
+    // Hero Slider (Infinite Loop with Mouse Click & Drag and Swipe Support)
+    const track = document.getElementById('heroTrack');
+    const allSlideElements = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.slider-dot');
+    const prevBtn = document.getElementById('prevSlide');
+    const nextBtn = document.getElementById('nextSlide');
+    const sliderSection = document.getElementById('home-slider');
+
+    if (track && allSlideElements.length >= 4) {
+        // Track order: [0: Clone 2, 1: Real 1, 2: Real 2, 3: Clone 1]
+        let currentIndex = 1;
+        let isTransitioning = false;
+        let slideInterval = null;
+
+        function updateActiveState(realIndex) {
+            allSlideElements.forEach((slide) => {
+                slide.classList.toggle('active', parseInt(slide.dataset.slide) === realIndex);
+            });
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === realIndex);
+            });
+        }
+
+        function moveToSlide(index, animate = true) {
+            if (animate) {
+                track.style.transition = 'transform 0.85s cubic-bezier(0.22, 1, 0.36, 1)';
+            } else {
+                track.style.transition = 'none';
+            }
+            track.style.transform = `translateX(-${index * 25}%)`;
+            currentIndex = index;
+
+            let realIndex = 0;
+            if (index === 0 || index === 2) realIndex = 1;
+            else if (index === 1 || index === 3) realIndex = 0;
+            updateActiveState(realIndex);
+        }
+
+        // Slide to left (advances to next slide: index increases)
+        function slideToLeft() {
+            if (isTransitioning) return;
+            isTransitioning = true;
+            moveToSlide(currentIndex + 1, true);
+        }
+
+        // Slide to right (moves to previous slide: index decreases)
+        function slideToRight() {
+            if (isTransitioning) return;
+            isTransitioning = true;
+            moveToSlide(currentIndex - 1, true);
+        }
+
+        track.addEventListener('transitionend', () => {
+            isTransitioning = false;
+            // Seamless infinite wrap when reaching clones
+            if (currentIndex === 3) {
+                moveToSlide(1, false);
+            } else if (currentIndex === 0) {
+                moveToSlide(2, false);
+            }
+        });
+
+        function startAutoSlide() {
+            if (!slideInterval) {
+                slideInterval = setInterval(slideToLeft, 3000);
+            }
+        }
+
+        function stopAutoSlide() {
+            if (slideInterval) {
+                clearInterval(slideInterval);
+                slideInterval = null;
+            }
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                slideToLeft();
+                stopAutoSlide();
+                startAutoSlide();
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                slideToRight();
+                stopAutoSlide();
+                startAutoSlide();
+            });
+        }
+
+        dots.forEach((dot, dotIndex) => {
+            dot.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (isTransitioning) return;
+                let targetIndex = dotIndex === 0 ? 1 : 2;
+                isTransitioning = true;
+                moveToSlide(targetIndex, true);
+                stopAutoSlide();
+                startAutoSlide();
+            });
+        });
+
+        if (sliderSection) {
+            let isDragging = false;
+            let startX = 0;
+            let currentX = 0;
+            let dragDeltaX = 0;
+            let isDragAction = false;
+
+            // Pause auto-sliding on hover
+            sliderSection.addEventListener('mouseenter', () => {
+                if (!isDragging) stopAutoSlide();
+            });
+            sliderSection.addEventListener('mouseleave', () => {
+                if (!isDragging) startAutoSlide();
+            });
+
+            // Pointer events for smooth mouse click-and-drag and touch gestures
+            sliderSection.addEventListener('pointerdown', (e) => {
+                if (e.pointerType === 'mouse' && e.button !== 0) return;
+                if (isTransitioning) return;
+
+                isDragging = true;
+                isDragAction = false;
+                startX = e.clientX;
+                currentX = e.clientX;
+                dragDeltaX = 0;
+
+                stopAutoSlide();
+                track.style.transition = 'none';
+                sliderSection.classList.add('is-dragging');
+
+                if (sliderSection.setPointerCapture) {
+                    try {
+                        sliderSection.setPointerCapture(e.pointerId);
+                    } catch (err) {}
+                }
+            });
+
+            sliderSection.addEventListener('pointermove', (e) => {
+                if (!isDragging) return;
+                currentX = e.clientX;
+                dragDeltaX = currentX - startX;
+
+                if (Math.abs(dragDeltaX) > 8) {
+                    isDragAction = true;
+                }
+
+                const sectionWidth = sliderSection.clientWidth || window.innerWidth;
+                const dragPercent = (dragDeltaX / sectionWidth) * 25;
+                const currentPercent = -currentIndex * 25 + dragPercent;
+
+                track.style.transform = `translateX(${currentPercent}%)`;
+            });
+
+            const endDrag = (e) => {
+                if (!isDragging) return;
+                isDragging = false;
+                sliderSection.classList.remove('is-dragging');
+
+                if (e && e.pointerId && sliderSection.releasePointerCapture) {
+                    try {
+                        sliderSection.releasePointerCapture(e.pointerId);
+                    } catch (err) {}
+                }
+
+                const sectionWidth = sliderSection.clientWidth || window.innerWidth;
+                const threshold = Math.min(60, sectionWidth * 0.1);
+
+                if (dragDeltaX < -threshold) {
+                    // Dragged Left -> next slide
+                    slideToLeft();
+                } else if (dragDeltaX > threshold) {
+                    // Dragged Right -> previous slide
+                    slideToRight();
+                } else {
+                    // Snap back smoothly to current slide
+                    moveToSlide(currentIndex, true);
+                }
+
+                setTimeout(() => {
+                    isDragAction = false;
+                    dragDeltaX = 0;
+                }, 100);
+
+                startAutoSlide();
+            };
+
+            sliderSection.addEventListener('pointerup', endDrag);
+            sliderSection.addEventListener('pointercancel', endDrag);
+
+            // Prevent link clicks during drag gestures
+            sliderSection.addEventListener('click', (e) => {
+                if (isDragAction || Math.abs(dragDeltaX) > 8) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+            }, true);
+        }
+
+        // Initialize position on real slide 1
+        moveToSlide(1, false);
+        startAutoSlide();
+    }
+
     // Luxury Scroll Animations
-    const animatedElements = document.querySelectorAll('h1, h2, h3, .service-card, .therapy-card, .review-card, .faq-item, .google-badge-card, .trust-item, .treatment-card, .menu-item, .physio-card, .package-card, .location-card, .gallery-item, .hero p, .section-header p');
+    const animatedElements = document.querySelectorAll('h2, h3, .service-card, .therapy-card, .review-card, .faq-item, .google-badge-card, .trust-item, .treatment-card, .menu-item, .physio-card, .package-card, .location-card, .gallery-item, .section-header p');
     
     animatedElements.forEach((el, index) => {
         el.classList.add('fade-up');

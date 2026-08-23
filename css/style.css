@@ -661,3 +661,355 @@ textarea.form-control {
 @media (max-width: 768px) {
     .form-row { grid-template-columns: 1fr; gap: 0; }
 }
+
+/* Floating Connect Hub (Bottom-Right on all screens: Laptop, Desktop, Tab, Television) */
+.floating-hub-widget {
+    position: fixed !important;
+    right: 28px;
+    bottom: 28px;
+    right: max(28px, env(safe-area-inset-right, 28px));
+    bottom: max(28px, env(safe-area-inset-bottom, 28px));
+    left: auto !important;
+    top: auto !important;
+    z-index: 999999;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    gap: 12px;
+    pointer-events: none; /* Allows click-through outside interactive children */
+}
+
+/* Main Trigger Button (Chat Bubble) */
+.floating-hub-trigger {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-primary), #2a4f3a);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(30, 57, 42, 0.35);
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease, background 0.3s ease;
+    outline: none;
+    padding: 0;
+    pointer-events: auto;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.floating-hub-trigger:hover,
+.floating-hub-widget.active .floating-hub-trigger {
+    transform: scale(1.08);
+    box-shadow: 0 12px 30px rgba(30, 57, 42, 0.45);
+    background: linear-gradient(135deg, #162c20, #224331);
+}
+
+.floating-hub-trigger:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 4px;
+}
+
+/* Pulsing animated ring */
+.hub-pulse-ring {
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border-radius: 50%;
+    border: 2px solid var(--color-accent);
+    animation: hubPulse 2.4s infinite cubic-bezier(0.24, 0, 0.38, 1);
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+@keyframes hubPulse {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.9;
+    }
+    50% {
+        transform: scale(1.28);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1.28);
+        opacity: 0;
+    }
+}
+
+.hub-icon-open,
+.hub-icon-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    pointer-events: none;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;
+}
+
+.hub-icon-close {
+    opacity: 0;
+    transform: rotate(-90deg) scale(0.6);
+}
+
+/* Active Open / Close states */
+.floating-hub-widget.active .hub-icon-open {
+    opacity: 0;
+    transform: rotate(90deg) scale(0.6);
+}
+
+.floating-hub-widget.active .hub-icon-close {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+}
+
+/* Expanded Menu */
+.floating-hub-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-end;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.85);
+    transform-origin: bottom right;
+    transition: opacity 0.3s cubic-bezier(0.25, 1, 0.5, 1), transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), visibility 0.3s;
+    pointer-events: none;
+    padding-bottom: 4px;
+}
+
+.floating-hub-widget.active .floating-hub-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+/* Hover reveal on pointer/mouse devices when not explicitly closed */
+@media (hover: hover) and (pointer: fine) {
+    .floating-hub-widget:not(.closed):hover .floating-hub-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+    }
+    .floating-hub-widget:not(.closed):hover .floating-hub-trigger {
+        transform: scale(1.08);
+        box-shadow: 0 12px 30px rgba(30, 57, 42, 0.45);
+        background: linear-gradient(135deg, #162c20, #224331);
+    }
+    .floating-hub-widget:not(.closed):hover .hub-icon-open {
+        opacity: 0;
+        transform: rotate(90deg) scale(0.6);
+    }
+    .floating-hub-widget:not(.closed):hover .hub-icon-close {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+    }
+}
+
+/* Option item row */
+.floating-hub-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    pointer-events: auto;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.floating-hub-item:hover {
+    transform: translateX(-5px);
+}
+
+.floating-hub-item:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 24px;
+}
+
+/* Label Pill */
+.hub-label {
+    background: rgba(17, 34, 28, 0.95);
+    color: #ffffff;
+    font-size: 0.82rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    letter-spacing: 0.3px;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.floating-hub-item:hover .hub-label {
+    background: #11221c;
+    color: var(--color-accent);
+}
+
+/* Icon Circle */
+.hub-icon-circle {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    flex-shrink: 0;
+}
+
+.floating-hub-item:hover .hub-icon-circle {
+    transform: scale(1.12);
+}
+
+/* Channel color styles */
+.hub-call .hub-icon-circle {
+    background: linear-gradient(135deg, #1E392A, #2f5a43);
+}
+.hub-call:hover .hub-icon-circle {
+    box-shadow: 0 8px 22px rgba(30, 57, 42, 0.5);
+}
+
+.hub-whatsapp .hub-icon-circle {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+}
+.hub-whatsapp:hover .hub-icon-circle {
+    box-shadow: 0 8px 22px rgba(37, 211, 102, 0.5);
+}
+
+.hub-facebook .hub-icon-circle {
+    background: linear-gradient(135deg, #1877F2, #0d5ec4);
+}
+.hub-facebook:hover .hub-icon-circle {
+    box-shadow: 0 8px 22px rgba(24, 119, 242, 0.5);
+}
+
+.hub-instagram .hub-icon-circle {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+.hub-instagram:hover .hub-icon-circle {
+    box-shadow: 0 8px 22px rgba(214, 36, 159, 0.5);
+}
+
+/* -------------------------------------------------------------
+   DEVICE & SCREEN-SIZE SPECIFIC RULES:
+   Televisions, Large Displays, Desktops, Laptops, Tablets, Mobiles
+---------------------------------------------------------------- */
+
+/* 1. Televisions, 4K & Ultra-Wide Displays (min-width: 1920px) */
+@media (min-width: 1920px) {
+    .floating-hub-widget {
+        right: clamp(32px, 2.5vw, 56px);
+        bottom: clamp(32px, 2.5vw, 56px);
+        gap: 14px;
+    }
+    .floating-hub-trigger {
+        width: 66px;
+        height: 66px;
+        box-shadow: 0 10px 30px rgba(30, 57, 42, 0.4);
+    }
+    .hub-icon-circle {
+        width: 50px;
+        height: 50px;
+    }
+    .hub-label {
+        font-size: 0.9rem;
+        padding: 7px 16px;
+    }
+}
+
+/* 2. Extra Large / 4K / 8K TV Displays (min-width: 2560px) */
+@media (min-width: 2560px) {
+    .floating-hub-widget {
+        right: clamp(40px, 3vw, 72px);
+        bottom: clamp(40px, 3vw, 72px);
+        gap: 16px;
+    }
+    .floating-hub-trigger {
+        width: 76px;
+        height: 76px;
+    }
+    .hub-icon-circle {
+        width: 56px;
+        height: 56px;
+    }
+    .hub-label {
+        font-size: 1rem;
+        padding: 8px 18px;
+    }
+}
+
+/* 3. Tablets & Small Laptops (769px to 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .floating-hub-widget {
+        right: max(24px, env(safe-area-inset-right, 24px));
+        bottom: max(24px, env(safe-area-inset-bottom, 24px));
+        gap: 10px;
+    }
+    .floating-hub-trigger {
+        width: 58px;
+        height: 58px;
+    }
+    .hub-icon-circle {
+        width: 44px;
+        height: 44px;
+    }
+    .hub-label {
+        font-size: 0.8rem;
+        padding: 5px 12px;
+    }
+}
+
+/* 4. Mobile Devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .floating-hub-widget {
+        right: max(16px, env(safe-area-inset-right, 16px));
+        bottom: max(20px, env(safe-area-inset-bottom, 20px));
+        gap: 10px;
+    }
+    .floating-hub-trigger {
+        width: 54px;
+        height: 54px;
+    }
+    .hub-icon-circle {
+        width: 42px;
+        height: 42px;
+    }
+    .hub-label {
+        font-size: 0.78rem;
+        padding: 5px 12px;
+    }
+}
+
+/* 5. Compact Mobile Screens (max-width: 380px) */
+@media (max-width: 380px) {
+    .floating-hub-widget {
+        right: max(12px, env(safe-area-inset-right, 12px));
+        bottom: max(16px, env(safe-area-inset-bottom, 16px));
+        gap: 8px;
+    }
+    .floating-hub-trigger {
+        width: 48px;
+        height: 48px;
+    }
+    .hub-icon-circle {
+        width: 38px;
+        height: 38px;
+    }
+    .hub-label {
+        font-size: 0.74rem;
+        padding: 4px 10px;
+    }
+}
+

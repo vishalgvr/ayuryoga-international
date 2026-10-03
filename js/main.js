@@ -400,51 +400,51 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Ayurvedic Doctor Consultation'
             ],
             wellness: [
-                'Ayur Relax (Massage + Steam)',
-                'Abhyangam Wellness Massage',
-                'Swedish Massage',
-                'Deep Tissue Massage',
-                'Aroma Massage',
-                'Stone Massage',
-                'Reflexology Massage',
-                'Herbal Steam Bath',
-                'Sanjeevani Therapy',
-                'Aishwarya Treatment'
+                'Ayur Soukya (120 min · Rs 3,600.00)',
+                'Punarjeeva (120 min · Rs 3,600.00)',
+                'Vayasthapana (Geriatric Vitality 55+) (100 min · Rs 2,800.00)',
+                'Navajeevan (90 min · Rs 2,700.00)',
+                'Aishwarya (90 min · Rs 2,700.00)',
+                'Divya Dhara (90 min · Rs 2,700.00)',
+                'Sanjeevani (90 min · Rs 2,700.00)',
+                'Manasamitram (90 min · Rs 2,700.00)',
+                'Nirvana - Stress Buster (90 min · Rs 2,700.00)',
+                'Ayurvedic Body Scrub (60 min · Rs 1,800.00)',
+                'Manasanthi (60 min · Rs 1,800.00)',
+                'Rujahari (60 min · Rs 1,800.00)',
+                'Ayur Relax (60 min · Rs 1,800.00)',
+                'Head, Neck, Shoulder & Foot Reflexology (60 min · Rs 1,800.00)',
+                'Padamruta (45 min · Rs 1,200.00)'
             ],
             beauty: [
                 'Herbal Body Scrub',
                 'Navara Facial (Ayurvedic Facial)',
                 'Panchagavya Facial',
-                'Deep Cleansing Herbal Facial',
-                'Anti-Aging Herbal Facial',
-                'Natural Hair & Scalp Treatment',
-                'Fruit & Herbal Face Pack'
+                'Red Sandal Facial',
+                'Manjishta Facial',
+                'Keshavardhini - Hair Strengthening',
+                'Herbal Hair Pack'
             ],
             facecare: [
                 'Njavara Facial (60 min · Rs 1,500.00)',
                 'Panchagavya Facial (60 min · Rs 1,500.00)',
                 'Red Sandal Facial (60 min · Rs 1,500.00)',
-                'Deep Cleansing Facial (60 min · Rs 1,500.00)',
-                'Anti-Aging Facial (60 min · Rs 1,500.00)',
-                'Brightening Facial (60 min · Rs 1,500.00)',
                 'Manjishta Facial (60 min · Rs 1,800.00)',
                 'Eladi Facial (60 min · Rs 1,800.00)',
                 'Nalpamaradi Facial (60 min · Rs 1,800.00)',
-                'Threading (10 min · Rs 90.00)'
+                'Mukhakanti (Ayurvedic Facial) (60 min · Rs 1,800.00)'
             ],
             bodycare: [
                 'Herbal Body Scrub (60 min · Rs 1,980.00)'
             ],
             haircare: [
-                'Herbal Hair Pack (30 min · Rs 1,200.00)',
-                'Keshavardhini - Hair Strengthening (60 min · Rs 1,800.00)'
+                'Keshavardhini - Hair Strengthening (60 min · Rs 1,800.00)',
+                'Herbal Hair Pack (30 min · Rs 1,200.00)'
             ],
             handfoot: [
                 'Pedicure & Manicure (90 min · Rs 1,800.00)',
                 'Pedicure (60 min · Rs 1,440.00)',
-                'Manicure (30 min · Rs 600.00)',
-                'Royal Pedicure (60 min · Rs 1,800.00)',
-                'Paraffin Foot Spa (90 min · Rs 2,160.00)'
+                'Manicure (30 min · Rs 600.00)'
             ],
             packages: [
                 'Ayur Relax (60 min · Rs 1,800.00)',
@@ -580,4 +580,139 @@ document.addEventListener('DOMContentLoaded', () => {
             window.open(`https://wa.me/23058074009?text=${msg}`, '_blank');
         });
     }
+
+    // =========================================================================
+    // Booking Choice Modal (Modal with "Book Online" and "Book on WhatsApp")
+    // =========================================================================
+    function initBookingChoiceModal() {
+        let modal = document.getElementById('bookingChoiceModal');
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.id = 'bookingChoiceModal';
+            modal.className = 'booking-choice-modal';
+            modal.setAttribute('aria-hidden', 'true');
+            modal.setAttribute('role', 'dialog');
+            modal.setAttribute('aria-modal', 'true');
+            modal.setAttribute('aria-labelledby', 'bookingModalTitle');
+            modal.innerHTML = `
+                <div class="booking-modal-overlay" id="bookingModalOverlay"></div>
+                <div class="booking-modal-card">
+                    <button type="button" class="booking-modal-close" id="closeBookingModal" aria-label="Close booking options">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                    
+                    <div class="booking-modal-header">
+                        <div class="booking-modal-badge">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path>
+                            </svg>
+                            <span>Ayuryoga Reservation</span>
+                        </div>
+                        <h3 id="bookingModalTitle" class="booking-modal-title">Book Appointment</h3>
+                        <p class="booking-modal-subtitle">Choose how you would like to schedule your session with our certified wellness practitioners.</p>
+                    </div>
+
+                    <div class="booking-options-grid">
+                        <!-- Option 1: Book Online -->
+                        <a href="book.html" class="booking-option-card option-online" id="modalBookOnlineBtn">
+                            <div class="booking-option-icon-box">
+                                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                    <line x1="16" y1="2" x2="16" y2="6"></line>
+                                    <line x1="8" y1="2" x2="8" y2="6"></line>
+                                    <line x1="3" y1="10" x2="21" y2="10"></line>
+                                </svg>
+                            </div>
+                            <div class="booking-option-info">
+                                <div class="booking-option-tag">Online Reservation</div>
+                                <h4 class="booking-option-name">Book Online</h4>
+                                <p class="booking-option-desc">Fill out our step-by-step form to select your preferred location, therapy, date and time.</p>
+                            </div>
+                            <div class="booking-option-arrow">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </div>
+                        </a>
+
+                        <!-- Option 2: Book on WhatsApp -->
+                        <a href="https://wa.me/23058074009?text=Hello%20Ayuryoga%20International%2C%20I%20would%20like%20to%20book%20an%20appointment.%20Please%20contact%20me%20to%20help%20me%20with%20the%20available%20treatments%2C%20dates%2C%20and%20timings.%0A%0AThank%20you." target="_blank" rel="noopener noreferrer" class="booking-option-card option-whatsapp" id="modalBookWhatsappBtn">
+                            <div class="booking-option-icon-box">
+                                <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                                </svg>
+                            </div>
+                            <div class="booking-option-info">
+                                <div class="booking-option-tag tag-whatsapp">Instant WhatsApp</div>
+                                <h4 class="booking-option-name">Book on WhatsApp</h4>
+                                <p class="booking-option-desc">Connect directly with our wellness concierge team on WhatsApp for instant confirmation.</p>
+                            </div>
+                            <div class="booking-option-arrow">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="booking-modal-footer">
+                        <span>Prefer to speak directly? Call us at <a href="tel:+23058074009">+230 58074009</a></span>
+                    </div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+        }
+
+        const overlay = modal.querySelector('.booking-modal-overlay');
+        const closeBtn = modal.querySelector('.booking-modal-close');
+        const onlineBtn = modal.querySelector('#modalBookOnlineBtn');
+        const waBtn = modal.querySelector('#modalBookWhatsappBtn');
+
+        function openModal(e) {
+            if (e) e.preventDefault();
+            modal.classList.add('active');
+            modal.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            modal.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        if (overlay) overlay.addEventListener('click', closeModal);
+        if (closeBtn) closeBtn.addEventListener('click', closeModal);
+        if (onlineBtn) {
+            onlineBtn.addEventListener('click', () => {
+                closeModal();
+            });
+        }
+        if (waBtn) {
+            waBtn.addEventListener('click', () => {
+                closeModal();
+            });
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Attach event listeners to all "Book Appointment" buttons in header and designated triggers
+        const triggerButtons = document.querySelectorAll('.header-ctas a[href*="book"], .nav-book-btn, [data-open-booking-modal], .open-booking-choice');
+        triggerButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                openModal(e);
+            });
+        });
+    }
+
+    initBookingChoiceModal();
 });

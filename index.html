@@ -8,8 +8,8 @@
     <meta name="keywords" content="Ayurveda in Mauritius, Ayurvedic treatment Mauritius, Ayurveda center Mauritius, Ayurvedic massage Mauritius, Wellness center Mauritius, Ayurvedic massage Moka, Ayurveda Grand Baie, Wellness Grand Baie, Ayurveda Curepipe">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="apple-touch-icon" href="images/favicon.png">
+    <link rel="icon" type="image/webp" href="images/favicon.webp">
+    <link rel="apple-touch-icon" href="images/favicon.webp">
     
     <link rel="stylesheet" href="css/style.css">
     
@@ -74,10 +74,10 @@
             -webkit-user-drag: none;
         }
         .hero-slide-1 {
-            background: linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)), url('images/slider 1.jpg') center center / cover no-repeat !important;
+            background: linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)), url('images/slider_1.webp') center center / cover no-repeat !important;
         }
         .hero-slide-2 {
-            background: linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)), url('images/slider 3.jpg') center center / cover no-repeat !important;
+            background: linear-gradient(rgba(0, 0, 0, 0.70), rgba(0, 0, 0, 0.70)), url('images/slider_3.webp') center center / cover no-repeat !important;
         }
         .hero-slide-content {
             max-width: 840px;
@@ -562,6 +562,85 @@
             border-top: 1px solid rgba(30, 57, 42, 0.06);
             padding-top: 1.1rem;
         }
+
+        /* Special Offer Advertisement Section */
+        .offer-ad-section {
+            background: linear-gradient(180deg, #FAF8F5 0%, #F5EFE6 50%, #FAF8F5 100%);
+            padding: 5.5rem 0;
+            position: relative;
+            border-top: 1px solid rgba(167, 29, 42, 0.08);
+            border-bottom: 1px solid rgba(167, 29, 42, 0.08);
+        }
+        .offer-ad-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        .offer-ad-header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .offer-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, #a71d2a 0%, #c83226 100%);
+            color: #ffffff;
+            padding: 0.45rem 1.4rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 14px rgba(167, 29, 42, 0.25);
+            margin-bottom: 1rem;
+        }
+        .offer-ad-card {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+            transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+            background: #ffffff;
+            display: block;
+            text-decoration: none;
+            border: 2px solid rgba(212, 163, 89, 0.35);
+        }
+        .offer-ad-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 28px 60px rgba(167, 29, 42, 0.22);
+            border-color: rgba(167, 29, 42, 0.6);
+        }
+        .offer-ad-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            vertical-align: middle;
+        }
+        .offer-ad-cta {
+            margin-top: 2.5rem;
+            text-align: center;
+        }
+        .btn-offer {
+            background: linear-gradient(135deg, #a71d2a 0%, #c83226 100%);
+            color: #ffffff !important;
+            padding: 1.1rem 2.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 24px rgba(167, 29, 42, 0.32);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .btn-offer:hover {
+            background: linear-gradient(135deg, #8a1520 0%, #b32a1f 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 14px 32px rgba(167, 29, 42, 0.45);
+        }
         
         @media (max-width: 1024px) {
             .reviews-grid { grid-template-columns: repeat(2, 1fr); }
@@ -572,6 +651,8 @@
             .stats-grid { grid-template-columns: 1fr 1fr; }
             .treatment-list { grid-template-columns: 1fr; }
             .reviews-grid { grid-template-columns: 1fr; }
+            .offer-ad-section { padding: 3.5rem 0; }
+            .btn-offer { width: 100%; justify-content: center; padding: 1rem 1.5rem; font-size: 1rem; }
         }
     </style>
 </head>
@@ -580,20 +661,24 @@
     <!-- Header -->
         <header>
         <div class="header-container">
-            <a href="index.html" class="logo"><img src="images/logo_light_2.png" alt="Ayuryoga" style="height: 50px; width: auto;"></a>
+            <a href="index.html" class="logo"><img src="images/logo_light_2.webp" alt="Ayuryoga" style="height: 50px; width: auto;"></a>
             
             <ul class="nav-menu">
                 <li><a href="about.html">About</a></li>
+                <li><a href="history.html">History</a></li>
                 <li class="dropdown">
                     <a href="therapies.html">Therapies <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px;"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <ul class="dropdown-menu">
                         <li><a href="ayurveda.html">Ayurveda</a></li>
                         <li><a href="wellness.html">Wellness</a></li>
+                        <li class="nav-sub-item"><a href="wellness-western.html">Western Massages</a></li>
+                        <li class="nav-sub-item"><a href="wellness-ayurveda.html">Ayurvedic Wellness</a></li>
+                        <li class="nav-divider"></li>
                         <li><a href="beauty-care.html">Beauty Care</a></li>
-                        <li><a href="face-care.html">Face Care</a></li>
-                        <li><a href="body-care.html">Body Care</a></li>
-                        <li><a href="hair-care.html">Hair Care</a></li>
-                        <li><a href="hand-foot-care.html">Hand & Foot Care</a></li>
+                        <li class="nav-sub-item"><a href="face-care.html">Face Care</a></li>
+                        <li class="nav-sub-item"><a href="body-care.html">Body Care</a></li>
+                        <li class="nav-sub-item"><a href="hair-care.html">Hair Care</a></li>
+                        <li class="nav-sub-item"><a href="hand-foot-care.html">Hand & Foot Care</a></li>
                     </ul>
                 </li>
                 <li><a href="consultation.html">Consultation</a></li>
@@ -605,10 +690,6 @@
                 <a href="book.html" class="btn btn-primary" style="display: flex; align-items: center; gap: 8px;">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                     Book Appointment
-                </a>
-                <a href="https://wa.me/23058074009?text=Hello%20Ayuryoga%20International%2C%20I%20would%20like%20to%20book%20an%20appointment.%20Please%20contact%20me%20to%20help%20me%20with%20the%20available%20treatments%2C%20dates%2C%20and%20timings.%0A%0AThank%20you." class="btn btn-outline whatsapp-btn" style="display: flex; align-items: center; gap: 8px; border-color: #25D366; color: #25D366;">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                    WhatsApp Us
                 </a>
             </div>
             
@@ -752,7 +833,7 @@
                 <!-- Row 1: Card 1 -->
                 <div class="therapy-card">
                     <div class="therapy-card-media">
-                        <img src="images/card_ayurveda.png" alt="Classical Ayurveda" loading="lazy">
+                        <img src="images/card_ayurveda.webp" alt="Classical Ayurveda" loading="lazy">
                     </div>
                     <div class="therapy-card-body">
                         <h3 class="therapy-card-title">Classical Ayurveda</h3>
@@ -766,7 +847,7 @@
                 <!-- Row 1: Card 2 -->
                 <div class="therapy-card">
                     <div class="therapy-card-media">
-                        <img src="images/card_wellness.png" alt="Restorative Wellness" loading="lazy">
+                        <img src="images/card_wellness.webp" alt="Restorative Wellness" loading="lazy">
                     </div>
                     <div class="therapy-card-body">
                         <h3 class="therapy-card-title">Restorative Wellness</h3>
@@ -780,7 +861,7 @@
                 <!-- Row 1: Card 3 -->
                 <div class="therapy-card">
                     <div class="therapy-card-media">
-                        <img src="images/card_beauty.png" alt="Natural Beauty Care" loading="lazy">
+                        <img src="images/card_beauty.webp" alt="Natural Beauty Care" loading="lazy">
                     </div>
                     <div class="therapy-card-body">
                         <h3 class="therapy-card-title">Natural Beauty Care</h3>
@@ -794,7 +875,7 @@
                 <!-- Row 1: Card 4 -->
                 <div class="therapy-card">
                     <div class="therapy-card-media">
-                        <img src="images/pkg_back_facial.jpg" alt="Holistic Face Care" loading="lazy">
+                        <img src="images/pkg_back_facial.webp" alt="Holistic Face Care" loading="lazy">
                     </div>
                     <div class="therapy-card-body">
                         <h3 class="therapy-card-title">Holistic Face Care</h3>
@@ -808,7 +889,7 @@
                 <!-- Row 2: Card 5 -->
                 <div class="therapy-card">
                     <div class="therapy-card-media">
-                        <img src="images/pkg_rejuv.png" alt="Rejuvenating Body Care" loading="lazy">
+                        <img src="images/pkg_rejuv.webp" alt="Rejuvenating Body Care" loading="lazy">
                     </div>
                     <div class="therapy-card-body">
                         <h3 class="therapy-card-title">Rejuvenating Body Care</h3>
@@ -822,7 +903,7 @@
                 <!-- Row 2: Card 6 -->
                 <div class="therapy-card">
                     <div class="therapy-card-media">
-                        <img src="images/haircare_hero.jpg" alt="Ayurvedic Hair Care" loading="lazy">
+                        <img src="images/haircare_hero.webp" alt="Ayurvedic Hair Care" loading="lazy">
                     </div>
                     <div class="therapy-card-body">
                         <h3 class="therapy-card-title">Ayurvedic Hair Care</h3>
@@ -836,7 +917,7 @@
                 <!-- Row 2: Card 7 -->
                 <div class="therapy-card">
                     <div class="therapy-card-media">
-                        <img src="images/handfoot_hero.jpg" alt="Hand & Foot Care" loading="lazy">
+                        <img src="images/handfoot_hero.webp" alt="Hand & Foot Care" loading="lazy">
                     </div>
                     <div class="therapy-card-body">
                         <h3 class="therapy-card-title">Hand & Foot Care</h3>
@@ -1019,12 +1100,39 @@
         </div>
     </section>
 
+    <!-- Special Offer Advertisement Section -->
+    <section class="offer-ad-section" id="special-offer">
+        <div class="container offer-ad-container">
+            <div class="offer-ad-header">
+                <div class="offer-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    Limited Time Festive Offer
+                </div>
+                <h2 style="font-size: 2.6rem; color: var(--color-primary); margin-bottom: 0.8rem;">Mega Navratri Wellness Offer</h2>
+                <p style="font-size: 1.15rem; color: var(--color-text); max-width: 740px; margin: 0 auto; opacity: 0.9;">
+                    Choose from our 90-minute signature Ayurvedic wellness treatments for only <strong>MUR 1999</strong> (Original Price <del style="opacity: 0.65;">MUR 2700</del>). Valid from October 1 to October 31.
+                </p>
+            </div>
+
+            <a href="https://wa.me/23058074009?text=Hello%20Ayuryoga%20International%20(Moka)%2C%20I%20would%20like%20to%20book%20the%20Festive%20Session%20(MUR%201999)." target="_blank" rel="noopener noreferrer" class="offer-ad-card" title="Book Mega Navratri Offer via WhatsApp">
+                <img src="images/offer 01.jpg" alt="Mega Navratri Special Offer - Ayuryoga International" class="offer-ad-img" loading="lazy">
+            </a>
+
+            <div class="offer-ad-cta">
+                <a href="https://wa.me/23058074009?text=Hello%20Ayuryoga%20International%20(Moka)%2C%20I%20would%20like%20to%20book%20the%20Festive%20Session%20(MUR%201999)." target="_blank" rel="noopener noreferrer" class="btn-offer">
+                    <span>Book Your Festive Session (MUR 1999)</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
     <!-- Classical Ayurveda Highlight -->
     <section class="section-light">
         <div class="container">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start;">
                 <div>
-                    <img src="images/ayurveda_hero.png" alt="Ayurveda" style="border-radius: 8px; margin-bottom: 2rem; width: 100%;">
+                    <img src="images/ayurveda_hero.webp" alt="Ayurveda" style="border-radius: 8px; margin-bottom: 2rem; width: 100%;">
                     <h2>Classical Ayurveda Treatments</h2>
                     <p style="margin-bottom: 1.5rem;">Reconnect with traditional Ayurvedic wellness through therapies designed to nurture the body and mind. Our Ayurvedic treatment menu includes full-body massages, oil therapies, herbal poultice treatments, therapeutic applications, and steam therapies.</p>
                     <p>Each treatment is provided in a peaceful environment with attention to individual requirements.</p>
@@ -1245,7 +1353,7 @@
         <div class="container">
                         <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo" style="display: block; margin-bottom: 1rem;"><img src="images/logo_dark.png" alt="Ayuryoga" style="height: 60px; width: auto;"></a>
+                    <a href="index.html" class="logo" style="display: block; margin-bottom: 1rem;"><img src="images/logo_dark.webp" alt="Ayuryoga" style="height: 60px; width: auto;"></a>
                     <p><strong>Traditional Wisdom. Personalized Wellness.</strong><br>Ayurveda | Wellness | Beauty Care</p>
                     <a href="book.html" class="btn btn-accent">Book an Appointment</a>
                 </div>
@@ -1254,12 +1362,13 @@
                     <h4 class="footer-heading">Quick Links</h4>
                     <ul class="footer-links">
                         <li><a href="about.html">About</a></li>
+                        <li><a href="history.html">History</a></li>
                         <li><a href="therapies.html">Therapies</a></li>
                         <li><a href="consultation.html">Consultation</a></li>
-                <li><a href="packages.html">Packages</a></li>
+                        <li><a href="packages.html">Packages</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
                         <li><a href="book.html">Book Appointment</a></li>
-</ul>
+                    </ul>
                 </div>
                 
                 <div>

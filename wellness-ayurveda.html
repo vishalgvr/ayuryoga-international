@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurvedic Wellness Therapies in Mauritius | Ayuryoga International</title>
+    <meta name="description" content="Discover authentic Ayurvedic Wellness therapies in Mauritius: Ayur Soukya, Punarjeeva, Vayasthapana, Navajeevan, Aishwarya, Divya Dhara, Sanjeevani, and more.">
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="images/favicon.webp">
+    <link rel="apple-touch-icon" href="images/favicon.webp">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .wellness-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2.2rem;
+            max-width: 1240px;
+            margin: 0 auto;
+        }
+        .wellness-card {
+            background: #ffffff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            flex: 0 1 calc(33.333% - 1.5rem);
+            min-width: 320px;
+            max-width: 380px;
+            width: 100%;
+            text-align: center;
+            transition: transform 0.38s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.38s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.35s ease;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+        .wellness-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
+            border-color: rgba(30, 57, 42, 0.2);
+        }
+        .wellness-card-img {
+            position: relative;
+            height: 225px;
+            overflow: hidden;
+        }
+        .wellness-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .wellness-card:hover .wellness-card-img img {
+            transform: scale(1.08);
+        }
+        .wellness-duration-badge {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: rgba(30, 57, 42, 0.88);
+            backdrop-filter: blur(6px);
+            color: #ffffff;
+            padding: 5px 13px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            z-index: 2;
+        }
+        .wellness-card:hover .wellness-duration-badge {
+            transform: scale(1.05);
+        }
+        .wellness-card-body {
+            padding: 1.8rem 1.6rem 1.6rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            flex-grow: 1;
+        }
+        .wellness-category-pill {
+            display: inline-block;
+            background: #faf6f0;
+            border: 1px solid #dfd3c3;
+            color: #8c7355;
+            padding: 3px 14px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.75rem;
+        }
+        .wellness-card-title {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--color-primary);
+            margin-bottom: 0.25rem;
+            line-height: 1.25;
+            text-align: center;
+        }
+        .wellness-card-meta {
+            font-size: 0.86rem;
+            color: #8c7355;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .wellness-card-desc {
+            font-size: 0.9rem;
+            color: #4a5568;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 1.3rem;
+            text-align: center;
+            min-height: 4.8rem;
+        }
+        .wellness-benefits-block {
+            width: 100%;
+            margin-bottom: 1.2rem;
+            text-align: center;
+        }
+        .wellness-benefits-title {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.65rem;
+            display: block;
+            text-align: center;
+        }
+        .wellness-benefits-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 7px;
+            width: 100%;
+        }
+        .wellness-benefits-grid.single-col {
+            grid-template-columns: 1fr;
+        }
+        .wellness-benefit-tag {
+            background: #fbf7f0;
+            border: 1px solid #e8decb;
+            color: #2e3d34;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 5px 8px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            line-height: 1.25;
+            transition: background-color 0.25s ease, border-color 0.25s ease;
+        }
+        .wellness-benefit-tag:hover {
+            background: #f2e9dc;
+            border-color: #d8c7af;
+        }
+        .wellness-card-footer {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 0.6rem;
+        }
+        .wellness-price {
+            font-family: var(--font-heading);
+            font-size: 1.95rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            line-height: 1;
+            margin-bottom: 1.25rem;
+            text-align: center;
+        }
+        .wellness-ctas {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            width: 100%;
+        }
+        .wellness-ctas .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 0.68rem 0.6rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-align: center;
+            border-radius: 30px;
+            white-space: nowrap;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+        .wellness-ctas .btn-primary {
+            background-color: var(--color-primary);
+            color: #ffffff;
+            border: 1.5px solid var(--color-primary);
+        }
+        .wellness-ctas .btn-primary:hover {
+            background-color: #12251a;
+            border-color: #12251a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(30, 57, 42, 0.3);
+        }
+        .wellness-ctas .whatsapp-btn {
+            background-color: transparent;
+            border: 1.5px solid #20b057;
+            color: #20b057;
+        }
+        .wellness-ctas .whatsapp-btn:hover {
+            background-color: #20b057;
+            color: #ffffff !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(32, 176, 87, 0.35);
+        }
+        .wellness-ctas .whatsapp-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background-color: currentColor;
+            display: inline-block;
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        .benefit-card {
+            background: var(--color-white);
+            padding: 2rem 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border: 1px solid rgba(0,0,0,0.06);
+            transition: transform 0.38s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.38s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.35s ease;
+        }
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 32px rgba(0,0,0,0.08);
+            border-color: rgba(30,57,42,0.18);
+        }
+        .benefit-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 1.2rem;
+            color: var(--color-primary);
+            transition: transform 0.35s ease;
+        }
+        .benefit-card:hover .benefit-icon {
+            transform: scale(1.14);
+        }
+        .benefit-card h4 {
+            font-size: 1.15rem;
+            color: var(--color-primary);
+            margin-bottom: 0.6rem;
+        }
+        .benefit-card p {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            line-height: 1.5;
+            margin: 0;
+        }
+        @media (max-width: 1080px) {
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .wellness-card {
+                flex: 1 1 100%;
+                max-width: 480px;
+            }
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+            .wellness-ctas {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+            .wellness-ctas {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo"><img src="images/logo_light_2.webp" alt="Ayuryoga" style="height: 50px; width: auto;"></a>
+            
+            <ul class="nav-menu">
+                <li><a href="about.html">About</a></li>
+                <li><a href="history.html">History</a></li>
+                <li class="dropdown">
+                    <a href="therapies.html" style="color: var(--color-accent);">Therapies <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px;"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="ayurveda.html">Ayurveda</a></li>
+                        <li><a href="wellness.html">Wellness</a></li>
+                        <li class="nav-sub-item"><a href="wellness-western.html">Western Massages</a></li>
+                        <li class="nav-sub-item"><a href="wellness-ayurveda.html" style="color: var(--color-accent); font-weight: 600;">Ayurvedic Wellness</a></li>
+                        <li class="nav-divider"></li>
+                        <li><a href="beauty-care.html">Beauty Care</a></li>
+                        <li class="nav-sub-item"><a href="face-care.html">Face Care</a></li>
+                        <li class="nav-sub-item"><a href="body-care.html">Body Care</a></li>
+                        <li class="nav-sub-item"><a href="hair-care.html">Hair Care</a></li>
+                        <li class="nav-sub-item"><a href="hand-foot-care.html">Hand & Foot Care</a></li>
+                    </ul>
+                </li>
+                <li><a href="consultation.html">Consultation</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+            
+            <div class="header-ctas">
+                <a href="book.html" class="btn btn-primary" style="display: flex; align-items: center; gap: 8px;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Book Appointment
+                </a>
+            </div>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="packages-hero" style="background: linear-gradient(rgba(30, 57, 42, 0.82), rgba(30, 57, 42, 0.88)), url('images/wellness_bg.webp') center/cover no-repeat;">
+        <div class="container">
+            <span class="hero-subtitle" style="display: inline-block; background: rgba(30, 57, 42, 0.85); color: var(--color-accent); padding: 0.35rem 1.2rem; border-radius: 20px; font-weight: 700; font-size: 0.82rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 1rem; border: 1px solid rgba(255,255,255,0.2);">Classical Rejuvenation & Vitality Rituals</span>
+            <h1>Ayurvedic Wellness Therapies</h1>
+            <p class="hero-desc">Time-honored therapies utilizing warm medicated herbal oils, healing thermal compresses, continuous botanical infusions, and ancient pressure techniques to revitalize mind, body, and spirit.</p>
+            <div class="hero-ctas">
+                <a href="book.html" class="btn btn-slider" style="padding: 0.9rem 2.5rem; font-size: 1.05rem;">Book Appointment</a>
+                <a href="#ayurveda-menu" class="btn btn-outline-light" style="padding: 0.9rem 2.2rem; font-size: 1.05rem;">Explore Ayurvedic Menu</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ayurvedic Treatments Grid Section -->
+    <section id="ayurveda-menu" class="section-sand" style="padding-top: 5rem; padding-bottom: 5.5rem;">
+        <div class="container">
+            
+            <div style="text-align: center; margin-bottom: 3.5rem;">
+                <h2 style="font-size: 2.6rem; margin-bottom: 0.8rem; color: var(--color-primary);">Our Ayurvedic Wellness Rituals</h2>
+                <p style="max-width: 720px; margin: 0 auto; opacity: 0.85; line-height: 1.6;">Prepared with pure cold-pressed medicated herbal oils, therapeutic steam, and healing Ayurvedic traditions tailored to restore your natural balance.</p>
+            </div>
+
+            <div class="wellness-grid">
+
+                <!-- Treatment 1: Ayur Soukya -->
+                <div class="wellness-card">
+                    <div class="wellness-card-img">
+                        <img src="images/Wellness/Ayur Soukya - Complete Package.webp" alt="Ayur Soukya" loading="lazy">
+                        <div class="wellness-duration-badge">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            120 Minutes
+                        </div>
+                    </div>
+                    <div class="wellness-card-body">
+                        <span class="wellness-category-pill">AYURVEDA</span>
+                        <h3 class="wellness-card-title">Ayur Soukya</h3>
+                        <div class="wellness-card-meta">Duration: 120 Minutes</div>
+                        <p class="wellness-card-desc">Master Ayurvedic wellness package featuring 4 powerful modalities: Abhyangam body massage, warm herbal Kizhi, soothing Dhara, and detoxifying steam bath.</p>
+                        
+                        <div class="wellness-benefits-block">
+                            <span class="wellness-benefits-title">BENEFITS:</span>
+                            <div class="wellness-benefits-grid">
+                                <span class="wellness-benefit-tag">Abhyangam Massage</span>
+                                <span class="wellness-benefit-tag">Herbal Kizhi Fermentation</span>
+                                <span class="wellness-benefit-tag">Soothing Dhara Stream</span>
+                                <span class="wellness-benefit-tag">Medicated Herbal Steam</span>
+                            </div>
+                        </div>
+
+                        <div class="wellness-card-footer">
+                            <div class="wellness-price">Rs 3,600</div>
+                            <div class="wellness-ctas">
+                                <a href="book.html?category=wellness&treatment=Ayur%20Soukya" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Ayur%20Soukya%20(Rs%203,600%20-%20120%20min)" target="_blank" rel="noopener noreferrer" class="btn whatsapp-btn" title="Book via WhatsApp">
+                                    <span class="whatsapp-dot"></span> WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 2: Punarjeeva -->
+                <div class="wellness-card">
+                    <div class="wellness-card-img">
+                        <img src="images/Wellness/Punarjeeva.webp" alt="Punarjeeva" loading="lazy">
+                        <div class="wellness-duration-badge">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            120 Minutes
+                        </div>
+                    </div>
+                    <div class="wellness-card-body">
+                        <span class="wellness-category-pill">AYURVEDA</span>
+                        <h3 class="wellness-card-title">Punarjeeva</h3>
+                        <div class="wellness-card-meta">Duration: 120 Minutes</div>
+                        <p class="wellness-card-desc">Complete two-hour sensory revival package incorporating synchronized Abhyangam, warm Kizhi compresses, and revitalizing herbal facial care for whole-body vitality.</p>
+                        
+                        <div class="wellness-benefits-block">
+                            <span class="wellness-benefits-title">BENEFITS:</span>
+                            <div class="wellness-benefits-grid">
+                                <span class="wellness-benefit-tag">2-Hour Complete Journey</span>
+                                <span class="wellness-benefit-tag">Abhyangam Massage</span>
+                                <span class="wellness-benefit-tag">Warm Herbal Kizhi</span>
+                                <span class="wellness-benefit-tag">Rejuvenating Facial Care</span>
+                            </div>
+                        </div>
+
+                        <div class="wellness-card-footer">
+                            <div class="wellness-price">Rs 3,600</div>
+                            <div class="wellness-ctas">
+                                <a href="book.html?category=wellness&treatment=Punarjeeva" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Punarjeeva%20(Rs%203,600%20-%20120%20min)" target="_blank" rel="noopener noreferrer" class="btn whatsapp-btn" title="Book via WhatsApp">
+                                    <span class="whatsapp-dot"></span> WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 3: Vayasthapana (Geriatric Vitality 55+) -->
+                <div class="wellness-card">
+                    <div class="wellness-card-img">
+                        <img src="images/Wellness/Vayasthapana.webp" alt="Vayasthapana (Geriatric Vitality 55+)" loading="lazy">
+                        <div class="wellness-duration-badge">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            100 Minutes
+                        </div>
+                    </div>
+                    <div class="wellness-card-body">
+                        <span class="wellness-category-pill">AYURVEDA</span>
+                        <h3 class="wellness-card-title">Vayasthapana (Geriatric Vitality 55+)</h3>
+                        <div class="wellness-card-meta">Duration: 100 Minutes</div>
+                        <p class="wellness-card-desc">Holistic Ayurvedic therapy designed to nourish complex tissues, restore joint mobility, boost immunity, and support cognitive vitality in adults 55 and above.</p>
+                        
+                        <div class="wellness-benefits-block">
+                            <span class="wellness-benefits-title">BENEFITS:</span>
+                            <div class="wellness-benefits-grid single-col">
+                                <span class="wellness-benefit-tag">Strengthens joints & bones, degraded tissue, nerve vascular</span>
+                                <span class="wellness-benefit-tag">Improves mobility, balance, muscle mass, age-related stiffness</span>
+                                <span class="wellness-benefit-tag">Calms aggravated Vata dosha, promotes restful and deep sleep</span>
+                                <span class="wellness-benefit-tag">Enhances memory, longevity, and general vigor</span>
+                            </div>
+                        </div>
+
+                        <div class="wellness-card-footer">
+                            <div class="wellness-price">Rs 2,800</div>
+                            <div class="wellness-ctas">
+                                <a href="book.html?category=wellness&treatment=Vayasthapana%20(Geriatric%20Vitality%2055%2B)" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Vayasthapana%20(Geriatric%20Vitality%2055%2B)%20(Rs%202,800%20-%20100%20min)" target="_blank" rel="noopener noreferrer" class="btn whatsapp-btn" title="Book via WhatsApp">
+                                    <span class="whatsapp-dot"></span> WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 4: Navajeevan -->
+                <div class="wellness-card">
+                    <div class="wellness-card-img">
+                        <img src="images/Wellness/Navajeevan.webp" alt="Navajeevan" loading="lazy">
+                        <div class="wellness-duration-badge">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            90 Minutes
+                        </div>
+                    </div>
+                    <div class="wellness-card-body">
+                        <span class="wellness-category-pill">AYURVEDA</span>
+                        <h3 class="wellness-card-title">Navajeevan</h3>
+                        <div class="wellness-card-meta">Duration: 90 Minutes</div>
+                        <p class="wellness-card-desc">Restorative renewal therapy formulated to awaken vital energy (Prana), ease chronic fatigue, and balance the three Doshas through synchronized bodywork.</p>
+                        
+                        <div class="wellness-benefits-block">
+                            <span class="wellness-benefits-title">BENEFITS:</span>
+                            <div class="wellness-benefits-grid">
+                                <span class="wellness-benefit-tag">Prana-Awakening Abhyanga</span>
+                                <span class="wellness-benefit-tag">Herbal Pouch Stimulation</span>
+                                <span class="wellness-benefit-tag">Marma Energy Balancing</span>
+                                <span class="wellness-benefit-tag">Herbal Compress</span>
+                            </div>
+                        </div>
+
+                        <div class="wellness-card-footer">
+                            <div class="wellness-price">Rs 2,700</div>
+                            <div class="wellness-ctas">
+                                <a href="book.html?category=wellness&treatment=Navajeevan" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Navajeevan%20(Rs%202,700%20-%2090%20min)" target="_blank" rel="noopener noreferrer" class="btn whatsapp-btn" title="Book via WhatsApp">
+                                    <span class="whatsapp-dot"></span> WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 5: Aishwarya -->
+                <div class="wellness-card">
+                    <div class="wellness-card-img">
+                        <img src="images/Wellness/Aishwarya.webp" alt="Aishwarya" loading="lazy">
+                        <div class="wellness-duration-badge">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            90 Minutes
+                        </div>
+                    </div>
+                    <div class="wellness-card-body">
+                        <span class="wellness-category-pill">AYURVEDA</span>
+                        <h3 class="wellness-card-title">Aishwarya</h3>
+                        <div class="wellness-card-meta">Duration: 90 Minutes</div>
+                        <p class="wellness-card-desc">Regal Ayurvedic pampering ritual combining a full-body nourishing Abhyanga massage with an opulent royal botanical facial for complete radiance.</p>
+                        
+                        <div class="wellness-benefits-block">
+                            <span class="wellness-benefits-title">BENEFITS:</span>
+                            <div class="wellness-benefits-grid">
+                                <span class="wellness-benefit-tag">Royal Abhyanga Massage</span>
+                                <span class="wellness-benefit-tag">Opulent Botanical Facial</span>
+                                <span class="wellness-benefit-tag">Marma Activation</span>
+                                <span class="wellness-benefit-tag">Glow & Tranquility</span>
+                            </div>
+                        </div>
+
+                        <div class="wellness-card-footer">
+                            <div class="wellness-price">Rs 2,700</div>
+                            <div class="wellness-ctas">
+                                <a href="book.html?category=wellness&treatment=Aishwarya" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Aishwarya%20(Rs%202,700%20-%2090%20min)" target="_blank" rel="noopener noreferrer" class="btn whatsapp-btn" title="Book via WhatsApp">
+                                    <span class="whatsapp-dot"></span> WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 6: Divya Dhara -->
+                <div class="wellness-card">
+                    <div class="wellness-card-img">
+                        <img src="images/Wellness/Divya Dhara - Antistress Therapy.webp" alt="Divya Dhara" loading="lazy">
+                        <div class="wellness-duration-badge">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            90 Minutes
+                        </div>
+                    </div>
+                    <div class="wellness-card-body">
+                        <span class="wellness-category-pill">AYURVEDA</span>
+                        <h3 class="wellness-card-title">Divya Dhara</h3>
+                        <div class="wellness-card-meta">Duration: 90 Minutes</div>
+                        <p class="wellness-card-desc">Heavenly therapeutic ritual combining an invigorating whole-body herbal massage with continuous warm herbal decoction stream along the forehead.</p>
+                        
+                        <div class="wellness-benefits-block">
+                            <span class="wellness-benefits-title">BENEFITS:</span>
+                            <div class="wellness-benefits-grid">
+                                <span class="wellness-benefit-tag">Divya Abhyangam</span>
+                                <span class="wellness-benefit-tag">Warm Dhara Pouring</span>
+                                <span class="wellness-benefit-tag">Chakra Balancing</span>
+                                <span class="wellness-benefit-tag">Mental Tranquility</span>
+                            </div>
+                        </div>
+
+                        <div class="wellness-card-footer">
+                            <div class="wellness-price">Rs 2,700</div>
+                            <div class="wellness-ctas">
+                                <a href="book.html?category=wellness&treatment=Divya%20Dhara" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Divya%20Dhara%20(Rs%202,700%20-%2090%20min)" target="_blank" rel="noopener noreferrer" class="btn whatsapp-btn" title="Book via WhatsApp">
+                                    <span class="whatsapp-dot"></span> WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 7: Sanjeevani -->
+                <div class="wellness-card">
+                    <div class="wellness-card-img">
+                        <img src="images/Wellness/Sanjeevani.webp" alt="Sanjeevani" loading="lazy">
+                        <div class="wellness-duration-badge">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            90 Minutes
+                        </div>
+                    </div>
+                    <div class="wellness-card-body">
+                        <span class="wellness-category-pill">AYURVEDA</span>
+                        <h3 class="wellness-card-title">Sanjeevani</h3>
+                        <div class="wellness-card-meta">Duration: 90 Minutes</div>
+                        <p class="wellness-card-desc">Ultimate revitalizing triad combining warm Abhyangam massage, hot herbal pouch fermentation (Kizhi), and soothing medicated milk streaming (Ksheeradhara).</p>
+                        
+                        <div class="wellness-benefits-block">
+                            <span class="wellness-benefits-title">BENEFITS:</span>
+                            <div class="wellness-benefits-grid">
+                                <span class="wellness-benefit-tag">Full-Body Abhyanga</span>
+                                <span class="wellness-benefit-tag">Hot Herbal Kizhi</span>
+                                <span class="wellness-benefit-tag">Ksheeradhara Milk Stream</span>
+                                <span class="wellness-benefit-tag">Tissue Regeneration</span>
+                            </div>
+                        </div>
+
+                        <div class="wellness-card-footer">
+                            <div class="wellness-price">Rs 2,700</div>
+                            <div class="wellness-ctas">
+                                <a href="book.html?category=wellness&treatment=Sanjeevani" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Sanjeevani%20(Rs%202,700%20-%2090%20min)" target="_blank" rel="noopener noreferrer" class="btn whatsapp-btn" title="Book via WhatsApp">
+                                    <span class="whatsapp-dot"></span> WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 8: Manasamitram -->
+                <div class="wellness-card">
+                    <div class="wellness-card-img">
+                        <img src="images/Wellness/Manasamithra - Antistress Therapy.webp" alt="Manasamitram" loading="lazy">
+                        <div class="wellness-duration-badge">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            90 Minutes
+                        </div>
+                    </div>
+                    <div class="wellness-card-body">
+                        <span class="wellness-category-pill">AYURVEDA</span>
+                        <h3 class="wellness-card-title">Manasamitram</h3>
+                        <div class="wellness-card-meta">Duration: 90 Minutes</div>
+                        <p class="wellness-card-desc">Calming ritual designed to alleviate mental burnout, featuring nurturing whole-body oil therapy combined with soothing continuous forehead herbal oil stream.</p>
+                        
+                        <div class="wellness-benefits-block">
+                            <span class="wellness-benefits-title">BENEFITS:</span>
+                            <div class="wellness-benefits-grid">
+                                <span class="wellness-benefit-tag">Anti-Stress Abhyangam</span>
+                                <span class="wellness-benefit-tag">Shirodhara Stream</span>
+                                <span class="wellness-benefit-tag">Marma Calming Points</span>
+                                <span class="wellness-benefit-tag">Herbal Scalp Soothe</span>
+                            </div>
+                        </div>
+
+                        <div class="wellness-card-footer">
+                            <div class="wellness-price">Rs 2,700</div>
+                            <div class="wellness-ctas">
+                                <a href="book.html?category=wellness&treatment=Manasamitram" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Manasamitram%20(Rs%202,700%20-%2090%20min)" target="_blank" rel="noopener noreferrer" class="btn whatsapp-btn" title="Book via WhatsApp">
+                                    <span class="whatsapp-dot"></span> WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 9: Nirvana - Stress Buster -->
+                <div class="wellness-card">
+                    <div class="wellness-card-img">
+                        <img src="images/Wellness/Ayurvedic Nirvana - Stress Buster.webp" alt="Nirvana - Stress Buster" loading="lazy">
+                        <div class="wellness-duration-badge">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            90 Minutes
+                        </div>
+                    </div>
+                    <div class="wellness-card-body">
+                        <span class="wellness-category-pill">AYURVEDA</span>
+                        <h3 class="wellness-card-title">Nirvana - Stress Buster</h3>
+                        <div class="wellness-card-meta">Duration: 90 Minutes</div>
+                        <p class="wellness-card-desc">Blissful multi-therapy session pairing full-body Abhyanga with Shirodhara and warm herbal compresses to dissolve accumulated nervous exhaustion.</p>
+                        
+                        <div class="wellness-benefits-block">
+                            <span class="wellness-benefits-title">BENEFITS:</span>
+                            <div class="wellness-benefits-grid">
+                                <span class="wellness-benefit-tag">Full-Body Abhyanga</span>
+                                <span class="wellness-benefit-tag">Shirodhara Stream</span>
+                                <span class="wellness-benefit-tag">Warm Herbal Compress</span>
+                                <span class="wellness-benefit-tag">Nervous System Reset</span>
+                            </div>
+                        </div>
+
+                        <div class="wellness-card-footer">
+                            <div class="wellness-price">Rs 2,700</div>
+                            <div class="wellness-ctas">
+                                <a href="book.html?category=wellness&treatment=Nirvana%20-%20Stress%20Buster" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Nirvana%20-%20Stress%20Buster%20(Rs%202,700%20-%2090%20min)" target="_blank" rel="noopener noreferrer" class="btn whatsapp-btn" title="Book via WhatsApp">
+                                    <span class="whatsapp-dot"></span> WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 10: Ayurvedic Body Scrub -->
+                <div class="wellness-card">
+                    <div class="wellness-card-img">
+                        <img src="images/Wellness/Ayurvedic Body Scrub Local.webp" alt="Ayurvedic Body Scrub" loading="lazy">
+                        <div class="wellness-duration-badge">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            60 Minutes
+                        </div>
+                    </div>
+                    <div class="wellness-card-body">
+                        <span class="wellness-category-pill">AYURVEDA</span>
+                        <h3 class="wellness-card-title">Ayurvedic Body Scrub</h3>
+                        <div class="wellness-card-meta">Duration: 60 Minutes</div>
+                        <p class="wellness-card-desc">Exfoliating full-body ritual using freshly blended local herbs, grains, and botanical oils (Udvarthanam) to refine skin texture and stimulate lymphatic drainage.</p>
+                        
+                        <div class="wellness-benefits-block">
+                            <span class="wellness-benefits-title">BENEFITS:</span>
+                            <div class="wellness-benefits-grid">
+                                <span class="wellness-benefit-tag">Botanical Herbal Scrub</span>
+                                <span class="wellness-benefit-tag">Whole-Body Exfoliation</span>
+                                <span class="wellness-benefit-tag">Lymphatic Stimulation</span>
+                                <span class="wellness-benefit-tag">Nourishing Herbal Wash</span>
+                            </div>
+                        </div>
+
+                        <div class="wellness-card-footer">
+                            <div class="wellness-price">Rs 1,800</div>
+                            <div class="wellness-ctas">
+                                <a href="book.html?category=wellness&treatment=Ayurvedic%20Body%20Scrub" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Ayurvedic%20Body%20Scrub%20(Rs%201,800%20-%2060%20min)" target="_blank" rel="noopener noreferrer" class="btn whatsapp-btn" title="Book via WhatsApp">
+                                    <span class="whatsapp-dot"></span> WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 11: Manasanthi -->
+                <div class="wellness-card">
+                    <div class="wellness-card-img">
+                        <img src="images/Wellness/Manasanthi - Anti Stress Therapy.webp" alt="Manasanthi" loading="lazy">
+                        <div class="wellness-duration-badge">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            60 Minutes
+                        </div>
+                    </div>
+                    <div class="wellness-card-body">
+                        <span class="wellness-category-pill">AYURVEDA</span>
+                        <h3 class="wellness-card-title">Manasanthi</h3>
+                        <div class="wellness-card-meta">Duration: 60 Minutes</div>
+                        <p class="wellness-card-desc">Tranquil mental rejuvenation therapy combining restorative Shiro Abhyangam head massage with gentle Ksheeradhara medicated herbal milk streaming.</p>
+                        
+                        <div class="wellness-benefits-block">
+                            <span class="wellness-benefits-title">BENEFITS:</span>
+                            <div class="wellness-benefits-grid">
+                                <span class="wellness-benefit-tag">Herbal Head Massage</span>
+                                <span class="wellness-benefit-tag">Ksheeradhara Milk Pour</span>
+                                <span class="wellness-benefit-tag">Mental Decompression</span>
+                                <span class="wellness-benefit-tag">Sensory Calming</span>
+                            </div>
+                        </div>
+
+                        <div class="wellness-card-footer">
+                            <div class="wellness-price">Rs 1,800</div>
+                            <div class="wellness-ctas">
+                                <a href="book.html?category=wellness&treatment=Manasanthi" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Manasanthi%20(Rs%201,800%20-%2060%20min)" target="_blank" rel="noopener noreferrer" class="btn whatsapp-btn" title="Book via WhatsApp">
+                                    <span class="whatsapp-dot"></span> WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 12: Rujahari -->
+                <div class="wellness-card">
+                    <div class="wellness-card-img">
+                        <img src="images/Wellness/Rujahari - Pain Relieving Massage.webp" alt="Rujahari" loading="lazy">
+                        <div class="wellness-duration-badge">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            60 Minutes
+                        </div>
+                    </div>
+                    <div class="wellness-card-body">
+                        <span class="wellness-category-pill">AYURVEDA</span>
+                        <h3 class="wellness-card-title">Rujahari</h3>
+                        <div class="wellness-card-meta">Duration: 60 Minutes</div>
+                        <p class="wellness-card-desc">Specialized therapeutic massage utilizing pain-relieving herbal oils and targeted pressure techniques to ease chronic joint aches and muscular stiffness.</p>
+                        
+                        <div class="wellness-benefits-block">
+                            <span class="wellness-benefits-title">BENEFITS:</span>
+                            <div class="wellness-benefits-grid">
+                                <span class="wellness-benefit-tag">Pain-Relieving Herbal Oils</span>
+                                <span class="wellness-benefit-tag">Deep Tissue Manipulation</span>
+                                <span class="wellness-benefit-tag">Joint Flexibility Work</span>
+                                <span class="wellness-benefit-tag">Therapeutic Warmth</span>
+                            </div>
+                        </div>
+
+                        <div class="wellness-card-footer">
+                            <div class="wellness-price">Rs 1,800</div>
+                            <div class="wellness-ctas">
+                                <a href="book.html?category=wellness&treatment=Rujahari" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Rujahari%20(Rs%201,800%20-%2060%20min)" target="_blank" rel="noopener noreferrer" class="btn whatsapp-btn" title="Book via WhatsApp">
+                                    <span class="whatsapp-dot"></span> WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 13: Ayur Relax -->
+                <div class="wellness-card">
+                    <div class="wellness-card-img">
+                        <img src="images/Wellness/Ayur Relax - Abhyangam + Steam.webp" alt="Ayur Relax" loading="lazy">
+                        <div class="wellness-duration-badge">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            60 Minutes
+                        </div>
+                    </div>
+                    <div class="wellness-card-body">
+                        <span class="wellness-category-pill">AYURVEDA</span>
+                        <h3 class="wellness-card-title">Ayur Relax</h3>
+                        <div class="wellness-card-meta">Duration: 60 Minutes</div>
+                        <p class="wellness-card-desc">A harmonious combination of classical Abhyanga body massage followed by an aromatic herbal steam bath to eliminate toxins and ease bodily tension.</p>
+                        
+                        <div class="wellness-benefits-block">
+                            <span class="wellness-benefits-title">BENEFITS:</span>
+                            <div class="wellness-benefits-grid">
+                                <span class="wellness-benefit-tag">Full-Body Abhyangam</span>
+                                <span class="wellness-benefit-tag">Herbal Steam Bath (Swedana)</span>
+                                <span class="wellness-benefit-tag">Toxin Detoxification</span>
+                                <span class="wellness-benefit-tag">Vital Energy Balance</span>
+                            </div>
+                        </div>
+
+                        <div class="wellness-card-footer">
+                            <div class="wellness-price">Rs 1,800</div>
+                            <div class="wellness-ctas">
+                                <a href="book.html?category=wellness&treatment=Ayur%20Relax" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Ayur%20Relax%20(Rs%201,800%20-%2060%20min)" target="_blank" rel="noopener noreferrer" class="btn whatsapp-btn" title="Book via WhatsApp">
+                                    <span class="whatsapp-dot"></span> WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 14: Head, Neck, Shoulder & Foot Reflexology -->
+                <div class="wellness-card">
+                    <div class="wellness-card-img">
+                        <img src="images/Wellness/Head - Neck - Shoulder & Foot Reflexology.webp" alt="Head, Neck, Shoulder & Foot Reflexology" loading="lazy">
+                        <div class="wellness-duration-badge">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            60 Minutes
+                        </div>
+                    </div>
+                    <div class="wellness-card-body">
+                        <span class="wellness-category-pill">AYURVEDA</span>
+                        <h3 class="wellness-card-title">Head, Neck, Shoulder & Foot Reflexology</h3>
+                        <div class="wellness-card-meta">Duration: 60 Minutes</div>
+                        <p class="wellness-card-desc">Comprehensive upper body and reflexology treatment targeting stress-holding zones in the scalp, neck, shoulders, and vital pressure points in the feet.</p>
+                        
+                        <div class="wellness-benefits-block">
+                            <span class="wellness-benefits-title">BENEFITS:</span>
+                            <div class="wellness-benefits-grid">
+                                <span class="wellness-benefit-tag">Shiro Scalp Massage</span>
+                                <span class="wellness-benefit-tag">Neck & Shoulder Release</span>
+                                <span class="wellness-benefit-tag">Acupressure Foot Reflexology</span>
+                                <span class="wellness-benefit-tag">Herbal Soothing Oils</span>
+                            </div>
+                        </div>
+
+                        <div class="wellness-card-footer">
+                            <div class="wellness-price">Rs 1,800</div>
+                            <div class="wellness-ctas">
+                                <a href="book.html?category=wellness&treatment=Head%2C%20Neck%2C%20Shoulder%20%26%20Foot%20Reflexology" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Head%20Neck%20Shoulder%20Foot%20Reflexology%20(Rs%201,800%20-%2060%20min)" target="_blank" rel="noopener noreferrer" class="btn whatsapp-btn" title="Book via WhatsApp">
+                                    <span class="whatsapp-dot"></span> WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Treatment 15: Padamruta -->
+                <div class="wellness-card">
+                    <div class="wellness-card-img">
+                        <img src="images/Wellness/Padamruta.webp" alt="Padamruta" loading="lazy">
+                        <div class="wellness-duration-badge">
+                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            45 Minutes
+                        </div>
+                    </div>
+                    <div class="wellness-card-body">
+                        <span class="wellness-category-pill">AYURVEDA</span>
+                        <h3 class="wellness-card-title">Padamruta</h3>
+                        <div class="wellness-card-meta">Duration: 45 Minutes</div>
+                        <p class="wellness-card-desc">Focused lower-body therapy featuring a soothing hip-to-toe herbal oil massage and warm botanical pouch treatment to relieve tired legs and feet.</p>
+                        
+                        <div class="wellness-benefits-block">
+                            <span class="wellness-benefits-title">BENEFITS:</span>
+                            <div class="wellness-benefits-grid">
+                                <span class="wellness-benefit-tag">Hip-to-Toe Massage</span>
+                                <span class="wellness-benefit-tag">Warm Botanical Pouch</span>
+                                <span class="wellness-benefit-tag">Sole Reflexology</span>
+                                <span class="wellness-benefit-tag">Leg Fatigue Relief</span>
+                            </div>
+                        </div>
+
+                        <div class="wellness-card-footer">
+                            <div class="wellness-price">Rs 1,200</div>
+                            <div class="wellness-ctas">
+                                <a href="book.html?category=wellness&treatment=Padamruta" class="btn btn-primary">Book Now</a>
+                                <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20the%20Padamruta%20(Rs%201,200%20-%2045%20min)" target="_blank" rel="noopener noreferrer" class="btn whatsapp-btn" title="Book via WhatsApp">
+                                    <span class="whatsapp-dot"></span> WhatsApp
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Category Switch Banner -->
+            <div style="background: var(--color-white); border-radius: 14px; padding: 2.5rem; text-align: center; margin-top: 4.5rem; border: 1px solid rgba(30,57,42,0.1); box-shadow: 0 8px 24px rgba(0,0,0,0.04);">
+                <span class="section-badge" style="display: inline-block; background-color: var(--color-primary); color: var(--color-accent); padding: 0.35rem 1.2rem; border-radius: 20px; font-weight: 700; font-size: 0.8rem; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 0.8rem;">Explore Therapeutic Bodywork</span>
+                <h3 style="font-size: 1.8rem; color: var(--color-primary); margin-bottom: 0.6rem;">Interested in Western Massage Therapies?</h3>
+                <p style="max-width: 620px; margin: 0 auto 1.5rem; opacity: 0.85; line-height: 1.6;">Explore our 6 targeted Western massage techniques, including Swedish Massage, Deep Tissue, Aromatherapy, Hot Stone, and Bamboo Massage.</p>
+                <a href="wellness-western.html" class="btn btn-primary" style="padding: 0.85rem 2.2rem; border-radius: 25px;">
+                    View Western Massage Menu (6) &rarr;
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ayurvedic Wellness Philosophy Section -->
+    <section class="section-light" style="padding-top: 5rem; padding-bottom: 5rem;">
+        <div class="container">
+            <div style="text-align: center; max-width: 750px; margin: 0 auto 3rem;">
+                <h2 style="font-size: 2.4rem; margin-bottom: 0.8rem; color: var(--color-primary);">The Ayuryoga Wellness Philosophy</h2>
+                <p style="opacity: 0.88; line-height: 1.7;">True wellness is the delicate harmony of physical vitality, energetic equilibrium (*Prana*), and mental serenity. Our therapies work synergistically to restore your innate state of balance.</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a10 10 0 0 1 10 10c0 5.523-4.477 10-10 10S2 17.523 2 12A10 10 0 0 1 12 2z"></path><path d="M12 6v6l4 2"></path></svg>
+                    </div>
+                    <h4>100% Pure Botanicals</h4>
+                    <p>Formulated with authentic cold-pressed herbal oils and organic botanicals tailored to your constitution.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                    </div>
+                    <h4>Dosha-Tailored Therapies</h4>
+                    <p>Every stroke, pressure point, and medicated oil is selected to balance your Vata, Pitta, or Kapha constitution.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
+                    </div>
+                    <h4>Marma Point Awakening</h4>
+                    <p>Stimulation of vital energetic junctions to release accumulated physical tension and emotional blockages.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    </div>
+                    <h4>Deep Holistic Relaxation</h4>
+                    <p>Recharges your nervous system, improves sleep quality, and elevates your overall sense of joy and vitality.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="display: block; margin-bottom: 1rem;"><img src="images/logo_dark.webp" alt="Ayuryoga" style="height: 60px; width: auto;"></a>
+                    <p><strong>Traditional Wisdom. Personalized Wellness.</strong><br>Ayurveda | Wellness | Beauty Care</p>
+                    <a href="book.html" class="btn btn-accent">Book an Appointment</a>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="history.html">History</a></li>
+                        <li><a href="therapies.html">Therapies</a></li>
+                        <li><a href="consultation.html">Consultation</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="book.html">Book Appointment</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Locations</h4>
+                    <div class="footer-location">
+                        <strong>Moka</strong>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Leclezio Avenue, Moka</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Grand Baie</strong>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Lorient Lane, Grand Baie</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Curepipe</strong>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Leclezio Avenue, Curepipe</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Contact</h4>
+                    <div class="footer-location">
+                        <strong>Moka</strong>
+                        <p style="opacity: 0.8;">+230 58074009</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Grand Baie</strong>
+                        <p style="opacity: 0.8;">+230 59429564</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Curepipe</strong>
+                        <p style="opacity: 0.8;">+230 58857888</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>&copy; 2026 Ayuryoga International Mauritius. All Rights Reserved.</div>
+                <div class="legal-links">
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Floating Bottom-Right Connect Widget (Chat Bubble with Hover Reveal) -->
+    <div class="floating-hub-widget" id="floatingHubWidget">
+        <div class="floating-hub-menu">
+            <a href="tel:+23058074009" class="floating-hub-item hub-call" aria-label="Call Us (+230 58074009)">
+                <span class="hub-label">Call Us</span>
+                <div class="hub-icon-circle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                </div>
+            </a>
+
+            <a href="https://wa.me/23058074009?text=Hello%20Ayuryoga%20International%2C%20I%20would%20like%20to%20inquire%20about%20your%20Ayurvedic%20wellness%20therapies." target="_blank" rel="noopener noreferrer" class="floating-hub-item hub-whatsapp" aria-label="Chat on WhatsApp">
+                <span class="hub-label">WhatsApp</span>
+                <div class="hub-icon-circle">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                    </svg>
+                </div>
+            </a>
+
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="floating-hub-item hub-facebook" aria-label="Follow on Facebook">
+                <span class="hub-label">Facebook</span>
+                <div class="hub-icon-circle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg>
+                </div>
+            </a>
+
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="floating-hub-item hub-instagram" aria-label="Follow on Instagram">
+                <span class="hub-label">Instagram</span>
+                <div class="hub-icon-circle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </div>
+            </a>
+        </div>
+
+        <button type="button" class="floating-hub-trigger" id="floatingHubTrigger" aria-label="Chat & Connect with Us">
+            <span class="hub-pulse-ring"></span>
+            <span class="hub-icon-open">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+            </span>
+            <span class="hub-icon-close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </span>
+        </button>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

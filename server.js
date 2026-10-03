@@ -28,7 +28,7 @@ const MIME_TYPES = {
 
 const server = http.createServer((req, res) => {
     try {
-        const parsedUrl = url.parse(req.url);
+        const parsedUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
         let pathname = decodeURIComponent(parsedUrl.pathname);
 
         if (pathname === '/') {
@@ -47,6 +47,11 @@ const server = http.createServer((req, res) => {
             }
 
             if (stats.isDirectory()) {
+                if (!pathname.endsWith('/')) {
+                    res.writeHead(301, { 'Location': pathname + '/' });
+                    res.end();
+                    return;
+                }
                 filePath = path.join(filePath, 'index.html');
             }
 

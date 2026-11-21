@@ -1,0 +1,29 @@
+{
+  "name": "ayuryoga-international",
+  "version": "1.0.0",
+  "description": "Official website for Ayuryoga International - Authentic Kerala Ayurveda & Wellness in Mauritius",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "serve": "node server.js",
+    "dev": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vishalgvr/ayuryoga-international.git"
+  },
+  "keywords": [
+    "ayurveda",
+    "mauritius",
+    "kerala-ayurveda",
+    "wellness",
+    "massage",
+    "ayuryoga"
+  ],
+  "author": "Vishal GvR <vishalgvr1280@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vishalgvr/ayuryoga-international/issues"
+  },
+  "homepage": "https://github.com/vishalgvr/ayuryoga-international#readme"
+}

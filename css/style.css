@@ -159,13 +159,136 @@ section {
   box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3);
 }
 
-/* Header & Navigation */
+/* ==========================================================================
+   Homepage Transparent Header over Hero Slider & Scroll Transition
+   ========================================================================== */
+
 header {
   background-color: var(--color-white);
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   position: sticky;
   top: 0;
   z-index: 1000;
+  transition: background-color 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+body.home-page header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: transparent;
+  box-shadow: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  transition: background-color 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+body.home-page header .nav-menu > li > a {
+  color: #ffffff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  transition: color 0.3s ease;
+}
+
+body.home-page header .nav-menu > li > a:hover {
+  color: var(--color-accent);
+}
+
+body.home-page header .dropdown > a svg {
+  stroke: #ffffff;
+  transition: stroke 0.3s ease;
+}
+
+/* Dropdown menu maintains clean white background with readable text */
+body.home-page header .dropdown-menu {
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+body.home-page header .dropdown-menu a {
+  color: var(--color-text) !important;
+  text-shadow: none !important;
+}
+
+body.home-page header .dropdown-menu a:hover {
+  color: var(--color-accent) !important;
+}
+
+/* Book Appointment button on transparent header (Slider section) */
+body.home-page header:not(.scrolled) .header-ctas .btn-primary {
+  background-color: transparent !important;
+  color: #ffffff !important;
+  border: 1.5px solid #ffffff !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25) !important;
+}
+
+body.home-page header:not(.scrolled) .header-ctas .btn-primary svg {
+  stroke: #ffffff !important;
+}
+
+body.home-page header:not(.scrolled) .header-ctas .btn-primary:hover {
+  background-color: #ffffff !important;
+  color: var(--color-primary) !important;
+  border-color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.3) !important;
+}
+
+body.home-page header:not(.scrolled) .header-ctas .btn-primary:hover svg {
+  stroke: var(--color-primary) !important;
+}
+
+body.home-page header:not(.scrolled) .hamburger .bar {
+  background-color: #ffffff !important;
+}
+
+/* Scrolled state on Homepage: exactly matches other pages */
+body.home-page header.scrolled {
+  background-color: var(--color-white) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+body.home-page header.scrolled .nav-menu > li > a {
+  color: var(--color-text);
+  text-shadow: none;
+}
+
+body.home-page header.scrolled .nav-menu > li > a:hover {
+  color: var(--color-accent);
+}
+
+body.home-page header.scrolled .dropdown > a svg {
+  stroke: currentColor;
+}
+
+body.home-page header.scrolled .header-ctas .btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: 1px solid var(--color-primary);
+  box-shadow: 0 4px 12px rgba(30, 57, 42, 0.15);
+}
+
+body.home-page header.scrolled .header-ctas .btn-primary svg {
+  stroke: var(--color-white);
+}
+
+body.home-page header.scrolled .header-ctas .btn-primary:hover {
+  background-color: #15291e;
+  border-color: #15291e;
+  color: var(--color-white);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 22px rgba(30, 57, 42, 0.32);
+}
+
+body.home-page header.scrolled .hamburger .bar {
+  background-color: var(--color-primary);
+}
+
+@media (max-width: 1024px) {
+  body.home-page header .nav-menu a {
+    color: var(--color-text) !important;
+    text-shadow: none !important;
+  }
 }
 
 .header-container {
@@ -205,7 +328,98 @@ header {
 
 .header-ctas {
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 50%;
+  background-color: #25D366;
+  color: #ffffff !important;
+  border: 1px solid #25D366;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.28);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.nav-whatsapp-btn:hover {
+  background-color: #20ba5a;
+  border-color: #20ba5a;
+  color: #ffffff !important;
+  transform: translateY(-2px) scale(1.06);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
+}
+
+.nav-whatsapp-btn svg {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav-whatsapp-btn:hover svg {
+  transform: scale(1.12) rotate(-5deg);
+}
+
+.nav-btn-offers {
+  background: linear-gradient(135deg, #C89B3C 0%, #b3852b 100%);
+  color: #ffffff !important;
+  border: 1px solid #C89B3C;
+  padding: 0.65rem 1.25rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 3px 10px rgba(200, 155, 60, 0.25);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.nav-btn-offers:hover {
+  background: linear-gradient(135deg, #b3852b 0%, #966c1e 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(200, 155, 60, 0.4);
+  color: #ffffff !important;
+}
+
+.nav-btn-offers svg {
+  color: #FFE699;
+  flex-shrink: 0;
+}
+
+body.home-page header:not(.scrolled) .header-ctas .nav-btn-offers {
+  background: rgba(200, 155, 60, 0.95) !important;
+  border-color: #FFE699 !important;
+  color: #ffffff !important;
+}
+
+.header-ctas .btn {
+  padding: 0.65rem 1.25rem;
+  font-size: 0.88rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 1250px) and (min-width: 1025px) {
+  .nav-menu {
+    gap: 1.15rem;
+  }
+  .header-container {
+    padding: 0.8rem 1.2rem;
+  }
+  .header-ctas {
+    gap: 0.5rem;
+  }
 }
 
 /* Mobile Menu */

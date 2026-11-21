@@ -62,57 +62,130 @@
             background: rgba(197, 160, 89, 0.22);
         }
 
-        .practitioners-grid {
+        /* 1 Row, 2 Column Doctor Section (Open Layout, No Card) */
+        .doctor-profile-row {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 3rem;
-            max-width: 900px;
-            margin: 0 auto;
+            grid-template-columns: 440px 1fr;
+            gap: 4.5rem;
+            align-items: center;
         }
 
-        .practitioner-card {
-            background: var(--color-white);
-            border-radius: 14px;
-            overflow: hidden;
-            box-shadow: 0 6px 22px rgba(0,0,0,0.06);
-            text-align: center;
-            padding-bottom: 2.2rem;
-            border: 1px solid rgba(0,0,0,0.06);
-            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.35s ease;
-        }
-
-        .practitioner-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 42px rgba(0,0,0,0.13);
-            border-color: rgba(30, 57, 42, 0.25);
-        }
-
-        .practitioner-img-wrapper {
-            width: 100%;
-            height: 330px;
-            overflow: hidden;
-            margin-bottom: 1.5rem;
+        .doctor-profile-image-col {
             position: relative;
         }
 
-        .practitioner-img-wrapper img {
+        .doctor-profile-image-wrap {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 16px 40px rgba(30, 57, 42, 0.12);
+            background: var(--color-secondary-light);
+        }
+
+        .doctor-profile-img {
             width: 100%;
-            height: 100%;
+            height: auto;
+            max-height: 520px;
             object-fit: cover;
-            transition: transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+            display: block;
+            border-radius: 18px;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
         }
 
-        .practitioner-card:hover .practitioner-img-wrapper img {
-            transform: scale(1.06);
+        .doctor-profile-image-wrap:hover .doctor-profile-img {
+            transform: scale(1.025);
         }
 
-        .practitioner-card .btn-primary {
-            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease, box-shadow 0.3s ease;
+        .doctor-profile-content-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .practitioner-card .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(30, 57, 42, 0.3);
+        .doctor-section-badge {
+            display: inline-block;
+            color: var(--color-accent);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.6rem;
+        }
+
+        .doctor-profile-name {
+            font-size: 3.2rem;
+            color: var(--color-primary);
+            margin-bottom: 0.6rem;
+            line-height: 1.1;
+        }
+
+        .doctor-credentials-line {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .doctor-bams-badge {
+            background: var(--color-primary);
+            color: var(--color-white);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 4px 12px;
+            border-radius: 4px;
+        }
+
+        .doctor-degree-title {
+            color: var(--color-text);
+            font-size: 1rem;
+            font-weight: 500;
+            opacity: 0.85;
+        }
+
+        .doctor-clinic-location {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-primary);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .doctor-clinic-location svg {
+            color: var(--color-accent);
+            flex-shrink: 0;
+        }
+
+        .doctor-lead-text {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: var(--color-text);
+            margin-bottom: 1rem;
+        }
+
+        .doctor-sub-text {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--color-text);
+            opacity: 0.88;
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 992px) {
+            .doctor-profile-row {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .doctor-profile-image-wrap {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+            .doctor-profile-name {
+                font-size: 2.6rem;
+            }
         }
     </style>
 </head>
@@ -123,6 +196,7 @@
             
             <ul class="nav-menu">
                 <li><a href="about.html">About</a></li>
+                <li><a href="history.html">History</a></li>
                 <li class="dropdown">
                     <a href="therapies.html">Therapies <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px;"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
                     <ul class="dropdown-menu">
@@ -138,19 +212,16 @@
                         <li class="nav-sub-item"><a href="hand-foot-care.html">Hand & Foot Care</a></li>
                     </ul>
                 </li>
-                <li><a href="consultation.html" style="color: var(--color-accent);">Consultation</a></li>
+                <li><a href="consultation.html">Consultation</a></li>
                 <li><a href="packages.html">Packages</a></li>
                 <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="blog.html">Blog</a></li>
             </ul>
             
             <div class="header-ctas">
                 <a href="book.html" class="btn btn-primary" style="display: flex; align-items: center; gap: 8px;">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
                     Book Appointment
-                </a>
-                <a href="https://wa.me/23058074009?text=Hello%20Ayuryoga%20International%2C%20I%20would%20like%20to%20book%20an%20appointment.%20Please%20contact%20me%20to%20help%20me%20with%20the%20available%20treatments%2C%20dates%2C%20and%20timings.%0A%0AThank%20you." class="btn btn-outline whatsapp-btn" style="display: flex; align-items: center; gap: 8px; border-color: #25D366; color: #25D366;">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                    WhatsApp Us
                 </a>
             </div>
             
@@ -221,43 +292,39 @@
         </div>
     </section>
 
-    <section class="section-light" style="padding-top: 4.5rem; padding-bottom: 4.5rem;">
+    <section id="practitioners" class="section-light" style="padding: 6rem 0;">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 3.5rem; font-size: 3rem; color: var(--color-primary);">Our Practitioners</h2>
-            <div class="practitioners-grid">
-                
-                <!-- Doctor 1 (Dr. Anoop - Moka) -->
-                <div class="practitioner-card">
-                    <div class="practitioner-img-wrapper">
-                        <img src="images/doc_anoop.webp" alt="Dr. Anoop - Moka Clinic">
-                    </div>
-                    <div style="padding: 0 2rem;">
-                        <h3 style="color: var(--color-primary); font-size: 1.6rem; margin-bottom: 0.6rem;">Dr. Anoop</h3>
-                        <p style="color: var(--color-text); font-size: 1rem; font-weight: 500; margin-bottom: 0.4rem;"><strong>Qualification:</strong> BAMS</p>
-                        <p style="color: var(--color-accent); font-weight: 600; font-size: 1.05rem; margin-bottom: 1.5rem;"><strong>Location:</strong> Moka Clinic</p>
-                        <a href="https://wa.me/23058074009?text=Hello,%20I%20would%20like%20to%20book%20an%20Ayurvedic%20Consultation%20with%20Dr.%20Anoop%20at%20Moka" class="btn btn-primary" style="width: 100%; display: flex; justify-content: center; align-items: center; gap: 8px;">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                            Book Now (Moka)
-                        </a>
+            <div class="doctor-profile-row">
+                <!-- Column 1: Doctor Portrait (Left) -->
+                <div class="doctor-profile-image-col">
+                    <div class="doctor-profile-image-wrap">
+                        <img src="images/doc_naveen.webp" alt="Dr. Naveen - Ayurvedic Physician at Ayuryoga" class="doctor-profile-img">
                     </div>
                 </div>
 
-                <!-- Doctor 2 (Dr. Naveen - Grand Baie) -->
-                <div class="practitioner-card">
-                    <div class="practitioner-img-wrapper">
-                        <img src="images/doc_naveen.webp" alt="Dr. Naveen - Grand Baie Clinic">
+                <!-- Column 2: Doctor Details & Booking (Right) -->
+                <div class="doctor-profile-content-col">
+                    <span class="doctor-section-badge">Ayurvedic Physician &amp; Vaidya</span>
+                    <h2 class="doctor-profile-name">Dr. Naveen</h2>
+                    
+                    <div class="doctor-credentials-line">
+                        <span class="doctor-bams-badge">BAMS</span>
+                        <span class="doctor-degree-title">Bachelor of Ayurvedic Medicine &amp; Surgery</span>
                     </div>
-                    <div style="padding: 0 2rem;">
-                        <h3 style="color: var(--color-primary); font-size: 1.6rem; margin-bottom: 0.6rem;">Dr. Naveen</h3>
-                        <p style="color: var(--color-text); font-size: 1rem; font-weight: 500; margin-bottom: 0.4rem;"><strong>Qualification:</strong> BAMS</p>
-                        <p style="color: var(--color-accent); font-weight: 600; font-size: 1.05rem; margin-bottom: 1.5rem;"><strong>Location:</strong> Grand Baie Clinic</p>
-                        <a href="https://wa.me/23059429564?text=Hello,%20I%20would%20like%20to%20book%20an%20Ayurvedic%20Consultation%20with%20Dr.%20Naveen%20at%20Grand%20Baie" class="btn btn-primary" style="width: 100%; display: flex; justify-content: center; align-items: center; gap: 8px;">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                            Book Now (Grand Baie)
-                        </a>
-                    </div>
-                </div>
 
+                    <div class="doctor-clinic-location">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span>Moka | Grand Baie | Curepipe</span>
+                    </div>
+
+                    <p class="doctor-lead-text">
+                        Dr. Naveen is a dedicated Ayurvedic physician specializing in authentic classical pulse assessment (<em>Nadi Pariksha</em>) and constitutional dosha evaluation (<em>Prakriti &amp; Vikriti</em>).
+                    </p>
+
+                    <p class="doctor-sub-text">
+                        With deep expertise in root-cause diagnosis, chronic lifestyle management, and tailored Panchakarma care, he creates personalized holistic wellness regimens that combine traditional herbal formulations, therapeutic diets, and individualized daily lifestyle guidance.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
@@ -279,6 +346,7 @@
                         <li><a href="consultation.html">Consultation</a></li>
                 <li><a href="packages.html">Packages</a></li>
                         <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                         <li><a href="book.html">Book Appointment</a></li>
 </ul>
                 </div>
@@ -393,7 +461,3 @@
     <script src="js/main.js"></script>
 </body>
 </html>
-
-
-
-

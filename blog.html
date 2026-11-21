@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurveda & Wellness Blog | Ayuryoga International Mauritius</title>
+    <meta name="description" content="Explore holistic health guides, Kerala Ayurvedic wellness tips, herbal skincare secrets, and lifestyle wisdom from certified Ayurvedic doctors in Mauritius.">
+    <meta name="keywords" content="Ayurveda blog Mauritius, wellness articles Mauritius, holistic health tips, dosha guide, Shirodhara benefits, Ayurvedic skincare, Abhyangam benefits Mauritius">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/webp" href="images/favicon.webp">
+    <link rel="apple-touch-icon" href="images/favicon.webp">
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* Blog Hero Section */
+        .blog-hero {
+            position: relative;
+            background: linear-gradient(135deg, rgba(20, 42, 30, 0.95) 0%, rgba(30, 57, 42, 0.92) 100%), url('images/hero_bg.webp') center center/cover no-repeat;
+            padding: 8.5rem 0 5rem;
+            text-align: center;
+            color: #ffffff;
+            overflow: hidden;
+        }
+        .blog-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 30%, rgba(200, 155, 60, 0.18), transparent 70%);
+            pointer-events: none;
+        }
+        .blog-hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(200, 155, 60, 0.2);
+            color: #FFE699;
+            border: 1px solid rgba(200, 155, 60, 0.45);
+            padding: 7px 22px;
+            border-radius: 30px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(8px);
+        }
+        .blog-hero h1 {
+            font-size: 3.6rem;
+            color: #ffffff;
+            margin-bottom: 1.2rem;
+            text-shadow: 0 4px 18px rgba(0,0,0,0.4);
+            line-height: 1.15;
+        }
+        .blog-hero h1 span {
+            color: #FFE699;
+            font-style: italic;
+        }
+        .blog-hero p {
+            font-size: 1.2rem;
+            max-width: 820px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.92);
+            line-height: 1.75;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        /* Filter Controls */
+        .blog-filters-bar {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 2.5rem 0 3.5rem;
+        }
+        .filter-btn {
+            background: #ffffff;
+            border: 1px solid rgba(30, 57, 42, 0.15);
+            color: var(--color-primary);
+            padding: 0.65rem 1.4rem;
+            border-radius: 50px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .filter-btn:hover {
+            border-color: var(--color-accent);
+            color: var(--color-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 14px rgba(200, 155, 60, 0.2);
+        }
+        .filter-btn.active {
+            background: var(--color-primary);
+            color: #ffffff;
+            border-color: var(--color-primary);
+            box-shadow: 0 4px 16px rgba(30, 57, 42, 0.25);
+        }
+
+        /* 3-Column Blog Grid Layout */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.2rem;
+            margin-bottom: 5rem;
+        }
+        .blog-card {
+            background: #ffffff;
+            border-radius: 18px;
+            overflow: hidden;
+            border: 1px solid rgba(30, 57, 42, 0.08);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.3s ease;
+            position: relative;
+        }
+        .blog-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 42px rgba(30, 57, 42, 0.12);
+            border-color: rgba(200, 155, 60, 0.45);
+        }
+        .blog-card-img {
+            position: relative;
+            height: 230px;
+            overflow: hidden;
+            background: #f0ebe1;
+        }
+        .blog-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .blog-card:hover .blog-card-img img {
+            transform: scale(1.06);
+        }
+        .card-category-badge {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            background: rgba(30, 57, 42, 0.9);
+            backdrop-filter: blur(6px);
+            color: #FFE699;
+            padding: 5px 13px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            z-index: 2;
+        }
+        .card-featured-tag {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            background: var(--color-accent);
+            color: #ffffff;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+            z-index: 2;
+        }
+        .blog-card-body {
+            padding: 1.8rem 1.6rem 1.6rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .blog-card-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.82rem;
+            color: #74877D;
+            margin-bottom: 0.8rem;
+        }
+        .blog-card-title {
+            font-size: 1.38rem;
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            line-height: 1.3;
+            margin-bottom: 0.85rem;
+            transition: color 0.25s ease;
+        }
+        .blog-card:hover .blog-card-title {
+            color: var(--color-accent);
+        }
+        .blog-card-desc {
+            font-size: 0.95rem;
+            color: var(--color-text);
+            line-height: 1.6;
+            margin-bottom: 1.6rem;
+            opacity: 0.88;
+            flex-grow: 1;
+        }
+        .blog-card-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--color-primary);
+            font-weight: 700;
+            font-size: 0.88rem;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: gap 0.25s ease, color 0.25s ease;
+            margin-top: auto;
+        }
+        .blog-card-action:hover {
+            color: var(--color-accent);
+            gap: 10px;
+        }
+
+        /* Doctor Consultation Banner */
+        .blog-consultation-banner {
+            background: linear-gradient(135deg, #1e392a 0%, #173322 100%);
+            border-radius: 20px;
+            padding: 3.5rem 3rem;
+            color: #ffffff;
+            margin-bottom: 5rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(200, 155, 60, 0.35);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        .blog-consultation-banner::after {
+            content: '';
+            position: absolute;
+            right: -60px;
+            bottom: -60px;
+            width: 240px;
+            height: 240px;
+            background: radial-gradient(circle, rgba(200, 155, 60, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .banner-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        .banner-text h3 {
+            font-size: 2.3rem;
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+        .banner-text p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+        .banner-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: flex-start;
+        }
+
+        /* Article Reading Modal */
+        .article-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.82);
+            backdrop-filter: blur(8px);
+            z-index: 99999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .article-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        .modal-content-container {
+            background: #ffffff;
+            width: 100%;
+            max-width: 900px;
+            max-height: 92vh;
+            border-radius: 20px;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+            animation: modalPop 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @keyframes modalPop {
+            from { transform: scale(0.95) translateY(20px); opacity: 0; }
+            to { transform: scale(1) translateY(0); opacity: 1; }
+        }
+        .modal-close-btn {
+            position: sticky;
+            top: 16px;
+            right: 16px;
+            float: right;
+            background: #ffffff;
+            border: 1px solid rgba(0,0,0,0.15);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            transition: all 0.2s ease;
+        }
+        .modal-close-btn:hover {
+            background: var(--color-primary);
+            color: #ffffff;
+            transform: rotate(90deg);
+        }
+        .modal-hero-img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+        .modal-article-body {
+            padding: 2.5rem 3rem 3.5rem;
+        }
+        .modal-category-tag {
+            display: inline-block;
+            background: rgba(200, 155, 60, 0.15);
+            color: #8E6B1D;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            margin-bottom: 0.8rem;
+        }
+        .modal-article-title {
+            font-size: 2.6rem;
+            font-family: var(--font-heading);
+            color: var(--color-primary);
+            line-height: 1.25;
+            margin-bottom: 1.2rem;
+        }
+        .modal-meta-bar {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(30, 57, 42, 0.1);
+            color: #6C7D73;
+            font-size: 0.9rem;
+            flex-wrap: wrap;
+        }
+        .modal-text-content {
+            font-size: 1.1rem;
+            line-height: 1.85;
+            color: #2C3E35;
+        }
+        .modal-text-content h3 {
+            font-size: 1.6rem;
+            color: var(--color-primary);
+            margin-top: 2rem;
+            margin-bottom: 0.8rem;
+        }
+        .modal-text-content p {
+            margin-bottom: 1.4rem;
+        }
+        .modal-text-content ul {
+            margin-bottom: 1.6rem;
+            padding-left: 1.6rem;
+        }
+        .modal-text-content li {
+            margin-bottom: 0.6rem;
+        }
+        .modal-takeaway-box {
+            background: #F8F6F0;
+            border-left: 4px solid var(--color-accent);
+            padding: 1.4rem 1.8rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            font-size: 1.05rem;
+            color: #384C42;
+        }
+        .modal-cta-box {
+            background: linear-gradient(135deg, #1e392a 0%, #152d21 100%);
+            border-radius: 14px;
+            padding: 2rem;
+            color: #ffffff;
+            margin-top: 3rem;
+            text-align: center;
+            border: 1px solid rgba(200, 155, 60, 0.3);
+        }
+        .modal-cta-box h4 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .modal-cta-box p {
+            color: rgba(255, 255, 255, 0.88);
+            font-size: 0.98rem;
+            margin-bottom: 1.4rem;
+        }
+
+        /* Active navigation indicator */
+        .nav-menu li a.active-link {
+            color: var(--color-accent) !important;
+            font-weight: 700;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1080px) {
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.8rem;
+            }
+            .banner-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .blog-hero {
+                padding: 6.5rem 0 3.5rem;
+            }
+            .blog-hero h1 {
+                font-size: 2.5rem;
+            }
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            .modal-article-body {
+                padding: 1.8rem 1.4rem;
+            }
+            .modal-hero-img {
+                height: 220px;
+            }
+            .modal-article-title {
+                font-size: 1.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo"><img src="images/logo_light_2.webp" alt="Ayuryoga International Mauritius" style="height: 50px; width: auto;"></a>
+            
+            <ul class="nav-menu">
+                <li><a href="about.html">About</a></li>
+                <li><a href="history.html">History</a></li>
+                <li class="dropdown">
+                    <a href="therapies.html">Therapies <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:4px;"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="ayurveda.html">Ayurveda</a></li>
+                        <li><a href="wellness.html">Wellness</a></li>
+                        <li class="nav-sub-item"><a href="wellness-western.html">Western Massages</a></li>
+                        <li class="nav-sub-item"><a href="wellness-ayurveda.html">Ayurvedic Wellness</a></li>
+                        <li class="nav-divider"></li>
+                        <li><a href="beauty-care.html">Beauty Care</a></li>
+                        <li class="nav-sub-item"><a href="face-care.html">Face Care</a></li>
+                        <li class="nav-sub-item"><a href="body-care.html">Body Care</a></li>
+                        <li class="nav-sub-item"><a href="hair-care.html">Hair Care</a></li>
+                        <li class="nav-sub-item"><a href="hand-foot-care.html">Hand & Foot Care</a></li>
+                    </ul>
+                </li>
+                <li><a href="consultation.html">Consultation</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="blog.html" class="active-link">Blog</a></li>
+            </ul>
+            
+            <div class="header-ctas">
+                <a href="book.html" class="btn btn-primary" style="display: flex; align-items: center; gap: 8px;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    Book Appointment
+                </a>
+            </div>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Blog Hero Banner -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="blog-hero-badge">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"></path></svg>
+                Ayuryoga Knowledge Journal
+            </div>
+            <h1>Wellness Wisdom & <span>Ayurvedic Living</span></h1>
+            <p>Timeless healing insights, doctor-guided lifestyle practices, botanical skincare secrets, and traditional Kerala wellness advice tailored for living well in Mauritius.</p>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="section-sand" style="padding-top: 3.5rem;">
+        <div class="container">
+
+            <!-- Category Filter Tabs -->
+            <div class="blog-filters-bar" style="display: none;">
+                <button type="button" class="filter-btn active" data-filter="all">All Articles</button>
+                <button type="button" class="filter-btn" data-filter="ayurveda">Ayurvedic Living</button>
+                <button type="button" class="filter-btn" data-filter="therapies">Therapies & Healing</button>
+                <button type="button" class="filter-btn" data-filter="skincare">Herbal Skincare</button>
+                <button type="button" class="filter-btn" data-filter="stress">Stress & Sleep</button>
+                <button type="button" class="filter-btn" data-filter="nutrition">Diet & Agni</button>
+            </div>
+
+            <!-- Unified 3-Column Blog Grid -->
+            <div class="blog-grid" id="blogGrid">
+                <!-- New Article: Top Ayurvedic Massage Treatments in Mauritius -->
+                <article class="blog-card" data-category="ayurveda" data-post-id="top-ayurvedic-massage-treatments-mauritius">
+                    <div class="blog-card-img">
+                        <span class="card-category-badge">Massage Therapy</span>
+                        <span class="card-featured-tag">Top 7</span>
+                        <img src="images/kizhi.webp" alt="Top Ayurvedic Massage Treatments in Mauritius for Stress Relief and Relaxation" loading="lazy">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span>6 min read</span>
+                            <span>&bull;</span>
+                            <span>Ayuryoga International</span>
+                        </div>
+                        <h3 class="blog-card-title"><a href="top-ayurvedic-massage-treatments-mauritius.html" style="text-decoration:none; color:inherit;">Top Ayurvedic Massage Treatments in Mauritius for Stress Relief</a></h3>
+                        <p class="blog-card-desc">Feeling exhausted from everyday stress? Discover the top 7 Kerala Ayurvedic massages in Mauritius including Abhyangam, Shirodhara, Kizhi, and signature packages across Moka, Grand Baie, and Curepipe.</p>
+                        <div style="display:flex; gap:8px; margin-top:auto;">
+                            <button type="button" class="blog-card-action" onclick="openArticleModal('top-ayurvedic-massage-treatments-mauritius')" style="flex:1;">
+                                <span>Read Article</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </button>
+                            <a href="top-ayurvedic-massage-treatments-mauritius.html" class="blog-card-action" style="padding:10px 14px; background:rgba(46,125,50,0.1); color:var(--color-primary); border-color:rgba(46,125,50,0.25);" title="Open Standalone Article Page">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- New Article: Kerala Ayurveda in Mauritius Complete Guide -->
+                <article class="blog-card" data-category="ayurveda" data-post-id="kerala-ayurveda-mauritius">
+                    <div class="blog-card-img">
+                        <span class="card-category-badge">Kerala Ayurveda</span>
+                        <span class="card-featured-tag">Guide</span>
+                        <img src="images/dhara.webp" alt="Traditional Kerala Ayurveda and Shirodhara at Ayuryoga International Mauritius" loading="lazy">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span>5 min read</span>
+                            <span>&bull;</span>
+                            <span>Ayuryoga International</span>
+                        </div>
+                        <h3 class="blog-card-title"><a href="kerala-ayurveda-mauritius.html" style="text-decoration:none; color:inherit;">Experience Traditional Kerala Ayurveda in Mauritius: Complete Guide</a></h3>
+                        <p class="blog-card-desc">Are you looking for an authentic Kerala Ayurvedic experience in Mauritius? Discover the healing wisdom of Abhyangam, Shirodhara, Ksheeradhara, and herbal therapies across Moka, Grand Baie, and Curepipe.</p>
+                        <div style="display:flex; gap:8px; margin-top:auto;">
+                            <button type="button" class="blog-card-action" onclick="openArticleModal('kerala-ayurveda-mauritius')" style="flex:1;">
+                                <span>Read Article</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </button>
+                            <a href="kerala-ayurveda-mauritius.html" class="blog-card-action" style="padding:10px 14px; background:rgba(46,125,50,0.1); color:var(--color-primary); border-color:rgba(46,125,50,0.25);" title="Open Standalone Article Page">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Flagship Post: Best Ayurveda in Mauritius -->
+                <article class="blog-card" data-category="ayurveda" data-post-id="best-ayurveda-in-mauritius">
+                    <div class="blog-card-img">
+                        <span class="card-category-badge">Kerala Ayurveda</span>
+                        <span class="card-featured-tag">Featured</span>
+                        <img src="images/Wellness/Abhyangam%20Wellness%20Massage.webp" alt="Traditional Kerala Ayurvedic massage at Ayuryoga International, one of the best Ayurveda wellness centres in Mauritius." loading="lazy">
+                    </div>
+                    <div class="blog-card-body">
+                        <div class="blog-card-meta">
+                            <span>5 min read</span>
+                            <span>&bull;</span>
+                            <span>Ayuryoga International</span>
+                        </div>
+                        <h3 class="blog-card-title"><a href="best-ayurveda-in-mauritius.html" style="text-decoration:none; color:inherit;">Best Ayurveda in Mauritius: Experience Authentic Kerala Ayurveda</a></h3>
+                        <p class="blog-card-desc">Looking for the best Ayurveda in Mauritius? Discover authentic traditional Kerala healing, Shirodhara, Abhyangam, herbal therapies, and holistic wellness at Ayuryoga International across Moka, Grand Baie, and Curepipe.</p>
+                        <div style="display:flex; gap:8px; margin-top:auto;">
+                            <button type="button" class="blog-card-action" onclick="openArticleModal('best-ayurveda-in-mauritius')" style="flex:1;">
+                                <span>Read Article</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                            </button>
+                            <a href="best-ayurveda-in-mauritius.html" class="blog-card-action" style="padding:10px 14px; background:rgba(46,125,50,0.1); color:var(--color-primary); border-color:rgba(46,125,50,0.25);" title="Open Standalone Article Page">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+</div>
+
+            <!-- Doctor Consultation Callout Banner -->
+            <div class="blog-consultation-banner">
+                <div class="banner-grid">
+                    <div class="banner-text">
+                        <h3>Have a Specific Health Concern?</h3>
+                        <p>Our experienced Ayurvedic doctors offer personalized <strong>Nadi Pariksha (Pulse Diagnosis)</strong> and individualized treatment programs at our Moka, Grand Baie, and Curepipe centers.</p>
+                    </div>
+                    <div class="banner-actions">
+                        <a href="consultation.html" class="btn btn-accent" style="width: 100%; justify-content: center;">Book Doctor Consultation</a>
+                        <a href="https://wa.me/23058074009?text=Hello%20Ayuryoga%20International%2C%20I%20would%20like%20to%20consult%20an%20Ayurvedic%20doctor." target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="width: 100%; justify-content: center; color: #ffffff; border-color: rgba(255,255,255,0.4);">
+                            Chat With Moka (+230 58074009)
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Reading Modal Overlay -->
+    <div class="article-modal" id="articleModal" onclick="closeArticleModal(event)">
+        <div class="modal-content-container" onclick="event.stopPropagation()">
+            <button type="button" class="modal-close-btn" onclick="closeArticleModal()" aria-label="Close Article">&times;</button>
+            <img id="modalHeroImg" class="modal-hero-img" src="" alt="Article Banner">
+            
+            <div class="modal-article-body">
+                <span id="modalCategoryTag" class="modal-category-tag"></span>
+                <h1 id="modalArticleTitle" class="modal-article-title"></h1>
+                
+                <div class="modal-meta-bar">
+                    <span id="modalAuthor"></span>
+                    <span>&bull;</span>
+                    <span id="modalReadTime"></span>
+                    <span>&bull;</span>
+                    <span id="modalDate"></span>
+                </div>
+                
+                <div id="modalArticleText" class="modal-text-content">
+                    <!-- Populated dynamically via JS -->
+                </div>
+
+                <div class="modal-cta-box">
+                    <h4>Experience Authentic Ayurvedic Healing</h4>
+                    <p>Consult with our qualified Ayurvedic doctors and senior Kerala therapists at Ayuryoga International.</p>
+                    <a href="https://wa.me/23058074009?text=Hello%20Ayuryoga%20International%2C%20I%20read%20your%20blog%20and%20would%20like%20to%20inquire%20about%20a%20treatment." target="_blank" rel="noopener noreferrer" class="btn btn-accent">
+                        Book via WhatsApp (Moka: 58074009)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo" style="display: block; margin-bottom: 1rem;"><img src="images/logo_dark.webp" alt="Ayuryoga" style="height: 60px; width: auto;"></a>
+                    <p><strong>Traditional Wisdom. Personalized Wellness.</strong><br>Ayurveda | Wellness | Beauty Care</p>
+                    <a href="book.html" class="btn btn-accent">Book an Appointment</a>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="history.html">History</a></li>
+                        <li><a href="therapies.html">Therapies</a></li>
+                        <li><a href="consultation.html">Consultation</a></li>
+                        <li><a href="packages.html">Packages</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="book.html">Book Appointment</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Locations</h4>
+                    <div class="footer-location">
+                        <strong>Moka</strong>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Leclezio Avenue, Moka</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Grand Baie</strong>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Lorient Lane, Grand Baie</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Curepipe</strong>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Central Curepipe</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="footer-heading">Contact</h4>
+                    <div class="footer-location">
+                        <strong>Moka</strong>
+                        <p style="opacity: 0.8;">+230 58074009</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Grand Baie</strong>
+                        <p style="opacity: 0.8;">+230 59429564</p>
+                    </div>
+                    <div class="footer-location">
+                        <strong>Curepipe</strong>
+                        <p style="opacity: 0.8;">+230 58857888</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>&copy; 2026 Ayuryoga International Mauritius. All Rights Reserved.</div>
+                <div class="legal-links">
+                    <a href="terms.html">Terms & Conditions</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Bottom-Right Connect Hub -->
+    <div class="floating-hub-widget" id="floatingHubWidget">
+        <div class="floating-hub-menu">
+            <a href="tel:+23058074009" class="floating-hub-item hub-call" aria-label="Call Moka (+230 58074009)">
+                <span class="hub-label">Call Moka</span>
+                <div class="hub-icon-circle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                </div>
+            </a>
+
+            <a href="https://wa.me/23058074009?text=Hello%20Ayuryoga%20International%2C%20I%20would%20like%20to%20inquire%20about%20your%20treatments." target="_blank" rel="noopener noreferrer" class="floating-hub-item hub-whatsapp" aria-label="Chat on WhatsApp">
+                <span class="hub-label">WhatsApp Moka</span>
+                <div class="hub-icon-circle">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                    </svg>
+                </div>
+            </a>
+
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="floating-hub-item hub-facebook" aria-label="Follow on Facebook">
+                <span class="hub-label">Facebook</span>
+                <div class="hub-icon-circle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                    </svg>
+                </div>
+            </a>
+
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="floating-hub-item hub-instagram" aria-label="Follow on Instagram">
+                <span class="hub-label">Instagram</span>
+                <div class="hub-icon-circle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </div>
+            </a>
+        </div>
+
+        <button type="button" class="floating-hub-trigger" id="floatingHubTrigger" aria-label="Chat & Connect with Us">
+            <span class="hub-pulse-ring"></span>
+            <span class="hub-icon-open">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+            </span>
+            <span class="hub-icon-close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </span>
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        // Article Database for Modal Reader
+        const articlesDB = {
+            'top-ayurvedic-massage-treatments-mauritius': {
+                title: "Top Ayurvedic Massage Treatments in Mauritius for Stress Relief and Relaxation",
+                category: "Ayurvedic Massage",
+                author: "Ayuryoga International Mauritius",
+                readTime: "6 min read",
+                date: "November 2026",
+                image: "images/kizhi.webp",
+                content: `
+                    <div style="margin-bottom: 24px; padding: 12px 18px; background: rgba(46, 125, 50, 0.08); border-left: 4px solid var(--color-primary); border-radius: 4px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                        <span style="font-size: 0.95rem; color: var(--color-primary-dark); font-weight: 500;">📖 Looking for the dedicated article page with full branch info?</span>
+                        <a href="top-ayurvedic-massage-treatments-mauritius.html" class="btn btn-secondary" style="padding: 6px 14px; font-size: 0.85rem; border-radius: 20px;">Open Standalone Page &rarr;</a>
+                    </div>
+
+                    <p>In today's busy lifestyle, stress, long working hours and everyday responsibilities can leave you feeling physically and mentally exhausted. Taking time to relax and care for your well-being is essential. One of the traditional ways to enjoy relaxation is through <strong>Ayurvedic massage in Mauritius</strong>.</p>
+
+                    <p>Ayurveda, the ancient Indian system of traditional wellness, offers a variety of massage therapies and herbal treatments designed to promote relaxation, comfort and overall well-being. If you are searching for the best Ayurvedic massage in Mauritius, <strong>Ayuryoga International</strong> offers traditional Kerala-inspired Ayurvedic treatments that bring together herbal oils, specialised massage techniques and relaxing wellness experiences.</p>
+
+                    <p>With centres in <strong>Moka, Grand Baie and Curepipe</strong>, Ayuryoga International makes traditional Ayurvedic wellness accessible to both residents and international visitors.</p>
+
+                    <div class="modal-takeaway-box">
+                        <strong>Why Ayurvedic Massage?</strong> More than an ordinary spa massage, it uses medicated warm herbal oils, rhythmic movements, and specialised ancient techniques to calm the nervous system, release deep-seated muscle tension, and nourish the skin.
+                    </div>
+
+                    <h3>Top 7 Ayurvedic Massage Treatments to Experience</h3>
+                    
+                    <h4>1. Abhyangam – Traditional Full Body Ayurvedic Massage</h4>
+                    <p>Abhyangam is one of the most recognised traditional Ayurvedic massage treatments using warm medicated herbal oils and rhythmic movements. It promotes deep relaxation, eases everyday muscle tension, and nourishes the skin.</p>
+
+                    <h4>2. Shirodhara – A Traditional Relaxation Therapy</h4>
+                    <p>Shirodhara is a specialised Ayurvedic therapy in which a continuous stream of warm herbal oil is gently poured over the forehead. It is widely appreciated for its deeply calming mental relaxation.</p>
+
+                    <h4>3. Kizhi – Traditional Herbal Hot Pouch Massage</h4>
+                    <p>Kizhi uses heated herbal preparations wrapped in cloth pouches gently applied to selected areas of the body. It provides soothing thermal therapy to ease muscle stiffness and joint tension.</p>
+
+                    <h4>4. Ksheeradhara – Traditional Medicated Liquid Therapy</h4>
+                    <p>Ksheeradhara involves the controlled pouring of warm medicated milk or prescribed liquids over the body or forehead, encouraging deep comfort and relaxation.</p>
+
+                    <h4>5. Udwarthanam – Traditional Herbal Powder Massage</h4>
+                    <p>Udwarthanam involves the application of herbal powders through specialized upward massage strokes to exfoliate the skin and stimulate micro-circulation.</p>
+
+                    <h4>6. Kati Vasti – Traditional Lower Back Therapy</h4>
+                    <p>Kati Vasti retains warm medicated oil over the lower back within a herbal dough boundary, offering localized warmth and comfort for spinal fatigue.</p>
+
+                    <h4>7. Herbal Ayurvedic Facial – Natural Skincare Experience</h4>
+                    <p>Ayurvedic facials combine pure botanical ingredients with specialized facial massage to cleanse, nourish, and refresh the skin.</p>
+
+                    <h3>Signature Ayurvedic Wellness Packages</h3>
+                    <ul>
+                        <li><strong>SANJEEVANI:</strong> Full Body Massage + Herbal Hot Pouch + Ksheeradhara (Rejuvenation)</li>
+                        <li><strong>MANASANTHI:</strong> Full Body Massage + Ksheeradhara (Stress Management)</li>
+                        <li><strong>NAVAJEEVAN:</strong> Full Body Massage + Herbal Hot Pouch + Steam (Pain Relief)</li>
+                        <li><strong>AISWARYA:</strong> Full Body Massage + Herbal Facial (Beauty Care)</li>
+                    </ul>
+
+                    <h3>How to Choose the Right Ayurvedic Massage?</h3>
+                    <ul>
+                        <li><strong>For general relaxation:</strong> Explore traditional Abhyangam full-body massage.</li>
+                        <li><strong>For a calming wellness experience:</strong> Consider Shirodhara forehead oil therapy.</li>
+                        <li><strong>For herbal warmth-based therapy:</strong> Explore Kizhi herbal hot pouch treatments.</li>
+                        <li><strong>For specialised lower-back care:</strong> Ask about Kati Vasti targeted dough pooling.</li>
+                        <li><strong>For natural skincare:</strong> Discover traditional Ayurvedic facial treatments.</li>
+                    </ul>
+
+                    <h3>Experience Kerala Ayurveda Across Mauritius</h3>
+                    <ul style="list-style:none; padding-left:0;">
+                        <li style="margin-bottom:8px;">📍 <strong>Ayuryoga International – Moka:</strong> <a href="tel:+23058074009" style="color:var(--color-primary); font-weight:600;">+230 58074009</a></li>
+                        <li style="margin-bottom:8px;">📍 <strong>Ayuryoga International – Grand Baie:</strong> <a href="tel:+23059429564" style="color:var(--color-primary); font-weight:600;">+230 59429564</a></li>
+                        <li style="margin-bottom:8px;">📍 <strong>Ayuryoga International – Curepipe:</strong> <a href="tel:+23058857888" style="color:var(--color-primary); font-weight:600;">+230 58857888</a></li>
+                    </ul>
+
+                    <div style="margin-top:30px; text-align:center; padding:20px; background:#f4fbf4; border-radius:8px; border:1px solid #c8e6c9;">
+                        <h4 style="margin-bottom:10px; color:var(--color-primary);">Book Your Ayurvedic Massage in Mauritius Today</h4>
+                        <p style="margin-bottom:16px;">Contact our nearest centre or book an appointment online.</p>
+                        <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+                            <a href="https://wa.me/23058074009" class="btn btn-primary" style="background:#25D366; border-color:#25D366; display:inline-flex; align-items:center; gap:6px;">WhatsApp Moka</a>
+                            <a href="book.html" class="btn btn-primary">Book Consultation</a>
+                            <a href="top-ayurvedic-massage-treatments-mauritius.html" class="btn btn-secondary">Dedicated Page</a>
+                        </div>
+                    </div>
+                `
+            },
+            'kerala-ayurveda-mauritius': {
+                title: "Experience Traditional Kerala Ayurveda in Mauritius: Your Complete Wellness Guide",
+                category: "Kerala Ayurveda",
+                author: "Ayuryoga International Mauritius",
+                readTime: "5 min read",
+                date: "November 2026",
+                image: "images/dhara.webp",
+                content: `
+                    <div style="margin-bottom: 24px; padding: 12px 18px; background: rgba(46, 125, 50, 0.08); border-left: 4px solid var(--color-primary); border-radius: 4px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                        <span style="font-size: 0.95rem; color: var(--color-primary-dark); font-weight: 500;">📖 Looking for the dedicated article page with full branch info?</span>
+                        <a href="kerala-ayurveda-mauritius.html" class="btn btn-secondary" style="padding: 6px 14px; font-size: 0.85rem; border-radius: 20px;">Open Standalone Page &rarr;</a>
+                    </div>
+
+                    <p>Are you looking for an authentic <strong>Kerala Ayurvedic experience in Mauritius</strong>? Ayurveda is one of the world's oldest traditional wellness systems, known for its holistic approach to physical and mental well-being. Combining traditional herbal oils, specialised massage techniques and natural wellness practices, Kerala Ayurveda offers a unique way to relax, rejuvenate and reconnect with yourself.</p>
+
+                    <p>At <strong>Ayuryoga International</strong>, we bring the traditional wellness heritage of Kerala to Mauritius through a variety of Ayurvedic treatments and therapies. Whether you are a tourist exploring the island or a resident looking for a relaxing wellness experience, discover the benefits of traditional Ayurvedic therapies at our centres in Moka, Grand Baie and Curepipe.</p>
+
+                    <div class="modal-takeaway-box">
+                        <strong>At a Glance:</strong> Authentic Kerala Ayurveda centres in <strong>Moka (+230 58074009)</strong>, <strong>Grand Baie (+230 59429564)</strong>, and <strong>Curepipe (+230 58857888)</strong>, offering Abhyangam, Shirodhara, Ksheeradhara, Kizhi herbal poultices, and tailored Ayurvedic packages.
+                    </div>
+
+                    <h3>What Is Kerala Ayurveda?</h3>
+                    <p>Kerala Ayurveda is a traditional form of Ayurvedic practice originating from Kerala, India. The region is widely recognised for its rich Ayurvedic heritage, traditional therapies, herbal preparations and wellness practices.</p>
+                    <p>Ayurveda focuses on maintaining harmony between the body, mind and lifestyle. Traditional Ayurvedic treatments use herbal oils, natural ingredients, therapeutic massage techniques and specialised procedures based on individual requirements.</p>
+                    <p>Unlike an ordinary spa massage, Ayurvedic therapies are rooted in a traditional wellness philosophy that considers individual needs and overall well-being.</p>
+
+                    <h3>Why Experience Kerala Ayurveda in Mauritius?</h3>
+                    <p>Mauritius is an ideal destination for relaxation, nature and wellness. Adding a traditional Ayurvedic treatment to your lifestyle or holiday can make your wellness journey even more memorable. Here are some reasons to explore Kerala Ayurveda at Ayuryoga International:</p>
+                    <ul>
+                        <li><strong>1. Authentic Traditional Ayurvedic Therapies:</strong> Experience a variety of Kerala-inspired Ayurvedic treatments using traditional techniques and herbal preparations (Abhyangam, Ksheeradhara, Shirodhara, herbal hot pouch therapy, and Ayurvedic facials).</li>
+                        <li><strong>2. Relaxation and Rejuvenation:</strong> Traditional Ayurvedic massages are designed to create a relaxing experience. They can help ease everyday muscle tension, promote relaxation and support your overall wellness routine.</li>
+                        <li><strong>3. Natural Herbal Ingredients:</strong> Traditional Ayurvedic practices incorporate herbal oils and plant-based preparations selected according to the therapy and its intended purpose.</li>
+                        <li><strong>4. Wellness for Tourists and Residents:</strong> Whether you are visiting Mauritius for a holiday or living on the island, you can explore traditional Ayurvedic wellness treatments at Ayuryoga International.</li>
+                    </ul>
+
+                    <h3>Popular Kerala Ayurvedic Treatments at Ayuryoga International</h3>
+                    <h4>Abhyangam – Traditional Full Body Ayurvedic Massage</h4>
+                    <p>Abhyangam is a traditional Ayurvedic massage performed using herbal oils and specific massage techniques. It is valued for its relaxing experience and is traditionally incorporated into Ayurvedic wellness routines.</p>
+
+                    <h4>Ksheeradhara – Traditional Herbal Liquid Therapy</h4>
+                    <p>Ksheeradhara is a specialised Ayurvedic therapy involving the gentle, continuous pouring of warm medicated milk or other prescribed liquids over the body or a specific area, depending on the treatment protocol. It is a traditional wellness practice associated with relaxation.</p>
+
+                    <h4>Shirodhara – The Art of Relaxation</h4>
+                    <p>Shirodhara is a well-known Ayurvedic treatment in which a continuous stream of warm liquid, commonly herbal oil, is gently poured over the forehead. This traditional therapy is appreciated for its calming and relaxing experience.</p>
+
+                    <h4>Herbal Hot Pouch Therapy (Kizhi)</h4>
+                    <p>Herbal hot pouch therapy, traditionally known as Kizhi, uses heated herbal preparations wrapped in cloth pouches. The pouches are gently applied to selected areas of the body as part of a traditional Ayurvedic treatment.</p>
+
+                    <h4>Ayurvedic Facial Treatments</h4>
+                    <p>Ayurvedic facials use traditional herbal ingredients and natural skincare preparations to provide a refreshing facial experience, suitable for individuals interested in exploring herbal skincare and traditional beauty practices.</p>
+
+                    <h3>Signature Ayurvedic Wellness Packages</h3>
+                    <ul>
+                        <li><strong>SANJEEVANI:</strong> Full Body Massage + Herbal Hot Pouch + Ksheeradhara (Rejuvenation)</li>
+                        <li><strong>MANASANTHI:</strong> Full Body Massage + Ksheeradhara (Stress Management)</li>
+                        <li><strong>NAVAJEEVAN:</strong> Full Body Massage + Herbal Hot Pouch + Steam (Pain Relief)</li>
+                        <li><strong>AISWARYA:</strong> Full Body Massage + Herbal Facial (Beauty Care)</li>
+                    </ul>
+
+                    <h3>Where Can You Experience Kerala Ayurveda in Mauritius?</h3>
+                    <ul style="list-style:none; padding-left:0;">
+                        <li style="margin-bottom:8px;">📍 <strong>Ayuryoga International – Moka:</strong> <a href="tel:+23058074009" style="color:var(--color-primary); font-weight:600;">+230 58074009</a></li>
+                        <li style="margin-bottom:8px;">📍 <strong>Ayuryoga International – Grand Baie:</strong> <a href="tel:+23059429564" style="color:var(--color-primary); font-weight:600;">+230 59429564</a></li>
+                        <li style="margin-bottom:8px;">📍 <strong>Ayuryoga International – Curepipe:</strong> <a href="tel:+23058857888" style="color:var(--color-primary); font-weight:600;">+230 58857888</a></li>
+                    </ul>
+
+                    <p><em>Before selecting a treatment, discuss your preferences, medical history, allergies and any existing health concerns with the appropriate healthcare professional.</em></p>
+
+                    <div style="margin-top:30px; text-align:center; padding:20px; background:#f4fbf4; border-radius:8px; border:1px solid #c8e6c9;">
+                        <h4 style="margin-bottom:10px; color:var(--color-primary);">Book Your Traditional Kerala Ayurvedic Experience in Mauritius</h4>
+                        <p style="margin-bottom:16px;">Contact our nearest centre or book an appointment online.</p>
+                        <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+                            <a href="https://wa.me/23058074009" class="btn btn-primary" style="background:#25D366; border-color:#25D366; display:inline-flex; align-items:center; gap:6px;">WhatsApp Moka</a>
+                            <a href="book.html" class="btn btn-primary">Book Consultation</a>
+                            <a href="kerala-ayurveda-mauritius.html" class="btn btn-secondary">Dedicated Page</a>
+                        </div>
+                    </div>
+                `
+            },
+            'best-ayurveda-in-mauritius': {
+                title: "Best Ayurveda in Mauritius: Experience Authentic Kerala Ayurveda at Ayuryoga International",
+                category: "Kerala Ayurveda",
+                author: "Ayuryoga International Mauritius",
+                readTime: "5 min read",
+                date: "November 2026",
+                image: "images/Wellness/Abhyangam%20Wellness%20Massage.webp",
+                content: `
+                    <div style="margin-bottom: 24px; padding: 12px 18px; background: rgba(46, 125, 50, 0.08); border-left: 4px solid var(--color-primary); border-radius: 4px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                        <span style="font-size: 0.95rem; color: var(--color-primary-dark); font-weight: 500;">📖 Looking for the dedicated article page with full FAQs?</span>
+                        <a href="best-ayurveda-in-mauritius.html" class="btn btn-secondary" style="padding: 6px 14px; font-size: 0.85rem; border-radius: 20px;">Open Standalone Page &rarr;</a>
+                    </div>
+
+                    <p>Are you looking for the <strong>best Ayurveda in Mauritius</strong> to experience authentic traditional healing, relaxation, and natural wellness? Discover the timeless wisdom of Kerala Ayurveda at Ayuryoga International, where traditional Ayurvedic practices meet personalised wellness experiences.</p>
+                    
+                    <p>Inspired by the rich heritage of Kerala, India, Ayuryoga International brings traditional Ayurvedic treatments to Mauritius, helping individuals reconnect with their body and mind through natural therapies and holistic wellness practices.</p>
+
+                    <p>Whether you are seeking relaxation, relief from everyday body tension, or a rejuvenating wellness experience, Ayurveda offers a natural approach to supporting your overall well-being.</p>
+
+                    <div class="modal-takeaway-box">
+                        <strong>At a Glance:</strong> Authentic Kerala Ayurveda centres conveniently located in <strong>Moka (+230 58074009)</strong>, <strong>Grand Baie (+230 59429564)</strong>, and <strong>Curepipe (+230 58857888)</strong>, offering Abhyangam, Shirodhara, Ksheeradhara, herbal hot pouches, and certified physician guidance.
+                    </div>
+
+                    <h3>What Makes Kerala Ayurveda Special?</h3>
+                    <p>Kerala is widely recognised for its rich Ayurvedic heritage. For centuries, Ayurveda has been practised as a holistic system of wellness that focuses on maintaining balance between the body, mind, and lifestyle.</p>
+                    <p>Traditional Kerala Ayurveda incorporates natural oils, herbal preparations, specialised massage techniques, and therapeutic treatments.</p>
+                    <p>Some of its key principles include:</p>
+                    <ul>
+                        <li><strong>Natural Ingredients:</strong> Traditional herbal oils and plant-based preparations.</li>
+                        <li><strong>Personalised Wellness:</strong> Treatments selected according to individual needs and practitioner recommendations.</li>
+                        <li><strong>Holistic Approach:</strong> Focus on physical comfort, relaxation, lifestyle, and mental well-being.</li>
+                        <li><strong>Traditional Techniques:</strong> Authentic Ayurvedic massage methods and specialised therapies.</li>
+                        <li><strong>Preventive Wellness:</strong> Encouraging healthier routines and long-term lifestyle balance.</li>
+                    </ul>
+
+                    <h3>Why Choose Ayuryoga International for Ayurveda in Mauritius?</h3>
+                    <p>When searching for the best Ayurveda in Mauritius, choosing a centre that values traditional Ayurvedic practices and professional care makes a difference.</p>
+                    <p>Ayuryoga International is dedicated to bringing the authentic experience of Kerala Ayurveda to Mauritius through a range of traditional treatments and wellness services.</p>
+                    <p>With centres conveniently located in Moka, Grand Baie, and Curepipe, Ayuryoga International makes Ayurvedic wellness accessible to residents and visitors across the island.</p>
+
+                    <h4>1. Traditional Kerala Ayurvedic Massage</h4>
+                    <p>Experience traditional Ayurvedic massage techniques using carefully selected herbal oils. These treatments are designed to encourage relaxation, ease everyday muscular tension, and provide a rejuvenating wellness experience.</p>
+
+                    <h4>2. Abhyangam – Traditional Full Body Massage</h4>
+                    <p>Abhyangam is a traditional Ayurvedic full-body oil massage performed using rhythmic techniques and warm herbal oils. It is traditionally used to promote relaxation, support circulation, and nourish the skin.</p>
+
+                    <h4>3. Shirodhara – A Traditional Ayurvedic Therapy</h4>
+                    <p>Shirodhara is a distinctive Ayurvedic treatment in which a continuous stream of warm liquid, traditionally herbal oil, is gently poured over the forehead. It is traditionally associated with relaxation and tranquillity, offering a calming wellness experience.</p>
+
+                    <h4>4. Ksheeradhara – Traditional Milk Therapy</h4>
+                    <p>Ksheeradhara is an Ayurvedic treatment involving the gentle pouring of specially prepared medicated milk over the body or a designated area, depending on the treatment protocol. This traditional therapy offers a soothing and relaxing experience.</p>
+
+                    <h4>5. Herbal Hot Pouch Treatment</h4>
+                    <p>Herbal hot pouch therapy uses heated herbal preparations wrapped in cloth pouches and applied through traditional therapeutic techniques. It is commonly included in Ayurvedic wellness programmes to promote comfort and relaxation.</p>
+
+                    <h4>6. Ayurvedic Facial Treatments</h4>
+                    <p>Ayurvedic skincare combines traditional herbal ingredients with specialised facial techniques. Treatments may include natural herbal preparations designed to cleanse, nourish, and refresh the skin.</p>
+
+                    <h3>Benefits of Experiencing Ayurveda</h3>
+                    <p>Ayurveda focuses on maintaining balance through treatments, lifestyle practices, and individual wellness recommendations. Some reasons people explore Ayurvedic therapies include:</p>
+                    <ul>
+                        <li>Relaxation and stress management.</li>
+                        <li>Supporting general physical comfort.</li>
+                        <li>Relieving everyday muscle tension.</li>
+                        <li>Nourishing and caring for the skin.</li>
+                        <li>Supporting better wellness routines.</li>
+                        <li>Enjoying a natural and holistic self-care experience.</li>
+                    </ul>
+                    <p style="font-size:0.9rem; color:#666; font-style:italic;">Treatment suitability and results vary from person to person. Ayurvedic therapies should complement, not replace, appropriate medical care.</p>
+
+                    <h3>Experience Kerala Ayurveda Across Mauritius</h3>
+                    <p>Ayuryoga International offers convenient access to traditional Ayurvedic wellness through three locations:</p>
+                    <ul style="list-style:none; padding-left:0;">
+                        <li style="margin-bottom:8px;">📍 <strong>Ayuryoga International – Moka:</strong> <a href="tel:+23058074009" style="color:var(--color-primary); font-weight:600;">+230 58074009</a></li>
+                        <li style="margin-bottom:8px;">📍 <strong>Ayuryoga International – Grand Baie:</strong> <a href="tel:+23059429564" style="color:var(--color-primary); font-weight:600;">+230 59429564</a></li>
+                        <li style="margin-bottom:8px;">📍 <strong>Ayuryoga International – Curepipe:</strong> <a href="tel:+23058857888" style="color:var(--color-primary); font-weight:600;">+230 58857888</a></li>
+                    </ul>
+
+                    <h3>Ayurveda: A Wellness Experience for Locals and Tourists</h3>
+                    <p>Mauritius is known for its beautiful beaches, luxury resorts, and relaxing holiday experiences. Adding a traditional Ayurvedic treatment to your stay can offer another way to enjoy the island.</p>
+                    <p>For international visitors, especially those interested in Indian wellness traditions, Kerala Ayurveda provides an opportunity to experience traditional therapies while exploring Mauritius.</p>
+                    <p>For local residents, regular wellness experiences can become part of a balanced self-care routine.</p>
+
+                    <h3>Frequently Asked Questions (FAQs)</h3>
+                    <div style="margin-top:16px;">
+                        <p><strong>1. Where can I experience authentic Kerala Ayurveda in Mauritius?</strong><br>
+                        Ayuryoga International offers traditional Kerala-inspired Ayurvedic treatments at its centres in Moka, Grand Baie, and Curepipe.</p>
+                        
+                        <p><strong>2. What are the popular Ayurvedic treatments available in Mauritius?</strong><br>
+                        Popular treatments include Abhyangam, Shirodhara, Ksheeradhara, herbal hot pouch therapy, traditional Ayurvedic massages, and herbal facials.</p>
+                        
+                        <p><strong>3. Is Ayurveda suitable for everyone?</strong><br>
+                        Ayurvedic treatments are not suitable for every individual or medical condition. It is recommended to consult a qualified Ayurvedic practitioner before selecting a treatment, particularly if you have an existing health condition.</p>
+                        
+                        <p><strong>4. Can tourists experience Kerala Ayurveda in Mauritius?</strong><br>
+                        Yes. Visitors to Mauritius can explore traditional Ayurvedic wellness experiences at Ayuryoga International's centres.</p>
+                        
+                        <p><strong>5. How can I book an Ayurvedic treatment at Ayuryoga International?</strong><br>
+                        You can contact the nearest Ayuryoga International centre directly by phone to enquire about available treatments and appointments, or visit our booking page.</p>
+                    </div>
+
+                    <div style="margin-top:30px; text-align:center; padding:20px; background:#f4fbf4; border-radius:8px; border:1px solid #c8e6c9;">
+                        <h4 style="margin-bottom:10px; color:var(--color-primary);">Book Your Ayurvedic Wellness Experience Today!</h4>
+                        <p style="margin-bottom:16px;">Contact our centres or book an appointment online.</p>
+                        <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap;">
+                            <a href="https://wa.me/23058074009" class="btn btn-primary" style="background:#25D366; border-color:#25D366; display:inline-flex; align-items:center; gap:6px;">WhatsApp Moka</a>
+                            <a href="book.html" class="btn btn-primary">Book Consultation</a>
+                            <a href="best-ayurveda-in-mauritius.html" class="btn btn-secondary">Dedicated Page</a>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        // Category Filtering Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const blogCards = document.querySelectorAll('.blog-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                blogCards.forEach(card => {
+                    const cardCat = card.getAttribute('data-category');
+                    if (filterValue === 'all' || filterValue === cardCat) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Reading Modal Logic
+        const modal = document.getElementById('articleModal');
+        const modalHeroImg = document.getElementById('modalHeroImg');
+        const modalCategoryTag = document.getElementById('modalCategoryTag');
+        const modalArticleTitle = document.getElementById('modalArticleTitle');
+        const modalAuthor = document.getElementById('modalAuthor');
+        const modalReadTime = document.getElementById('modalReadTime');
+        const modalDate = document.getElementById('modalDate');
+        const modalArticleText = document.getElementById('modalArticleText');
+
+        function openArticleModal(postId) {
+            const article = articlesDB[postId];
+            if (!article || !modal) return;
+
+            modalHeroImg.src = article.image;
+            modalHeroImg.alt = article.title;
+            modalCategoryTag.textContent = article.category;
+            modalArticleTitle.textContent = article.title;
+            modalAuthor.textContent = article.author;
+            modalReadTime.textContent = article.readTime;
+            modalDate.textContent = article.date;
+            modalArticleText.innerHTML = article.content;
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeArticleModal(e) {
+            if (e && e.target && e.target !== modal && !e.target.classList.contains('modal-close-btn')) {
+                return;
+            }
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+                closeArticleModal();
+            }
+        });
+    </script>
+</body>
+</html>

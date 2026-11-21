@@ -1,0 +1,88 @@
+import http from 'http';
+import fs from 'fs';
+import path from 'path';
+import { URL } from 'url';
+
+const PORT = process.env.PORT || 8080;
+
+// Resolve root project directory (handle both running from root or dist/)
+const ROOT = fs.existsSync(path.join(process.cwd(), 'index.html'))
+    ? process.cwd()
+    : path.resolve(__dirname, '..');
+
+const MIME_TYPES: Record<string, string> = {
+    '.html': 'text/html; charset=utf-8',
+    '.css': 'text/css; charset=utf-8',
+    '.js': 'application/javascript; charset=utf-8',
+    '.json': 'application/json; charset=utf-8',
+    '.png': 'image/png',
+    '.jpg': 'image/jpeg',
+    '.jpeg': 'image/jpeg',
+    '.gif': 'image/gif',
+    '.svg': 'image/svg+xml',
+    '.webp': 'image/webp',
+    '.ico': 'image/x-icon',
+    '.woff': 'font/woff',
+    '.woff2': 'font/woff2',
+    '.ttf': 'font/ttf',
+    '.otf': 'font/otf',
+    '.mp4': 'video/mp4',
+    '.webm': 'video/webm'
+};
+
+const server = http.createServer((req, res) => {
+    try {
+        const parsedUrl = new URL(req.url || '/', `http://${req.headers.host || 'localhost'}`);
+        let pathname = decodeURIComponent(parsedUrl.pathname);
+
+        if (pathname === '/') {
+            pathname = '/index.html';
+        }
+
+        // Normalize path and prevent directory traversal
+        const safePath = path.normalize(pathname).replace(/^(\.\.[\/\\])+/, '');
+        let filePath = path.join(ROOT, safePath);
+
+        fs.stat(filePath, (err, stats) => {
+            if (err) {
+                res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+                res.end('404 Not Found');
+                return;
+            }
+
+            if (stats.isDirectory()) {
+                if (!pathname.endsWith('/')) {
+                    res.writeHead(301, { 'Location': pathname + '/' });
+                    res.end();
+                    return;
+                }
+                filePath = path.join(filePath, 'index.html');
+            }
+
+            fs.readFile(filePath, (readErr, content) => {
+                if (readErr) {
+                    res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
+                    res.end('500 Internal Server Error');
+                    return;
+                }
+
+                const ext = path.extname(filePath).toLowerCase();
+                const contentType = MIME_TYPES[ext] || 'application/octet-stream';
+
+                res.writeHead(200, {
+                    'Content-Type': contentType,
+                    'Access-Control-Allow-Origin': '*'
+                });
+                res.end(content);
+            });
+        });
+    } catch (e) {
+        res.writeHead(500, { 'Content-Type': 'text/plain; charset=utf-8' });
+        res.end('500 Server Error');
+    }
+});
+
+server.listen(Number(PORT), '0.0.0.0', () => {
+    console.log(`Server is running at http://localhost:${PORT}/`);
+    console.log(`Open your browser and navigate to http://localhost:${PORT}/`);
+});

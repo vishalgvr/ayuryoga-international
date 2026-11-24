@@ -443,13 +443,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 'Njavara Facial (60 min · Rs 1,500.00)',
                 'Panchagavya Facial (60 min · Rs 1,500.00)',
                 'Red Sandal Facial (60 min · Rs 1,500.00)',
-                'Manjishta Facial (60 min · Rs 1,800.00)',
-                'Eladi Facial (60 min · Rs 1,800.00)',
-                'Nalpamaradi Facial (60 min · Rs 1,800.00)',
-                'Mukhakanti (Ayurvedic Facial) (60 min · Rs 1,800.00)'
+                'Manjishta Facial (60 min · Rs 1,500.00)',
+                'Eladi Facial (60 min · Rs 1,500.00)',
+                'Nalpamaradi Facial (60 min · Rs 1,500.00)',
+                'Mukhakanti (Ayurvedic Facial) (60 min · Rs 1,500.00)'
             ],
             bodycare: [
-                'Herbal Body Scrub (60 min · Rs 1,980.00)'
+                'Herbal Body Scrub (60 min · Rs 2,000.00)'
             ],
             haircare: [
                 'Keshavardhini - Hair Strengthening (60 min · Rs 1,800.00)',
